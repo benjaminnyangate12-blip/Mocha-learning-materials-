@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0f766e">
+  <meta name="description" content="Mocha Learning Materials — a searchable hub for open and authorised learning resources.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+  <title>Mocha Learning Materials</title>
+  <style>
+    :root{--ink:#102a43;--muted:#52606d;--brand:#0f766e;--brand-dark:#115e59;--surface:#fff;--bg:#f0fdfa;--line:#d9e2ec;--accent:#f59e0b}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif}a{color:inherit}.top{background:linear-gradient(135deg,#115e59,#0f766e);color:#fff}.wrap{width:min(1120px,92%);margin:auto}.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}.logo{font-weight:800;font-size:1.2rem}.nav a{margin-left:18px;text-decoration:none;font-weight:650}.hero{padding:60px 0 72px}.hero h1{font-size:clamp(2.1rem,5vw,4rem);line-height:1.05;margin:12px 0}.hero p{max-width:650px;font-size:1.15rem;color:#d1fae5}.search{display:flex;gap:10px;max-width:720px;margin-top:28px}.search input,.filter{width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:10px;font:inherit}.button{background:var(--accent);border:0;border-radius:10px;padding:12px 18px;font-weight:750;cursor:pointer;text-decoration:none;white-space:nowrap}.button.secondary{background:#fff;color:var(--brand-dark)}main{padding:34px 0 70px}.toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:24px}.filter{width:auto;min-width:190px;background:#fff}.count{color:var(--muted);margin-left:auto}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:18px}.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 5px 18px #102a4310;display:flex;flex-direction:column}.tag{color:var(--brand);font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.card h2{font-size:1.2rem;margin:8px 0}.card p{color:var(--muted);margin-top:0}.card .button{align-self:flex-start;margin-top:auto}.notice{background:#fffbeb;border-left:5px solid var(--accent);padding:14px 18px;border-radius:8px;margin-bottom:28px}.empty{text-align:center;padding:45px;color:var(--muted);grid-column:1/-1}footer{background:var(--ink);color:#d9e2ec;padding:30px 0}footer p{margin:.25rem 0} @media(max-width:650px){.nav nav{display:none}.hero{padding:38px 0 48px}.search{flex-direction:column}.button{width:100%;text-align:center}.count{margin-left:0;width:100%}}
+  </style>
+</head>
+<body>
+  <header class="top"><div class="wrap">
+    <div class="nav"><div class="logo">📚 Mocha Learning Materials</div><nav><a href="#materials">Materials</a><a href="#about">About</a><a class="button secondary" href="#install">Install app</a></nav></div>
+    <section class="hero"><span class="tag" style="color:#a7f3d0">Learn · Read · Practice · Succeed</span><h1>One calm place to learn.</h1><p>Find open, original and authorised learning resources for CBC, secondary school and university study.</p><div class="search"><input id="search" type="search" placeholder="Search mathematics, programming, KCSE…" aria-label="Search materials"><button class="button" id="clear" type="button">Clear</button></div></section>
+  </div></header>
+  <main id="materials" class="wrap">
+    <div class="notice"><strong>Copyright promise:</strong> Mocha links to resources that are open, original or authorised. We do not upload pirated textbooks or examination papers. If you own material listed here and want it removed, contact the project owner.</div>
+    <div class="toolbar"><select id="category" class="filter" aria-label="Filter by category"><option value="all">All categories</option><option value="CBC">CBC / Primary</option><option value="Secondary">Secondary</option><option value="University">University</option><option value="Skills">Digital skills</option></select><span id="count" class="count"></span></div>
+    <section id="cards" class="grid" aria-live="polite"></section>
+    <section id="install" style="margin-top:55px"><h2>Use Mocha like an app</h2><p>On Android, open this site in Chrome and choose <strong>Install app</strong> or <strong>Add to Home screen</strong>. The site works offline after its first visit. A signed Android release still needs to be built and submitted through a Google Play Console account.</p><button id="installBtn" class="button" hidden>Install Mocha</button></section>
+    <section id="about" style="margin-top:35px"><h2>About this catalogue</h2><p>Resources are grouped by learner level and link to the original publisher. The catalogue can grow without bundling copyrighted books into this repository.</p></section>
+  </main>
+  <footer><div class="wrap"><strong>Mocha Learning Materials</strong><p>Open knowledge, responsible sharing.</p><p>© 2026 Mocha Learning Materials</p></div></footer>
+  <script>
+    const materials=[
+      {title:'KICD curriculum designs',category:'CBC',description:'Curriculum designs and official basic education guidance from the Kenya Institute of Curriculum Development.',url:'https://kicd.ac.ke/curriculum-reforms/'},
+      {title:'Kenya Education Cloud',category:'CBC',description:'Digital learning content and education resources for Kenyan learners.',url:'https://kec.ac.ke/'},
+      {title:'Khan Academy: mathematics',category:'Secondary',description:'Free lessons, exercises and progress tracking for mathematics and science.',url:'https://www.khanacademy.org/math'},
+      {title:'OpenStax textbooks',category:'University',description:'Peer-reviewed, openly licensed college textbooks including biology, physics and computer science.',url:'https://openstax.org/subjects'},
+      {title:'MIT OpenCourseWare',category:'University',description:'Free lecture notes, assignments and course materials from MIT.',url:'https://ocw.mit.edu/search/'},
+      {title:'freeCodeCamp',category:'Skills',description:'Free interactive courses and projects for web development, programming and data.',url:'https://www.freecodecamp.org/learn/'},
+      {title:'CS50 OpenCourseWare',category:'University',description:'An introductory computer science course with lectures, problem sets and projects.',url:'https://cs50.harvard.edu/x/'},
+      {title:'Open Library',category:'Skills',description:'Borrowable digital books and a searchable catalogue. Availability depends on lending rights.',url:'https://openlibrary.org/'}
+    ];
+    const cards=document.querySelector('#cards'), search=document.querySelector('#search'), category=document.querySelector('#category'), count=document.querySelector('#count');
+    function render(){const q=search.value.trim().toLowerCase(), c=category.value; const list=materials.filter(m=>(c==='all'||m.category===c)&&(!q||`${m.title} ${m.description} ${m.category}`.toLowerCase().includes(q))); count.textContent=`${list.length} resource${list.length===1?'':'s'} found`; cards.innerHTML=list.length?list.map(m=>`<article class="card"><span class="tag">${m.category}</span><h2>${m.title}</h2><p>${m.description}</p><a class="button" href="${m.url}" target="_blank" rel="noopener">Open resource ↗</a></article>`).join(''):'<p class="empty">No resources match that search. Try another term.</p>'}
+    search.addEventListener('input',render); category.addEventListener('change',render); document.querySelector('#clear').addEventListener('click',()=>{search.value='';category.value='all';render()}); render();
+    if('serviceWorker'in navigator) navigator.serviceWorker.register('sw.js'); let deferred; window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e;document.querySelector('#installBtn').hidden=false}); document.querySelector('#installBtn').addEventListener('click',async()=>{if(deferred){deferred.prompt();deferred=null}});
+  </script>
+</body>
+</html>
