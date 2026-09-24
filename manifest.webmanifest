@@ -2,7 +2,7 @@
   "name": "Mocha Learning Materials",
   "short_name": "Mocha Learn",
   "description": "A searchable hub for open and authorised learning resources.",
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#f0fdfa",
   "theme_color": "#0f766e",
