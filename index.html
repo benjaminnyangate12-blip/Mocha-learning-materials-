@@ -1,46 +1,802 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0f766e">
-  <meta name="description" content="Mocha Learning Materials — a searchable hub for open and authorised learning resources.">
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
-  <title>Mocha Learning Materials</title>
-  <style>
-    :root{--ink:#102a43;--muted:#52606d;--brand:#0f766e;--brand-dark:#115e59;--surface:#fff;--bg:#f0fdfa;--line:#d9e2ec;--accent:#f59e0b}
-    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif}a{color:inherit}.top{background:linear-gradient(135deg,#115e59,#0f766e);color:#fff}.wrap{width:min(1120px,92%);margin:auto}.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}.logo{font-weight:800;font-size:1.2rem}.nav a{margin-left:18px;text-decoration:none;font-weight:650}.hero{padding:60px 0 72px}.hero h1{font-size:clamp(2.1rem,5vw,4rem);line-height:1.05;margin:12px 0}.hero p{max-width:650px;font-size:1.15rem;color:#d1fae5}.search{display:flex;gap:10px;max-width:720px;margin-top:28px}.search input,.filter{width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:10px;font:inherit}.button{background:var(--accent);border:0;border-radius:10px;padding:12px 18px;font-weight:750;cursor:pointer;text-decoration:none;white-space:nowrap}.button.secondary{background:#fff;color:var(--brand-dark)}main{padding:34px 0 70px}.toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:24px}.filter{width:auto;min-width:190px;background:#fff}.count{color:var(--muted);margin-left:auto}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:18px}.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 5px 18px #102a4310;display:flex;flex-direction:column}.tag{color:var(--brand);font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.card h2{font-size:1.2rem;margin:8px 0}.card p{color:var(--muted);margin-top:0}.card .button{align-self:flex-start;margin-top:auto}.notice{background:#fffbeb;border-left:5px solid var(--accent);padding:14px 18px;border-radius:8px;margin-bottom:28px}.empty{text-align:center;padding:45px;color:var(--muted);grid-column:1/-1}footer{background:var(--ink);color:#d9e2ec;padding:30px 0}footer p{margin:.25rem 0} @media(max-width:650px){.nav nav{display:none}.hero{padding:38px 0 48px}.search{flex-direction:column}.button{width:100%;text-align:center}.count{margin-left:0;width:100%}}
-  </style>
-</head>
-<body>
-  <header class="top"><div class="wrap">
-    <div class="nav"><div class="logo">📚 Mocha Learning Materials</div><nav><a href="#materials">Materials</a><a href="#about">About</a><a class="button secondary" href="#install">Install app</a></nav></div>
-    <section class="hero"><span class="tag" style="color:#a7f3d0">Learn · Read · Practice · Succeed</span><h1>One calm place to learn.</h1><p>Find open, original and authorised learning resources for CBC, secondary school and university study.</p><div class="search"><input id="search" type="search" placeholder="Search mathematics, programming, KCSE…" aria-label="Search materials"><button class="button" id="clear" type="button">Clear</button></div></section>
-  </div></header>
-  <main id="materials" class="wrap">
-    <div class="notice"><strong>Copyright promise:</strong> Mocha links to resources that are open, original or authorised. We do not upload pirated textbooks or examination papers. If you own material listed here and want it removed, contact the project owner.</div>
-    <div class="toolbar"><select id="category" class="filter" aria-label="Filter by category"><option value="all">All categories</option><option value="CBC">CBC / Primary</option><option value="Secondary">Secondary</option><option value="University">University</option><option value="Skills">Digital skills</option></select><span id="count" class="count"></span></div>
-    <section id="cards" class="grid" aria-live="polite"></section>
-    <section id="install" style="margin-top:55px"><h2>Use Mocha like an app</h2><p>On Android, open this site in Chrome and choose <strong>Install app</strong> or <strong>Add to Home screen</strong>. The site works offline after its first visit. A signed Android release still needs to be built and submitted through a Google Play Console account.</p><button id="installBtn" class="button" hidden>Install Mocha</button></section>
-    <section id="about" style="margin-top:35px"><h2>About this catalogue</h2><p>Resources are grouped by learner level and link to the original publisher. The catalogue can grow without bundling copyrighted books into this repository.</p></section>
-  </main>
-  <footer><div class="wrap"><strong>Mocha Learning Materials</strong><p>Open knowledge, responsible sharing.</p><p>© 2026 Mocha Learning Materials</p></div></footer>
-  <script>
-    const materials=[
-      {title:'KICD curriculum designs',category:'CBC',description:'Curriculum designs and official basic education guidance from the Kenya Institute of Curriculum Development.',url:'https://kicd.ac.ke/curriculum-reforms/'},
-      {title:'Kenya Education Cloud',category:'CBC',description:'Digital learning content and education resources for Kenyan learners.',url:'https://kec.ac.ke/'},
-      {title:'Khan Academy: mathematics',category:'Secondary',description:'Free lessons, exercises and progress tracking for mathematics and science.',url:'https://www.khanacademy.org/math'},
-      {title:'OpenStax textbooks',category:'University',description:'Peer-reviewed, openly licensed college textbooks including biology, physics and computer science.',url:'https://openstax.org/subjects'},
-      {title:'MIT OpenCourseWare',category:'University',description:'Free lecture notes, assignments and course materials from MIT.',url:'https://ocw.mit.edu/search/'},
-      {title:'freeCodeCamp',category:'Skills',description:'Free interactive courses and projects for web development, programming and data.',url:'https://www.freecodecamp.org/learn/'},
-      {title:'CS50 OpenCourseWare',category:'University',description:'An introductory computer science course with lectures, problem sets and projects.',url:'https://cs50.harvard.edu/x/'},
-      {title:'Open Library',category:'Skills',description:'Borrowable digital books and a searchable catalogue. Availability depends on lending rights.',url:'https://openlibrary.org/'}
-    ];
-    const cards=document.querySelector('#cards'), search=document.querySelector('#search'), category=document.querySelector('#category'), count=document.querySelector('#count');
-    function render(){const q=search.value.trim().toLowerCase(), c=category.value; const list=materials.filter(m=>(c==='all'||m.category===c)&&(!q||`${m.title} ${m.description} ${m.category}`.toLowerCase().includes(q))); count.textContent=`${list.length} resource${list.length===1?'':'s'} found`; cards.innerHTML=list.length?list.map(m=>`<article class="card"><span class="tag">${m.category}</span><h2>${m.title}</h2><p>${m.description}</p><a class="button" href="${m.url}" target="_blank" rel="noopener">Open resource ↗</a></article>`).join(''):'<p class="empty">No resources match that search. Try another term.</p>'}
-    search.addEventListener('input',render); category.addEventListener('change',render); document.querySelector('#clear').addEventListener('click',()=>{search.value='';category.value='all';render()}); render();
-    if('serviceWorker'in navigator) navigator.serviceWorker.register('sw.js'); let deferred; window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e;document.querySelector('#installBtn').hidden=false}); document.querySelector('#installBtn').addEventListener('click',async()=>{if(deferred){deferred.prompt();deferred=null}});
-  </script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0f766e" />
+    <meta
+      name="description"
+      content="Mocha Learning Hub — a student-friendly place to discover trusted learning resources, tutorials, and study tools."
+    />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
+    <title>Mocha Learning Hub</title>
+    <style>
+      :root {
+        --ink: #102a43;
+        --muted: #52606d;
+        --bg: #f4fbfa;
+        --surface: #ffffff;
+        --surface-soft: #ecfeff;
+        --brand: #0f766e;
+        --brand-dark: #115e59;
+        --brand-soft: #d9f7f5;
+        --accent: #f59e0b;
+        --accent-soft: #fff7dd;
+        --line: #dfe7ee;
+        --shadow: 0 14px 35px rgba(15, 118, 110, 0.12);
+      }
+
+      * { box-sizing: border-box; }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #f4fbfa 0%, #edf9ff 100%);
+        color: var(--ink);
+        font: 16px/1.6 system-ui, -apple-system, Segoe UI, sans-serif;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      .wrap {
+        width: min(1120px, calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      .top {
+        background: linear-gradient(135deg, #0f766e 0%, #115e59 35%, #0f172a 100%);
+        color: white;
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        min-height: 78px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+      }
+
+      .logo-mark {
+        display: grid;
+        place-items: center;
+        width: 2.1rem;
+        height: 2.1rem;
+        border-radius: 12px;
+        background: rgba(255,255,255,.14);
+        font-size: 1.2rem;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 1.1rem;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        color: rgba(255,255,255,0.88);
+        font-weight: 600;
+        transition: opacity 0.2s ease;
+      }
+
+      nav a:hover {
+        opacity: 1;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.82rem 1.25rem;
+        border-radius: 12px;
+        border: 1px solid transparent;
+        font-weight: 700;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        cursor: pointer;
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+      }
+
+      .button.primary {
+        background: var(--accent);
+        color: #1f2937;
+        box-shadow: 0 10px 20px rgba(245, 158, 11, 0.2);
+      }
+
+      .button.secondary {
+        background: rgba(255,255,255,0.08);
+        border-color: rgba(255,255,255,0.22);
+        color: white;
+      }
+
+      .hero {
+        padding: 4rem 0 3.5rem;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.4rem 0.8rem;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.11);
+        color: #d1fae5;
+        border: 1px solid rgba(255,255,255,0.18);
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 1rem 0 0.8rem;
+        font-size: clamp(2.5rem, 4vw, 4.2rem);
+        line-height: 1.05;
+        letter-spacing: -0.06em;
+      }
+
+      .hero p {
+        margin: 0;
+        max-width: 40rem;
+        font-size: 1.05rem;
+        color: rgba(255,255,255,0.9);
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 1.6rem;
+      }
+
+      .hero-panel {
+        background: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.16);
+        border-radius: 22px;
+        padding: 1.3rem;
+        backdrop-filter: blur(6px);
+        box-shadow: var(--shadow);
+      }
+
+      .mini-card {
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.12);
+        padding: 1rem 1rem 1.1rem;
+        border-radius: 16px;
+      }
+
+      .mini-card + .mini-card {
+        margin-top: 0.9rem;
+      }
+
+      .mini-label {
+        color: rgba(255,255,255,0.7);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .mini-value {
+        display: block;
+        margin-top: 0.35rem;
+        font-size: 1.55rem;
+        font-weight: 800;
+      }
+
+      .section {
+        padding: 4rem 0;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .section-head h2 {
+        margin: 0;
+        font-size: clamp(1.8rem, 2vw, 2.5rem);
+        letter-spacing: -0.05em;
+      }
+
+      .section-head p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .stat {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 1.25rem;
+        box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
+      }
+
+      .stat strong {
+        font-size: 2rem;
+        display: block;
+        line-height: 1.1;
+      }
+
+      .stat span {
+        color: var(--muted);
+      }
+
+      .catalog {
+        background: rgba(255,255,255,0.4);
+        border: 1px solid rgba(15, 118, 110, 0.08);
+        border-radius: 24px;
+        padding: 1.25rem;
+      }
+
+      .toolbar {
+        display: flex;
+        gap: 0.85rem;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 1.25rem;
+      }
+
+      .search-wrap {
+        flex: 1 1 260px;
+        position: relative;
+      }
+
+      .search-wrap input,
+      .filter {
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--surface);
+        color: var(--ink);
+        font: inherit;
+        padding: 0.9rem 1rem;
+      }
+
+      .search-wrap input:focus,
+      .filter:focus {
+        outline: 2px solid rgba(15, 118, 110, 0.24);
+        outline-offset: 2px;
+      }
+
+      .filter {
+        max-width: 220px;
+      }
+
+      .clear-btn {
+        border: 1px solid var(--line);
+        background: var(--surface);
+        color: var(--ink);
+        font: inherit;
+        font-weight: 700;
+        border-radius: 12px;
+        padding: 0.9rem 1rem;
+        cursor: pointer;
+      }
+
+      .count {
+        color: var(--muted);
+        font-weight: 700;
+        margin-left: auto;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 1.1rem;
+        box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 18px 32px rgba(15, 23, 42, 0.08);
+      }
+
+      .card-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        font-size: 0.72rem;
+        padding: 0.4rem 0.65rem;
+        border-radius: 999px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      .badge.programming { background: #ecfeff; color: #0f766e; }
+      .badge.math { background: #fef3c7; color: #92400e; }
+      .badge.science { background: #e0f2fe; color: #0369a1; }
+      .badge.design { background: #f3e8ff; color: #7c3aed; }
+      .badge.skills { background: #dcfce7; color: #166534; }
+      .badge.exam { background: #fee2e2; color: #b91c1c; }
+
+      .card h3 {
+        margin: 0.9rem 0 0.5rem;
+        font-size: 1.3rem;
+        letter-spacing: -0.04em;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        flex: 1;
+      }
+
+      .card a {
+        margin-top: 1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 800;
+        color: var(--brand-dark);
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .feature {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 1.4rem;
+      }
+
+      .feature-icon {
+        width: 3rem;
+        height: 3rem;
+        display: grid;
+        place-items: center;
+        border-radius: 14px;
+        background: var(--brand-soft);
+        font-size: 1.4rem;
+      }
+
+      .feature h3 {
+        margin: 0.9rem 0 0.6rem;
+        font-size: 1.25rem;
+      }
+
+      .feature p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .about-wrap {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      .about-box {
+        background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+        color: white;
+        border-radius: 24px;
+        padding: 2rem;
+        box-shadow: var(--shadow);
+      }
+
+      .about-box p {
+        color: rgba(255,255,255,0.9);
+      }
+
+      .checklist {
+        list-style: none;
+        padding: 0;
+        margin: 1.15rem 0 0;
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      .checklist li {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        color: #d1fae5;
+        font-weight: 600;
+      }
+
+      .check {
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: rgba(255,255,255,0.16);
+        font-size: 0.95rem;
+      }
+
+      .panel {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 1.5rem;
+      }
+
+      .panel h3 {
+        margin-top: 0;
+      }
+
+      .panel p {
+        color: var(--muted);
+      }
+
+      footer {
+        background: #0f172a;
+        color: rgba(255,255,255,0.86);
+        padding: 1.6rem 0 2.2rem;
+      }
+
+      .footer-wrap {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .empty {
+        display: none;
+        margin-top: 1rem;
+        background: var(--surface);
+        border: 1px dashed var(--line);
+        color: var(--muted);
+        border-radius: 14px;
+        padding: 1rem;
+        text-align: center;
+      }
+
+      .empty.visible {
+        display: block;
+      }
+
+      @media (max-width: 920px) {
+        .hero-grid,
+        .about-wrap,
+        .cards,
+        .features,
+        .stats {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .hero-grid,
+        .about-wrap {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .cards,
+        .features,
+        .stats {
+          grid-template-columns: 1fr;
+        }
+
+        .toolbar {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .filter,
+        .search-wrap,
+        .clear-btn,
+        .count {
+          width: 100%;
+          max-width: none;
+        }
+
+        nav {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="top">
+      <div class="wrap nav">
+        <div class="logo"><span class="logo-mark">📚</span> Mocha Learning Hub</div>
+        <nav aria-label="Main navigation">
+          <a href="#materials">Materials</a>
+          <a href="#features">Why Mocha</a>
+          <a href="#about">About</a>
+          <a class="button secondary" href="#install">Install app</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="tag">Learn • Read • Practice • Grow</span>
+          <h1>One calm place to learn.</h1>
+          <p>
+            Discover open, reliable, and student-friendly learning resources in one searchable hub.
+            Mocha helps you find quality content without wasting time searching across dozens of sites.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#materials">Explore resources</a>
+            <a class="button secondary" href="#about">Learn more</a>
+          </div>
+        </div>
+
+        <div class="hero-panel" aria-label="Learning statistics panel">
+          <div class="mini-card">
+            <span class="mini-label">Trusted resources</span>
+            <span class="mini-value">25+</span>
+          </div>
+          <div class="mini-card">
+            <span class="mini-label">Categories</span>
+            <span class="mini-value">6</span>
+          </div>
+          <div class="mini-card">
+            <span class="mini-label">Study style</span>
+            <span class="mini-value">Self-paced</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <section class="section" id="materials">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <h2>Learning materials</h2>
+            </div>
+            <p>Search by topic or filter by subject.</p>
+          </div>
+
+          <div class="catalog">
+            <div class="toolbar">
+              <div class="search-wrap">
+                <input id="search" type="search" aria-label="Search materials" placeholder="Search resources..." />
+              </div>
+
+              <select id="category" class="filter" aria-label="Filter by category">
+                <option value="all">All categories</option>
+                <option value="Programming">Programming</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="Science">Science</option>
+                <option value="Design">Design</option>
+                <option value="Skills">Skills</option>
+                <option value="Exam Prep">Exam Prep</option>
+              </select>
+
+              <button id="clear" class="clear-btn" type="button">Clear</button>
+              <span id="count" class="count" aria-live="polite">0 resources</span>
+            </div>
+
+            <div id="cards" class="cards" aria-live="polite"></div>
+            <div id="empty" class="empty" role="status">No learning materials match your search.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="features">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <h2>Why students use Mocha</h2>
+            </div>
+            <p>Built to make learning easier and more focused.</p>
+          </div>
+
+          <div class="features">
+            <article class="feature">
+              <div class="feature-icon">🔎</div>
+              <h3>Searchable library</h3>
+              <p>Find the right lesson or study resource in seconds with a simple search and filter system.</p>
+            </article>
+
+            <article class="feature">
+              <div class="feature-icon">✅</div>
+              <h3>Trusted resources</h3>
+              <p>Every listing aims to link to open, original, or authorized learning content.</p>
+            </article>
+
+            <article class="feature">
+              <div class="feature-icon">📱</div>
+              <h3>Works like an app</h3>
+              <p>Mocha can be installed on supported mobile browsers for quick access anytime.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="wrap about-wrap">
+          <div class="about-box">
+            <h2>What this website is for</h2>
+            <p>
+              Mocha Learning Hub is a modern study catalogue for learners who want better access to the right material.
+              It brings together tutorials, open resources, practice tools, and valuable study references in one place.
+            </p>
+
+            <ul class="checklist">
+              <li><span class="check">✓</span> Student-friendly categories</li>
+              <li><span class="check">✓</span> Easy-to-browse learning links</li>
+              <li><span class="check">✓</span> Clean and mobile-friendly design</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h3>How it works</h3>
+            <p>Choose a subject, search for a topic, and click any resource to open the original learning source.</p>
+            <p>You can keep expanding the site by adding new categories and learning links whenever you want to grow the collection.</p>
+            <a class="button primary" href="#materials">Browse now</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="install">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <h2>Use Mocha like an app</h2>
+            </div>
+            <p>Install it on Android or desktop for easy access.</p>
+          </div>
+
+          <div class="panel">
+            <p>Open the site in Chrome on Android and tap <strong>Install app</strong> or <strong>Add to Home screen</strong>. On desktop, use the browser install prompt if available.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap footer-wrap">
+        <strong>Mocha Learning Hub</strong>
+        <span>Open knowledge, responsible sharing.</span>
+        <span>© 2026 Mocha Learning Hub</span>
+      </div>
+    </footer>
+
+    <script>
+      const materials = [
+        { title: 'KICD curriculum designs', category: 'Programming', description: 'Official curriculum guidance and knowledge frameworks for structured learning.', url: 'https://kicd.go.ke/' },
+        { title: 'Kenya Education Cloud', category: 'Skills', description: 'Digital learning content and educational resources for Kenyan learners.', url: 'https://kec.ac.ke/' },
+        { title: 'Khan Academy', category: 'Mathematics', description: 'Free lessons, exercises, and progress tracking in mathematics and science.', url: 'https://www.khanacademy.org/' },
+        { title: 'OpenStax', category: 'Science', description: 'Peer-reviewed open textbooks for college and high-school subjects.', url: 'https://openstax.org/' },
+        { title: 'MIT OpenCourseWare', category: 'Programming', description: 'Free course notes, lectures, and assignments from MIT.', url: 'https://ocw.mit.edu/' },
+        { title: 'freeCodeCamp', category: 'Programming', description: 'Interactive learning and projects for web development and software skills.', url: 'https://www.freecodecamp.org/learn/' },
+        { title: 'CS50', category: 'Programming', description: 'An introductory course covering computer science and programming fundamentals.', url: 'https://cs50.harvard.edu/x/' },
+        { title: 'Open Library', category: 'Skills', description: 'Searchable library of digital books and open-access reading materials.', url: 'https://openlibrary.org/' },
+        { title: 'Codecademy', category: 'Skills', description: 'Hands-on lessons for coding, design, and digital literacy.', url: 'https://www.codecademy.com/' },
+        { title: 'Study Stack', category: 'Exam Prep', description: 'Flashcards and revision tools for exam preparation.', url: 'https://www.studystack.com/' },
+        { title: 'Coursera', category: 'Skills', description: 'University and industry learning content for career and academic growth.', url: 'https://www.coursera.org/' },
+        { title: 'Canva Design School', category: 'Design', description: 'Design tutorials for visual storytelling and creative projects.', url: 'https://www.canva.com/design-school/' }
+      ];
+
+      const cards = document.querySelector('#cards');
+      const search = document.querySelector('#search');
+      const category = document.querySelector('#category');
+      const count = document.querySelector('#count');
+      const clearButton = document.querySelector('#clear');
+      const empty = document.querySelector('#empty');
+
+      const badgeClassMap = {
+        Programming: 'programming',
+        Mathematics: 'math',
+        Science: 'science',
+        Design: 'design',
+        Skills: 'skills',
+        'Exam Prep': 'exam'
+      };
+
+      function renderCards() {
+        const query = search.value.trim().toLowerCase();
+        const selectedCategory = category.value;
+
+        const filtered = materials.filter((item) => {
+          const matchesCategory = selectedCategory === 'all' || item.category === selectedCategory;
+          const haystack = `${item.title} ${item.description} ${item.category}`.toLowerCase();
+          const matchesQuery = !query || haystack.includes(query);
+          return matchesCategory && matchesQuery;
+        });
+
+        cards.innerHTML = filtered
+          .map((item) => {
+            const badgeClass = badgeClassMap[item.category] || 'skills';
+            return `
+              <article class="card">
+                <div class="card-top">
+                  <span class="badge ${badgeClass}">${item.category}</span>
+                  <span aria-hidden="true">↗</span>
+                </div>
+                <h3>${item.title}</h3>
+                <p>${item.description}</p>
+                <a href="${item.url}" target="_blank" rel="noreferrer">Open resource →</a>
+              </article>
+            `;
+          })
+          .join('');
+
+        count.textContent = `${filtered.length} ${filtered.length === 1 ? 'resource' : 'resources'}`;
+        empty.classList.toggle('visible', filtered.length === 0);
+      }
+
+      search.addEventListener('input', renderCards);
+      category.addEventListener('change', renderCards);
+      clearButton.addEventListener('click', () => {
+        search.value = '';
+        category.value = 'all';
+        renderCards();
+        search.focus();
+      });
+
+      renderCards();
+
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js').catch(() => {
+          // Silent fail for local preview environments
+        });
+      }
+
+      let deferredPrompt;
+      window.addEventListener('beforeinstallprompt', (event) => {
+        event.preventDefault();
+        deferredPrompt = event;
+      });
+    </script>
+  </body>
 </html>
