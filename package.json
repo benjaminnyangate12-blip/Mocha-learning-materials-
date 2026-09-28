@@ -1,0 +1,15 @@
+{
+  "name": "mocha-learning-materials",
+  "version": "1.0.0",
+  "description": "A searchable hub for open and authorised learning resources.",
+  "scripts": {
+    "dev": "python3 -m http.server 8080",
+    "start": "python3 -m http.server 8080"
+  },
+  "keywords": ["learning", "education", "pwa"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1"
+  }
+}
