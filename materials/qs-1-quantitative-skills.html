@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QS 1: Quantitative Skills 1</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      position: relative;
+      min-height: 100vh;
+      margin: 0;
+      padding: 2cm;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11pt;
+      line-height: 1.5;
+      color: #111;
+      background: #1565c0;
+      overflow-x: hidden;
+    }
+
+    /* Watermark */
+    body::before {
+      content: "Benjamin mocha";
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      z-index: 0;
+      transform: translate(-50%, -50%) rotate(-35deg);
+      color: rgba(255, 255, 255, 0.18);
+      font-size: clamp(45px, 8vw, 100px);
+      font-weight: bold;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    /* Main document container */
+    .document {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 35px;
+      background: rgba(255, 255, 255, 0.94);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      margin-bottom: 6px;
+      color: #0d47a1;
+      font-size: 22pt;
+      text-align: center;
+    }
+
+    h2 {
+      margin-top: 28px;
+      padding-bottom: 4px;
+      color: #0d47a1;
+      font-size: 16pt;
+      border-bottom: 2px solid #0d47a1;
+    }
+
+    h3 {
+      margin-top: 18px;
+      color: #1565c0;
+      font-size: 13pt;
+    }
+
+    p,
+    li {
+      font-size: 11pt;
+    }
+
+    table {
+      width: 100%;
+      margin: 12px 0;
+      border-collapse: collapse;
+      background-color: white;
+      font-size: 10.5pt;
+    }
+
+    th,
+    td {
+      padding: 5px 7px;
+      border: 1px solid #777;
+      vertical-align: top;
+    }
+
+    th {
+      color: white;
+      background: #1565c0;
+      text-align: left;
+    }
+
+    tr:nth-child(even) {
+      background-color: #e3f2fd;
+    }
+
+    pre.diagram {
+      padding: 12px;
+      overflow-x: auto;
+      color: #111;
+      background: #eaf4ff;
+      border: 1px solid #90caf9;
+      font-family: "Courier New", Consolas, monospace;
+      font-size: 9pt;
+      line-height: 1.15;
+      white-space: pre;
+    }
+
+    code {
+      padding: 1px 4px;
+      color: #111;
+      background: #bbdefb;
+      border-radius: 3px;
+      font-family: "Courier New", Consolas, monospace;
+    }
+
+    ul,
+    ol {
+      margin-top: 4px;
+      margin-bottom: 8px;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .subtitle {
+      color: #1565c0;
+      font-size: 13pt;
+    }
+
+    hr {
+      margin: 25px 0;
+      border: 0;
+      border-top: 2px solid #1565c0;
+    }
+
+    .example-box {
+      margin: 12px 0;
+      padding: 10px 14px;
+      background: #e3f2fd;
+      border-left: 5px solid #1565c0;
+    }
+
+    .note-box {
+      margin: 12px 0;
+      padding: 10px 14px;
+      background: #fff3e0;
+      border-left: 5px solid #ff6f00;
+    }
+
+    @page {
+      size: A4;
+      margin: 2cm;
+    }
+
+    @media screen and (max-width: 768px) {
+      body {
+        padding: 15px;
+      }
+
+      .document {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 18pt;
+      }
+
+      table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+
+    @media print {
+      body {
+        padding: 0;
+        background: white;
+      }
+
+      body::before {
+        position: fixed;
+        color: rgba(21, 101, 192, 0.12);
+      }
+
+      .document {
+        padding: 0;
+        box-shadow: none;
+        background: white;
+      }
+
+      h2 {
+        page-break-after: avoid;
+      }
+
+      pre.diagram,
+      table {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="document">
+
+    <h1>QUANTITATIVE SKILLS 1</h1>
+    <p class="center subtitle">
+      <strong>Comprehensive Study Notes</strong>
+    </p>
+
+    <hr>
+
+    <h2>TOPIC 1: NUMBER SYSTEM</h2>
+
+    <h3>1.1 Sets of Numbers</h3>
+
+    <p><strong>Natural Numbers:</strong> The counting numbers 1, 2, 3, 4, 5, 6, …</p>
+    <div class="note-box">
+      <strong>Note:</strong> Zero is not a natural number.
+    </div>
+
+    <p><strong>Prime Numbers:</strong> Any natural number greater than 1 that is divisible without remainder only by itself and 1.</p>
+    <p>Examples: 2, 3, 5, 7, 11, 13, 17, 19, …</p>
+
+    <p><strong>Composite Numbers:</strong> A natural number greater than 1 that is not a prime number.</p>
+    <p>Examples: 4, 6, 8, 9, 10, 12, 14, 15, 18, …</p>
+
+    <p><strong>Whole Numbers:</strong> The numbers 0, 1, 2, 3, 4, 5, 6, 7, 8, …</p>
+
+    <p><strong>Integers:</strong> Whole numbers together with the negatives of natural numbers.</p>
+    <p>Examples: …, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, …</p>
+
+    <pre class="diagram">
+Number Line:
+    -8  -7  -6  -5  -4  -3  -2  -1   0   1   2   3   4   5   6   7   8
+    |   |   |   |   |   |   |   |    |   |   |   |   |   |   |   |   |
+    ←───────────────────────────────────────────────────────────────→
+    </pre>
+
+    <h3>The Double Negative Rule</h3>
+
+    <p>If x represents any number, then <code>-(-x) = x</code></p>
+
+    <h3>Absolute Value</h3>
+
+    <p>The distance on a number line, without regard to direction, that a number is from 0 is called the absolute value of that number.</p>
+
+    <p>The absolute value of 7 (denoted by |7|) and the absolute value of -7 (denoted by |-7|) are both 7.</p>
+
+    <ul>
+      <li>If x is positive or 0, then |x| = x</li>
+      <li>If x is negative, then |-x| = x</li>
+      <li>Note: |x| is never negative</li>
+    </ul>
+
+    <div class="example-box">
+      <strong>Examples:</strong>
+      <ul>
+        <li>|6| = 6</li>
+        <li>|-5| = 5</li>
+        <li>|0| = 0</li>
+        <li>-|7| = -(7) = -7</li>
+        <li>-|-7| = -(7) = -7</li>
+      </ul>
+    </div>
+
+    <h3>Rational Numbers</h3>
+
+    <p>A rational number is any number that can be written as the quotient <code>a/b</code>, where a and b are integers, and <code>b ≠ 0</code>.</p>
+
+    <div class="note-box">
+      <strong>Important:</strong>
+      <ul>
+        <li><code>8/2 = 4</code> because <code>2(4) = 8</code></li>
+        <li><code>0/9 = 0</code> because <code>9(0) = 0</code></li>
+        <li><code>6/0</code> is undefined (no number multiplied by 0 gives 6)</li>
+        <li><code>0/0</code> is also undefined</li>
+        <li>The denominator of a fraction can never be 0</li>
+      </ul>
+    </div>
+
+    <div class="example-box">
+      <strong>Examples:</strong>
+      <ul>
+        <li>The integer 7 is rational because it can be written as <code>7/1</code> or <code>14/2</code></li>
+        <li>In fact, all integers are rational numbers</li>
+        <li>The decimal 0.125 is rational because <code>0.125 = 1/8</code></li>
+        <li>The integer 0 is rational because it can be written as <code>0/1</code></li>
+      </ul>
+    </div>
+
+    <h3>Irrational Numbers</h3>
+
+    <p>Any number that is not a rational number, yet represents a point on the number line, is called an irrational number.</p>
+
+    <p>Examples: √2, π, √51, -√7, ∛11</p>
+
+    <h3>Real Numbers</h3>
+
+    <p>If the set of rational numbers is joined to the set of irrational numbers, the result is called the set of real numbers.</p>
+
+    <hr>
+
+    <h3>1.2 Properties of Real Numbers</h3>
+
+    <p><strong>a) Reflexive Property:</strong> If a is any real number, then a = a.</p>
+    <p>Example: x - 4 = x - 4</p>
+
+    <p><strong>b) Symmetric Property:</strong> If a and b are real numbers and a = b, then b = a.</p>
+    <p>Example: If 5x = 3y, then 3y = 5x</p>
+
+    <p><strong>c) Transitive Property:</strong> If a, b, and c are real numbers and a = b and b = c, then a = c.</p>
+    <p>Example: If 3x = 8 and 8 = 2y, then 3x = 2y</p>
+
+    <p><strong>d) Substitution Property:</strong> If a and b are real numbers and a = b, then b can be substituted for a in any mathematical expression.</p>
+    <p>Example: If x + 3 = xy and x = 9, then 9 + 3 = 9y, i.e., 12 = 9y</p>
+
+    <p><strong>e) Closure Properties:</strong> If a and b are real numbers, then:</p>
+    <ul>
+      <li>a + b is a real number</li>
+      <li>a - b is a real number</li>
+      <li>a · b is a real number</li>
+      <li>a/b is a real number (provided b ≠ 0)</li>
+    </ul>
+
+    <p><strong>f) Associative Properties:</strong> If a, b, and c are real numbers, then:</p>
+    <ul>
+      <li>(a + b) + c = a + (b + c)</li>
+      <li>Example: (2 + 3) + 4 = 2 + (3 + 4) = 9</li>
+      <li>(a·b)·c = a·(b·c)</li>
+      <li>Example: 2×(3×4) = (2×3)×4 = 24</li>
+    </ul>
+
+    <p><strong>g) Commutative Properties:</strong> If a and b are real numbers, then:</p>
+    <ul>
+      <li>a + b = b + a, e.g., 2 + 4 = 4 + 2 = 6</li>
+      <li>ab = ba, e.g., 3 × 5 = 5 × 3 = 15</li>
+    </ul>
+
+    <p><strong>h) Distributive Property:</strong> If a, b, and c are real numbers, then:</p>
+    <p>a(b + c) = ab + ac</p>
+
+    <hr>
+
+    <h3>1.3 Fractions and Their Properties</h3>
+
+    <p><strong>Property 1:</strong> If a/b and c/d are two fractions where b ≠ 0 and d ≠ 0, then a/b = c/d if and only if ad = bc</p>
+
+    <p><strong>Property 2:</strong> If a is a real number, then a/1 = a, and if a ≠ 0, then a/a = 1</p>
+    <p>Examples: 3/3 = 1 and 3/1 = 3</p>
+
+    <p><strong>Property 3 - Multiplication and Division:</strong></p>
+    <p><code>a/b · c/d = (a·c)/(b·d)</code>, provided b ≠ 0 and d ≠ 0</p>
+    <p>Example: 1/3 · 2/5 = (1·2)/(3·5) = 2/15</p>
+
+    <p><code>a/b ÷ c/d = a/b · d/c = (a·d)/(b·c)</code>, provided b ≠ 0, c ≠ 0, and d ≠ 0</p>
+    <p>Example: 1/3 ÷ 4/5 = 1/3 × 5/4 = 5/12</p>
+
+    <p><strong>Property 4:</strong> If b ≠ 0 and k ≠ 0, then</p>
+    <p><code>a/b = (a·k)/(b·k)</code></p>
+    <p>Example: 4/10 = (2·2)/(5·2) = 2/5</p>
+
+    <p><strong>Property 5 - Signs of Fractions:</strong> Three signs are associated with every fraction: the sign of the numerator, the sign of the denominator, and the overall sign.</p>
+
+    <div class="example-box">
+      <strong>Example: Show that -6/2, -(6/2), and 6/(-2) all equal -3</strong>
+      <ul>
+        <li>-6/2 = -3</li>
+        <li>-(6/2) = -(3) = -3</li>
+        <li>6/(-2) = -3</li>
+      </ul>
+    </div>
+
+    <p><strong>Property 6 - Addition and Subtraction:</strong> If b ≠ 0, then</p>
+    <p><code>a/b + c/b = (a+c)/b</code></p>
+
+    <div class="example-box">
+      <strong>Examples: Perform the indicated operations</strong>
+      <p>a) 3/5 + 4/7 = (3·7 + 5·4)/(5·7) = (21 + 20)/35 = 41/35</p>
+      <p>b) 4/3 - 6/7 = (4·7 - 3·6)/(3·7) = (28 - 18)/21 = 10/21</p>
+      <p>c) 5/6 - 3/4 = (10 - 9)/12 = 1/12</p>
+    </div>
+
+    <hr>
+
+    <h2>TOPIC 2: SETS</h2>
+
+    <h3>2.1 Definition and Notation</h3>
+
+    <p>A <strong>set</strong> is a well-defined collection of objects called elements or members.</p>
+
+    <p>Common notation:</p>
+    <ul>
+      <li><strong>N</strong> = {1, 2, 3, ...} - set of positive integers</li>
+      <li><strong>Z</strong> = {..., -1, 0, 1, ...} - set of all integers</li>
+      <li><strong>Q</strong> - set of rational numbers</li>
+      <li><strong>R</strong> - set of real numbers</li>
+      <li><strong>C</strong> - set of complex numbers</li>
+      <li><strong>Ø or { }</strong> - empty set</li>
+      <li><strong>∈</strong> - denotes "is a member of"</li>
+      <li><strong>∉</strong> - denotes "is not a member of"</li>
+      <li><strong>⊆</strong> - denotes "is a subset of"</li>
+      <li><strong>∪</strong> - denotes union</li>
+      <li><strong>∩</strong> - denotes intersection</li>
+    </ul>
+
+    <div class="example-box">
+      <strong>Examples:</strong>
+      <p>A = {English vowels} = {a, e, i, o, u}</p>
+      <p>B = {first five letters of the alphabet} = {a, b, c, d, e}</p>
+    </div>
+
+    <h3>2.2 Equal Sets and Intervals</h3>
+
+    <p><strong>Equal Sets:</strong> Two sets A and B are equal (written A = B) if they consist of the same elements.</p>
+
+    <p><strong>Intervals:</strong></p>
+    <ul>
+      <li>Open interval: (a, b) where a < x < b (endpoints not included)</li>
+      <li>Closed interval: [a, b] where a ≤ x ≤ b (endpoints included)</li>
+      <li>Half-open interval: (a, b] where a < x ≤ b</li>
+      <li>Half-open interval: [a, b) where a ≤ x < b</li>
+    </ul>
+
+    <hr>
+
+    <h3>2.3 Operations on Sets</h3>
+
+    <p><strong>Union:</strong> The union of sets A and B (denoted A ∪ B) is the set of all elements that belong to A or B (or both).</p>
+    <p><code>A ∪ B = {x : x ∈ A or x ∈ B}</code></p>
+
+    <div class="example-box">
+      <strong>Example:</strong>
+      <p>A = {a, e, i, o, u}, B = {a, b, c, d, e}</p>
+      <p>A ∪ B = {a, e, i, o, u, b, c, d}</p>
+      <p>n(A) = 5, n(B) = 5, n(A ∪ B) = 8</p>
+    </div>
+
+    <p><strong>Intersection:</strong> The intersection of sets A and B (denoted A ∩ B) is the set of elements that belong to both A and B.</p>
+    <p><code>A ∩ B = {x : x ∈ A and x ∈ B}</code></p>
+
+    <p>If A ∩ B = Ø, then A and B are <strong>disjoint</strong> (have no elements in common).</p>
+
+    <p><strong>Complement:</strong> The complement of A (denoted A' or A<sup>c</sup>) is the set of elements in the universal set that do not belong to A.</p>
+
+    <p><strong>Difference:</strong> The difference A - B (or A ~ B) is the set of elements in A that are not in B.</p>
+
+    <h3>2.4 Venn Diagrams</h3>
+
+    <p>Venn diagrams are graphical representations of sets using rectangles and circles to visualize relationships between sets.</p>
+
+    <pre class="diagram">
+Example: Union of A and B (shaded region)
+
+    ┌─────────────────────┐
+    │         U           │
+    │   ┌─────┐  ┌─────┐  │
+    │   │     │  │     │  │
+    │   │  A  │  │  B  │  │
+    │   │     │  │     │  │
+    │   └─────┘  └─────┘  │
+    └─────────────────────┘
+
+The shaded area represents A ∪ B
+    </pre>
+
+    <h3>2.5 Universal Set</h3>
+
+    <p>The <strong>universal set</strong> (U or ξ) is the set of all elements under discussion.</p>
+
+    <div class="example-box">
+      <strong>Example:</strong>
+      <p>Given A = {mangoes}, B = {oranges}</p>
+      <p>Then U = {all fruits} is the universal set for A and B</p>
+    </div>
+
+    <h3>2.6 Subsets</h3>
+
+    <p>Set B is a <strong>subset</strong> of set A (written B ⊆ A) if every element of B is also an element of A.</p>
+
+    <p>Three categories of subsets:</p>
+    <ol>
+      <li>Proper subsets (subsets that are not equal to the set itself)</li>
+      <li>The set itself (A ⊆ A)</li>
+      <li>The empty set (Ø ⊆ A)</li>
+    </ol>
+
+    <div class="example-box">
+      <strong>Example:</strong>
+      <p>If A = {1, 2, 3, 4, 5, 6} and B = {2, 4, 6}</p>
+      <p>Then B ⊆ A</p>
+    </div>
+
+    <h3>2.7 Product Sets</h3>
+
+    <p>The product set A × B consists of all ordered pairs (a, b) where a ∈ A and b ∈ B.</p>
+    <p><code>A × B = {(a, b) : a ∈ A, b ∈ B}</code></p>
+
+    <div class="example-box">
+      <strong>Example:</strong>
+      <p>Let A = {1, 2, 3} and B = {m, n}</p>
+      <p>Then A × B = {(1, m), (1, n), (2, m), (2, n), (3, m), (3, n)}</p>
+    </div>
+
+    <h3>2.8 Equal and Equivalent Sets</h3>
+
+    <p><strong>Equal Sets:</strong> Have the same elements.</p>
+    <p>Example: A = {a, e, i, o, u} and B = {e, i, a, o, u} are equal (A = B)</p>
+
+    <p><strong>Equivalent Sets:</strong> Have the same number of elements but not necessarily identical elements.</p>
+    <p>Example: C = {1, 2, a, b, c} with n(C) = 5 and D = {a, 3, 1, e, o} with n(D) = 5 are equivalent</p>
+
+    <hr>
+
+    <h3>2.9 Laws of the Algebra of Sets</h3>
+
+    <table>
+      <tr>
+        <th>Law</th>
+        <th>Formula</th>
+      </tr>
+      <tr>
+        <td>Idempotent</td>
+        <td>A ∪ A = A, A ∩ A = A</td>
+      </tr>
+      <tr>
+        <td>Associative</td>
+        <td>(A ∪ B) ∪ C = A ∪ (B ∪ C), (A ∩ B) ∩ C = A ∩ (B ∩ C)</td>
+      </tr>
+      <tr>
+        <td>Commutative</td>
+        <td>A ∪ B = B ∪ A, A ∩ B = B ∩ A</td>
+      </tr>
+      <tr>
+        <td>Distributive</td>
+        <td>A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C), A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)</td>
+      </tr>
+      <tr>
+        <td>Identity</td>
+        <td>A ∪ Ø = A, A ∩ Ø = Ø</td>
+      </tr>
+      <tr>
+        <td>Complement</td>
+        <td>A ∪ A' = U, A ∩ A' = Ø, (A')' = A</td>
+      </tr>
+      <tr>
+        <td>De Morgan's</td>
+        <td>(A ∪ B)' = A' ∩ B', (A ∩ B)' = A' ∪ B'</td>
+      </tr>
+    </table>
+
+    <hr>
+
+    <h3>2.10 Inclusion-Exclusion Principle</h3>
+
+    <p>For sets S and T:</p>
+    <p><code>n(S ∪ T) = n(S) + n(T) - n(S ∩ T)</code></p>
+
+    <p>This principle states that the number of elements in the union equals the sum of elements in each set minus the number of elements counted twice (in both sets).</p>
+
+    <div class="example-box">
+      <strong>Example:</strong>
+      <p>Let S = {a, b, c, d, e} and T = {a, c, g, h}</p>
+      <p>Then S ∪ T = {a, b, c, d, e, g, h}, so n(S ∪ T) = 7</p>
+      <p>S ∩ T = {a, c}, so n(S ∩ T) = 2</p>
+      <p>Verification: n(S ∪ T) = 5 + 4 - 2 = 7 ✓</p>
+    </div>
+
+    <div class="example-box">
+      <strong>Application Example:</strong>
+      <p>All QS lecturers are members of either the music club or science club.</p>
+      <p>18 lecturers are in both clubs, 21 in music club, 23 in science club.</p>
+      <p>How many lecturers total?</p>
+      <p>Solution: n(M ∪ S) = n(M) + n(S) - n(M ∩ S) = 21 + 23 - 18 = 26</p>
+    </div>
+
+    <hr>
+
+    <h2>PRACTICE EXERCISES</h2>
+
+    <div class="example-box">
+      <strong>Exercise 1:</strong>
+      <p>There are 60 students in an undergraduate class. Ten drink alcohol but do not smoke. Five smoke but do not drink. How many smoke and drink?</p>
+    </div>
+
+    <div class="example-box">
+      <strong>Exercise 2:</strong>
+      <p>In 2008, Executive Magazine surveyed 500 U.S. corporate presidents. Of these, 310 had business degrees of any sort, 238 had undergraduate business degrees, and 184 had graduate business degrees. How many had both undergraduate and graduate degrees in business?</p>
+    </div>
+
+    <div class="example-box">
+      <strong>Solution to Exercise 1:</strong>
+      <p>Let A = those who drink, B = those who smoke</p>
+      <p>n(A ∪ B) = 60 (total students)</p>
+      <p>Those who drink only = 10, so n(A) = x + 10</p>
+      <p>Those who smoke only = 5, so n(B) = x + 5</p>
+      <p>Where x = those who do both</p>
+      <p>Using: n(A ∪ B) = n(A) + n(B) - n(A ∩ B)</p>
+      <p>60 = (x + 10) + (x + 5) - x</p>
+      <p>60 = x + 15</p>
+      <p>x = 45 students smoke and drink</p>
+    </div>
+
+    <hr>
+
+    <p class="center" style="color: #1565c0; font-size: 10pt; margin-top: 40px;">
+      <strong>Quantitative Skills 1 – Comprehensive Study Material</strong><br>
+      Topics: Number System and Sets<br>
+      Last Updated: September 2026
+    </p>
+
+  </main>
+
+</body>
+
+</html>
