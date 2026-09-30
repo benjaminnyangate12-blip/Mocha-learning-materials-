@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BCS 111: Introduction to Programming</title>
+  <style>
+    :root {
+      --navy: #0d47a1;
+      --blue: #1565c0;
+      --sky: #edf5ff;
+      --soft: #f7fbff;
+      --green: #2e7d32;
+      --amber: #ff9800;
+      --text: #1f2d3d;
+      --muted: #586b82;
+      --line: #dfeeff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #eff7ff 0%, #f8fbff 100%);
+      line-height: 1.75;
+    }
+    .document {
+      max-width: 1180px;
+      margin: 30px auto 50px;
+      background: rgba(255,255,255,0.99);
+      border: 1px solid #e0ebfb;
+      border-radius: 24px;
+      box-shadow: 0 18px 45px rgba(12, 46, 92, 0.12);
+      padding: 40px 34px 60px;
+    }
+    .page-header {
+      background: linear-gradient(135deg, #0c4ab7 0%, #1b5fff 100%);
+      border-radius: 18px;
+      padding: 28px 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 12px 24px rgba(17, 66, 153, 0.18);
+    }
+    .page-header h1 {
+      color: #fff;
+      margin: 0 0 8px;
+      font-size: clamp(28px, 3vw, 42px);
+      text-align: center;
+    }
+    .subtitle {
+      color: rgba(255,255,255,0.92);
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin: 0;
+    }
+    h1, h2, h3, h4 { color: var(--navy); }
+    h2 {
+      font-size: clamp(22px, 2vw, 30px);
+      border-bottom: 2px solid var(--line);
+      padding-bottom: 8px;
+      margin: 30px 0 12px;
+    }
+    h3 { font-size: 20px; margin: 24px 0 10px; }
+    h4 { font-size: 17px; margin: 18px 0 10px; }
+    p, li { font-size: 15px; }
+    ul, ol { padding-left: 24px; margin: 12px 0 16px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0 24px;
+      background: white;
+    }
+    th, td {
+      border: 1px solid #bfd7f3;
+      padding: 10px 12px;
+      vertical-align: top;
+    }
+    th {
+      background: var(--blue);
+      color: #fff;
+      text-align: left;
+    }
+    tr:nth-child(even) td { background: #f4f9ff; }
+    .intro, .note-box, .example-box, .key-point, .quiz-box {
+      margin: 20px 0;
+      padding: 16px 18px;
+      border-radius: 12px;
+    }
+    .intro { background: var(--sky); border-left: 6px solid var(--blue); }
+    .note-box { background: #fff3e0; border-left: 5px solid var(--amber); }
+    .example-box { background: var(--sky); border-left: 5px solid var(--blue); }
+    .key-point { background: #edf8ee; border-left: 5px solid var(--green); }
+    .quiz-box { background: #f6f8ff; border: 1px solid #dfe9f7; }
+    code {
+      background: #edf5ff;
+      border: 1px solid #d4e6ff;
+      border-radius: 5px;
+      padding: 2px 6px;
+      font-family: Consolas, monospace;
+    }
+    pre {
+      background: #eef7ff;
+      border: 1px solid #d7e6ff;
+      border-radius: 12px;
+      padding: 14px;
+      overflow-x: auto;
+      font-family: Consolas, monospace;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 34px;
+      color: #4a5d78;
+      font-weight: 700;
+    }
+    @media (max-width: 700px) {
+      .document { padding: 20px 16px 40px; }
+      table { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+  <main class="document">
+    <header class="page-header">
+      <h1>BCS 111: INTRODUCTION TO PROGRAMMING</h1>
+      <p class="subtitle">Detailed Study Notes</p>
+    </header>
+
+    <div class="intro">
+      This course introduces students to logic, algorithm design, problem solving, coding, and software development. The objective is to help learners think systematically and transform real-world tasks into executable instructions that a computer can perform.
+    </div>
+
+    <h2>1. Definition and Scope of Programming</h2>
+    <p>Programming is the process of designing and writing a sequence of instructions that direct a computer to perform a task. It is a combination of logic, mathematical reasoning, and problem-solving.</p>
+    <p>Programming languages are specifically designed to express operations clearly so they can be interpreted by a machine.</p>
+    <div class="key-point">
+      <strong>In simple terms:</strong> programming is how humans communicate with computers using structured instructions.
+    </div>
+
+    <h3>1.1 Why Programming is Important</h3>
+    <ul>
+      <li>It enables software creation for business, education, healthcare, finance, and communication.</li>
+      <li>It supports automation of repetitive tasks.</li>
+      <li>It develops logical and analytical thinking.</li>
+      <li>It is foundational to fields like artificial intelligence, web design, databases, and robotics.</li>
+      <li>It helps people design systems that process data efficiently and accurately.</li>
+    </ul>
+
+    <h3>1.2 Relationship Between Humans and Computers</h3>
+    <p>Computers follow commands precisely and do not think creatively; they depend on well-defined instructions. Therefore, programmers must plan carefully and write error-free logic.</p>
+    <ul>
+      <li>Humans define the problem.</li>
+      <li>Programmers design a solution.</li>
+      <li>Computers execute instructions.</li>
+      <li>Output is then checked for correctness.</li>
+    </ul>
+
+    <h2>2. Computer Fundamentals Relevant to Programming</h2>
+    <table>
+      <thead>
+        <tr><th>Component</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Input devices</td><td>Send data to the system</td></tr>
+        <tr><td>CPU</td><td>Processes instructions and data</td></tr>
+        <tr><td>Memory</td><td>Stores active code and data temporarily</td></tr>
+        <tr><td>Storage</td><td>Stores files and programs permanently</td></tr>
+        <tr><td>Output devices</td><td>Show results to the user</td></tr>
+        <tr><td>System software</td><td>Controls the overall operating environment</td></tr>
+      </tbody>
+    </table>
+
+    <h3>2.1 Data and Information</h3>
+    <p><strong>Data</strong> is raw facts, while <strong>information</strong> is meaningful and processed data. A program often receives data, processes it, and outputs information.</p>
+    <div class="example-box">
+      <strong>Example:</strong> the numbers 70, 75, and 80 are data; their average 75 is information.
+    </div>
+
+    <h3>2.2 The Data Processing Cycle</h3>
+    <pre>Input → Processing → Output → Storage</pre>
+    <p>Programs fit into this cycle by taking input, applying logic, producing output, and sometimes saving data for later use.</p>
+
+    <h2>3. Problem Solving</h2>
+    <p>Programming begins with problem solving. A programmer must understand the task, examine the requirements, and choose a suitable method for solving it.</p>
+    <h3>3.1 Steps in Problem Solving</h3>
+    <ol>
+      <li>Identify the problem clearly.</li>
+      <li>Define the required input and expected output.</li>
+      <li>Break the problem into smaller parts.</li>
+      <li>Design a solution logic.</li>
+      <li>Implement the solution as code.</li>
+      <li>Test and debug the program.</li>
+      <li>Improve or optimize where necessary.</li>
+    </ol>
+
+    <h3>3.2 Real-Life Example</h3>
+    <p>If you want to compute the total cost of items purchased, you must know the relevant inputs, item prices, quantity, tax, and discount before writing code.</p>
+
+    <h2>4. Algorithms</h2>
+    <p>An algorithm is a step-by-step procedure for solving a problem. It is a plan that allows a computer to do the specified task effectively.</p>
+    <h3>4.1 Characteristics of a Good Algorithm</h3>
+    <ul>
+      <li>Clear and unambiguous</li>
+      <li>Finite number of steps</li>
+      <li>Has well-defined input and output</li>
+      <li>Produces correct results</li>
+      <li>Should be efficient and easy to understand</li>
+    </ul>
+
+    <h3>4.2 Example Algorithm: Find the Sum of Two Numbers</h3>
+    <ol>
+      <li>Start</li>
+      <li>Read the first number</li>
+      <li>Read the second number</li>
+      <li>Add the two numbers</li>
+      <li>Display the result</li>
+      <li>Stop</li>
+    </ol>
+
+    <h3>4.3 Pseudocode Example</h3>
+    <pre>BEGIN
+  READ a
+  READ b
+  sum ← a + b
+  DISPLAY sum
+END</pre>
+
+    <h2>5. Flowcharts</h2>
+    <p>A flowchart is a diagram that represents an algorithm using symbols such as terminators, processes, decision points, and connectors. It helps visualize the sequence of operations.</p>
+    <table>
+      <thead>
+        <tr><th>Symbol</th><th>Meaning</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Oval</td><td>Start or end</td></tr>
+        <tr><td>Rectangle</td><td>Process</td></tr>
+        <tr><td>Diamond</td><td>Decision</td></tr>
+        <tr><td>Parallelogram</td><td>Input or output</td></tr>
+      </tbody>
+    </table>
+
+    <h3>5.1 Flowchart Example</h3>
+    <pre>Start
+  │
+  ▼
+Read numbers
+  │
+  ▼
+Compute total
+  │
+  ▼
+Display total
+  │
+  ▼
+Stop</pre>
+
+    <h2>6. Programming Languages</h2>
+    <p>A programming language is a formal language used to write instructions for a computer. Different languages are designed for different purposes.</p>
+    <table>
+      <thead>
+        <tr><th>Language</th><th>Use</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Python</td><td>Beginners, automation, data science, AI</td></tr>
+        <tr><td>C</td><td>System programming, embedded systems</td></tr>
+        <tr><td>C++</td><td>Game and performance-critical software</td></tr>
+        <tr><td>Java</td><td>Business applications and Android apps</td></tr>
+        <tr><td>JavaScript</td><td>Interactive websites and web apps</td></tr>
+      </tbody>
+    </table>
+
+    <h3>6.1 High-level vs Low-level Languages</h3>
+    <ul>
+      <li><strong>High-level languages</strong> are closer to human languages and easier to learn.</li>
+      <li><strong>Low-level languages</strong> interact directly with hardware and are harder for humans to use.</li>
+    </ul>
+
+    <h3>6.2 Translators</h3>
+    <p>Programs are converted into machine-readable form by translators:</p>
+    <ul>
+      <li><strong>Compiler:</strong> converts the whole program before execution.</li>
+      <li><strong>Interpreter:</strong> converts and executes one statement at a time.</li>
+    </ul>
+
+    <h2>7. Variables and Data Types</h2>
+    <h3>7.1 Variables</h3>
+    <p>A variable is a named memory location used to store data that may change during program execution.</p>
+    <pre>age = 20
+name = "Mary"
+score = 85.5</pre>
+
+    <h3>7.2 Rules for Naming Variables</h3>
+    <ul>
+      <li>Use meaningful names</li>
+      <li>Cannot start with a number</li>
+      <li>Must avoid reserved keywords</li>
+      <li>Should be consistent and readable</li>
+    </ul>
+
+    <h3>7.3 Data Types</h3>
+    <table>
+      <thead>
+        <tr><th>Data Type</th><th>Examples</th><th>Use</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Integer</td><td>5, -2, 0</td><td>Whole numbers</td></tr>
+        <tr><td>Float</td><td>3.14, 7.5</td><td>Decimal numbers</td></tr>
+        <tr><td>String</td><td>"hello"</td><td>Text</td></tr>
+        <tr><td>Character</td><td>'A'</td><td>Single character</td></tr>
+        <tr><td>Boolean</td><td>true / false</td><td>Logic conditions</td></tr>
+      </tbody>
+    </table>
+
+    <h2>8. Operators</h2>
+    <h3>8.1 Arithmetic Operators</h3>
+    <p><code>+, -, *, /, %, ++, --</code></p>
+    <div class="example-box">
+      <strong>Example:</strong> 12 + 7 = 19; 15 % 4 = 3
+    </div>
+
+    <h3>8.2 Comparison Operators</h3>
+    <p><code>==, !=, >, <, >=, <=</code></p>
+    <p>Used to compare values and test conditions.</p>
+
+    <h3>8.3 Logical Operators</h3>
+    <p><code>&&, ||, !</code></p>
+    <p>Used to combine conditions in decision making.</p>
+
+    <h3>8.4 Assignment Operators</h3>
+    <p><code>=, +=, -=, *=, /=</code></p>
+
+    <h2>9. Input and Output</h2>
+    <h3>9.1 Input</h3>
+    <p>Input allows the program to receive data while running. This can be from a keyboard, file, sensor, or network.</p>
+    <pre>name = input("Enter your name: ")</pre>
+
+    <h3>9.2 Output</h3>
+    <p>Output displays results to the user or writes them to a file.</p>
+    <pre>print("Hello", name)</pre>
+
+    <h3>9.3 Importance of Input/Output</h3>
+    <p>All useful programs depend on data input and useful output. Without one or the other, a program becomes less practical.</p>
+
+    <h2>10. Control Structures</h2>
+    <p>Control structures define the flow of execution within a program.</p>
+
+    <h3>10.1 Sequence</h3>
+    <p>Statements execute one after another in the order they are written.</p>
+
+    <h3>10.2 Selection</h3>
+    <p>Selection allows the program to choose between alternative actions depending on a condition.</p>
+    <pre>if score >= 50:
+    print("Pass")
+else:
+    print("Fail")</pre>
+
+    <h3>10.3 Repetition (Loops)</h3>
+    <p>Loops are used when a task must repeat multiple times.</p>
+    <pre>for i in range(1, 6):
+    print(i)</pre>
+    <p>Loops are useful in managing arrays, running checks, and automating repeated operations.</p>
+
+    <h4>Types of loops</h4>
+    <ul>
+      <li><strong>for loop:</strong> used when the number of iterations is known</li>
+      <li><strong>while loop:</strong> used when the number of iterations depends on a condition</li>
+    </ul>
+
+    <h2>11. Functions and Modular Programming</h2>
+    <p>A function is a named block of code that performs a specific operation. Functions allow programmers to group features and reuse them in different parts of a program.</p>
+    <pre>def add(a, b):
+    return a + b
+
+print(add(6, 9))</pre>
+
+    <h3>11.1 Advantages of Functions</h3>
+    <ul>
+      <li>Promotes code reuse</li>
+      <li>Improves readability</li>
+      <li>Makes debugging easier</li>
+      <li>Helps break complex tasks into smaller tasks</li>
+      <li>Improves maintainability</li>
+    </ul>
+
+    <h3>11.2 Function Components</h3>
+    <ul>
+      <li>Function name</li>
+      <li>Parameters (optional)</li>
+      <li>Body</li>
+      <li>Return value (optional)</li>
+    </ul>
+
+    <h2>12. Arrays and Lists</h2>
+    <p>An array/list stores multiple values in a single variable. This is important when handling a set of related values like marks, names, or measurements.</p>
+    <pre>numbers = [10, 20, 30, 40]
+print(numbers[2])</pre>
+
+    <h3>12.1 Uses of Arrays</h3>
+    <ul>
+      <li>Store scores in a class</li>
+      <li>Track employee names</li>
+      <li>Process sensor readings</li>
+      <li>Manage inventory records</li>
+    </ul>
+
+    <h2>13. String Processing</h2>
+    <p>Strings are sequences of characters used to represent text. Strings can be manipulated using operations like splitting, joining, slicing, and comparison.</p>
+    <pre>name = "Benjamin"
+print(name[0])
+print(name[1:5])</pre>
+
+    <h3>13.1 String Operations</h3>
+    <ul>
+      <li>Concatenation</li>
+      <li>Length calculation</li>
+      <li>Substring extraction</li>
+      <li>Comparison</li>
+      <li>Case conversion</li>
+    </ul>
+
+    <h2>14. Error Handling and Debugging</h2>
+    <p>A program may contain errors that prevent it from working the way it should. Errors must be identified and corrected through testing and debugging.</p>
+
+    <h3>14.1 Types of Errors</h3>
+    <table>
+      <thead>
+        <tr><th>Error Type</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Syntax error</td><td>Rules of the language are violated</td></tr>
+        <tr><td>Runtime error</td><td>Occurs while the program is running</td></tr>
+        <tr><td>Logical error</td><td>Program runs but produces wrong output</td></tr>
+      </tbody>
+    </table>
+
+    <h3>14.2 Debugging Process</h3>
+    <ol>
+      <li>Read the error message</li>
+      <li>Trace values and variables</li>
+      <li>Check logical conditions</li>
+      <li>Test again after each fix</li>
+    </ol>
+
+    <h2>15. Program Development Life Cycle</h2>
+    <p>Programming is not just writing code; it is a full process.</p>
+    <ol>
+      <li>Understand the problem</li>
+      <li>Plan the algorithm</li>
+      <li>Write the code</li>
+      <li>Test and debug</li>
+      <li>Document and maintain the program</li>
+    </ol>
+
+    <h2>16. Structured Programming Principles</h2>
+    <ul>
+      <li>Use clear, readable logic</li>
+      <li>Break large tasks into smaller parts</li>
+      <li>Use consistent naming</li>
+      <li>Comment code where necessary</li>
+      <li>Keep functions simple and focused</li>
+      <li>Validate user input</li>
+    </ul>
+
+    <h2>17. Practical Examples</h2>
+    <h3>Example 1: Find the Average of Three Numbers</h3>
+    <pre>num1 = 10
+num2 = 20
+num3 = 30
+average = (num1 + num2 + num3) / 3
+print("Average is", average)</pre>
+
+    <h3>Example 2: Determine if a Number is Even</h3>
+    <pre>n = 12
+if n % 2 == 0:
+    print("Even")
+else:
+    print("Odd")</pre>
+
+    <h3>Example 3: Multiplication Table</h3>
+    <pre>for i in range(1, 11):
+    print("5 x", i, "=", 5 * i)</pre>
+
+    <h2>18. Best Practices for Beginners</h2>
+    <ul>
+      <li>Write small programs before large ones</li>
+      <li>Practice algorithm design daily</li>
+      <li>Review code for clarity and structure</li>
+      <li>Test with sample inputs</li>
+      <li>Learn from errors instead of fearing them</li>
+    </ul>
+
+    <h2>19. Summary</h2>
+    <p>Programming is a discipline that combines logic, creativity, and problem solving. Writing good programs requires clear understanding, strong algorithms, well-chosen data structures, correct syntax, and careful debugging. It is a core skill in all modern technology disciplines.</p>
+
+    <div class="quiz-box">
+      <strong>Self-Test Questions</strong>
+      <ol>
+        <li>What is programming?</li>
+        <li>Differentiate between data and information.</li>
+        <li>What is an algorithm?</li>
+        <li>What is the difference between a compiler and an interpreter?</li>
+        <li>Why are functions important in programming?</li>
+        <li>What is the role of debugging?</li>
+      </ol>
+    </div>
+
+    <p class="footer">BCS 111: Introduction to Programming – Study Notes</p>
+  </main>
+</body>
+</html>
+
+
+"""
+
+"""

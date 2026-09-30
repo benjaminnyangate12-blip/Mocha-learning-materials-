@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BCS 121: Discrete Structure 1</title>
+  <style>
+    :root {
+      --navy: #0d47a1;
+      --blue: #1565c0;
+      --sky: #edf5ff;
+      --green: #2e7d32;
+      --amber: #ff9800;
+      --text: #1f2d3d;
+      --muted: #586b82;
+      --line: #dfeeff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #eef5ff 0%, #f8fbff 100%);
+      line-height: 1.75;
+    }
+    .document {
+      max-width: 1180px;
+      margin: 30px auto 50px;
+      background: rgba(255,255,255,0.99);
+      border: 1px solid #e0ebfb;
+      border-radius: 24px;
+      box-shadow: 0 18px 45px rgba(12, 46, 92, 0.12);
+      padding: 40px 34px 60px;
+    }
+    .page-header {
+      background: linear-gradient(135deg, #0d3b70 0%, #1b5fff 100%);
+      border-radius: 18px;
+      padding: 28px 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 12px 24px rgba(17, 66, 153, 0.18);
+    }
+    .page-header h1 {
+      color: #fff;
+      margin: 0 0 8px;
+      font-size: clamp(28px, 3vw, 42px);
+      text-align: center;
+    }
+    .subtitle {
+      color: rgba(255,255,255,0.92);
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin: 0;
+    }
+    h1, h2, h3, h4 { color: var(--navy); }
+    h2 {
+      font-size: clamp(22px, 2vw, 30px);
+      border-bottom: 2px solid var(--line);
+      padding-bottom: 8px;
+      margin: 30px 0 12px;
+    }
+    h3 { font-size: 20px; margin: 24px 0 10px; }
+    h4 { font-size: 17px; margin: 18px 0 10px; }
+    p, li { font-size: 15px; }
+    ul, ol { padding-left: 24px; margin: 12px 0 16px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0 24px;
+      background: white;
+    }
+    th, td {
+      border: 1px solid #bfd7f3;
+      padding: 10px 12px;
+      vertical-align: top;
+    }
+    th {
+      background: var(--blue);
+      color: #fff;
+      text-align: left;
+    }
+    tr:nth-child(even) td { background: #f4f9ff; }
+    .intro, .note-box, .example-box, .key-point, .quiz-box {
+      margin: 20px 0;
+      padding: 16px 18px;
+      border-radius: 12px;
+    }
+    .intro { background: var(--sky); border-left: 6px solid var(--blue); }
+    .note-box { background: #fff3e0; border-left: 5px solid var(--amber); }
+    .example-box { background: var(--sky); border-left: 5px solid var(--blue); }
+    .key-point { background: #edf8ee; border-left: 5px solid var(--green); }
+    .quiz-box { background: #f6f8ff; border: 1px solid #dfe9f7; }
+    code {
+      background: #edf5ff;
+      border: 1px solid #d4e6ff;
+      border-radius: 5px;
+      padding: 2px 6px;
+      font-family: Consolas, monospace;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 34px;
+      color: #4a5d78;
+      font-weight: 700;
+    }
+    @media (max-width: 700px) {
+      .document { padding: 20px 16px 40px; }
+      table { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+  <main class="document">
+    <header class="page-header">
+      <h1>BCS 121: DISCRETE STRUCTURE 1</h1>
+      <p class="subtitle">Detailed Study Notes</p>
+    </header>
+
+    <div class="intro">
+      Discrete structure is a foundational part of computer science and mathematics. It studies discrete, separate, and countable elements, and provides the mathematical structure used in logic, algorithms, databases, programming, and formal reasoning.
+    </div>
+
+    <h2>1. Introduction to Discrete Mathematics</h2>
+    <p>Discrete mathematics is the study of structures that are distinct and separate rather than continuous. This means it focuses on elements that can be counted, listed, or logically reasoned about individually.</p>
+    <p>Unlike continuous mathematics, which deals with real-valued quantities and smooth change, discrete mathematics studies integers, sets, graphs, logic, relations, and finite structures.</p>
+
+    <h3>1.1 Why Discrete Mathematics is Important</h3>
+    <ul>
+      <li>It underpins computer science and software engineering.</li>
+      <li>It is essential in algorithm analysis and design.</li>
+      <li>It supports coding logic, database design, and formal specification.</li>
+      <li>It is used in cryptography, networks, and artificial intelligence.</li>
+      <li>It helps in reasoning clearly and proving correctness.</li>
+    </ul>
+
+    <h2>2. Sets</h2>
+    <p>A set is a collection of well-defined objects, called elements or members.</p>
+    <div class="example-box">
+      <strong>Example:</strong> <code>A = {1, 2, 3, 4, 5}</code>
+    </div>
+    <p>Sets may be finite or infinite. They may contain numbers, letters, objects, or even other sets.</p>
+
+    <h3>2.1 Types of Sets</h3>
+    <table>
+      <thead>
+        <tr><th>Type</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Finite set</td><td>Contains a limited number of elements</td></tr>
+        <tr><td>Infinite set</td><td>Contains an unlimited number of elements</td></tr>
+        <tr><td>Empty set</td><td>Contains no elements</td></tr>
+        <tr><td>Universal set</td><td>Contains all elements under discussion</td></tr>
+      </tbody>
+    </table>
+
+    <h3>2.2 Set Notation</h3>
+    <table>
+      <thead>
+        <tr><th>Notation</th><th>Meaning</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>{ }</code></td><td>Set braces</td></tr>
+        <tr><td><code>∈</code></td><td>Element of</td></tr>
+        <tr><td><code>∉</code></td><td>Not an element of</td></tr>
+        <tr><td><code>⊆</code></td><td>Subset</td></tr>
+        <tr><td><code>∪</code></td><td>Union</td></tr>
+        <tr><td><code>∩</code></td><td>Intersection</td></tr>
+      </tbody>
+    </table>
+
+    <h3>2.3 Equality of Sets</h3>
+    <p>Two sets are equal if they contain exactly the same elements, regardless of order.</p>
+    <div class="example-box">
+      <code>{a, b, c} = {c, a, b}</code>
+    </div>
+
+    <h3>2.4 Subsets</h3>
+    <p>If every element of set A is also an element of set B, then A is a subset of B.</p>
+    <p><code>A ⊆ B</code></p>
+    <p>Every set is a subset of itself, and the empty set is a subset of every set.</p>
+
+    <h2>3. Set Operations</h2>
+
+    <h3>3.1 Union</h3>
+    <p>The union of two sets includes all elements in either set.</p>
+    <p><code>A ∪ B = {x : x ∈ A or x ∈ B}</code></p>
+
+    <h3>3.2 Intersection</h3>
+    <p>The intersection of two sets includes only elements that appear in both sets.</p>
+    <p><code>A ∩ B = {x : x ∈ A and x ∈ B}</code></p>
+
+    <h3>3.3 Difference</h3>
+    <p>Difference A - B includes elements found in A but not in B.</p>
+    <p><code>A - B = {x : x ∈ A and x ∉ B}</code></p>
+
+    <h3>3.4 Complement</h3>
+    <p>The complement of a set consists of the elements in the universal set that are not in the set.</p>
+    <p><code>A' = U - A</code></p>
+
+    <h3>3.5 Examples</h3>
+    <div class="example-box">
+      <strong>Example:</strong><br />
+      <code>A = {1, 2, 3, 4}</code><br />
+      <code>B = {3, 4, 5, 6}</code><br />
+      <code>A ∪ B = {1, 2, 3, 4, 5, 6}</code><br />
+      <code>A ∩ B = {3, 4}</code><br />
+      <code>A - B = {1, 2}</code>
+    </div>
+
+    <h2>4. Venn Diagrams</h2>
+    <p>Venn diagrams are visual tools used to represent sets and relationships among them. They are useful in solving problems involving unions, intersections, complements, and differences.</p>
+    <p>In a Venn diagram, each set is shown as a circle inside a universal rectangle.</p>
+
+    <h2>5. Cartesian Product</h2>
+    <p>The Cartesian product of sets A and B, written <code>A × B</code>, is the set of all ordered pairs <code>(a, b)</code> where <code>a ∈ A</code> and <code>b ∈ B</code>.</p>
+    <div class="example-box">
+      <strong>Example:</strong> If <code>A = {1, 2}</code> and <code>B = {x, y}</code>, then<br />
+      <code>A × B = {(1, x), (1, y), (2, x), (2, y)}</code>
+    </div>
+    <p>Cartesian products are important in relations, database tables, and coordinate systems.</p>
+
+    <h2>6. Relations</h2>
+    <p>A relation is any set of ordered pairs. It shows how elements of one set are associated with elements of another set.</p>
+    <p>If A and B are sets, then any subset of <code>A × B</code> is a relation from A to B.</p>
+    <h3>6.1 Domain and Codomain</h3>
+    <ul>
+      <li><strong>Domain:</strong> set of all first elements</li>
+      <li><strong>Range:</strong> set of all second elements</li>
+      <li><strong>Codomain:</strong> target set</li>
+    </ul>
+
+    <h3>6.2 Types of Relations</h3>
+    <table>
+      <thead>
+        <tr><th>Type</th><th>Definition</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Reflexive</td><td>Every element is related to itself</td></tr>
+        <tr><td>Symmetric</td><td>If a is related to b, then b is related to a</td></tr>
+        <tr><td>Antisymmetric</td><td>If aRb and bRa, then a = b</td></tr>
+        <tr><td>Transitive</td><td>If aRb and bRc, then aRc</td></tr>
+      </tbody>
+    </table>
+
+    <h2>7. Functions</h2>
+    <p>A function is a special type of relation where each element in the domain is associated with exactly one element in the codomain.</p>
+    <p><code>f: A → B</code></p>
+    <div class="key-point">
+      <strong>Key rule:</strong> no input may map to multiple outputs in a valid function.
+    </div>
+
+    <h3>7.1 One-to-One and Onto Functions</h3>
+    <table>
+      <thead>
+        <tr><th>Type</th><th>Meaning</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>One-to-one</td><td>Distinct inputs give distinct outputs</td></tr>
+        <tr><td>Onto</td><td>Every output in the codomain is used</td></tr>
+      </tbody>
+    </table>
+
+    <h3>7.2 Example</h3>
+    <div class="example-box">
+      <code>f(x) = 2x + 1</code> is a function because every x produces one unique result.
+    </div>
+
+    <h2>8. Logic and Propositions</h2>
+    <p>A proposition is a statement that is either true or false.</p>
+    <table>
+      <thead>
+        <tr><th>Logical Symbol</th><th>Meaning</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>∧</code></td><td>AND</td></tr>
+        <tr><td><code>∨</code></td><td>OR</td></tr>
+        <tr><td><code>¬</code></td><td>NOT</td></tr>
+        <tr><td><code>→</code></td><td>Implication</td></tr>
+        <tr><td><code>↔</code></td><td>If and only if</td></tr>
+      </tbody>
+    </table>
+
+    <h3>8.1 Truth Tables</h3>
+    <p>Truth tables are used to determine whether compound logical statements are true or false.</p>
+    <div class="example-box">
+      If <code>P</code> is “it is raining” and <code>Q</code> is “the ground is wet,” then <code>P → Q</code> means: if it is raining, then the ground is wet.
+    </div>
+
+    <h3>8.2 Tautology, Contradiction and Contingency</h3>
+    <ul>
+      <li><strong>Tautology:</strong> always true</li>
+      <li><strong>Contradiction:</strong> always false</li>
+      <li><strong>Contingency:</strong> sometimes true and sometimes false</li>
+    </ul>
+
+    <h2>9. Predicates and Quantifiers</h2>
+    <p>A predicate is a statement that depends on a variable and may become true or false depending on the value assigned.</p>
+    <p>Common quantifiers:</p>
+    <ul>
+      <li><code>∀</code> = for all</li>
+      <li><code>∃</code> = there exists</li>
+    </ul>
+    <div class="example-box">
+      <code>∀x, x + 1 > x</code> is true for all real numbers x.
+    </div>
+
+    <h2>10. Counting Principles</h2>
+    <p>Counting is an essential part of discrete mathematics. It is used in probability, algorithm analysis, and combinatorics.</p>
+
+    <h3>10.1 Inclusion-Exclusion Principle</h3>
+    <p><code>|A ∪ B| = |A| + |B| - |A ∩ B|</code></p>
+    <div class="example-box">
+      If 25 students like Math and 18 like Science, and 7 like both, then the number that like at least one is <code>25 + 18 - 7 = 36</code>.
+    </div>
+
+    <h3>10.2 Product Rule</h3>
+    <p>If there are m ways to do one thing and n ways to do another, then there are <code>m × n</code> ways to do both.</p>
+
+    <h3>10.3 Permutations and Combinations</h3>
+    <ul>
+      <li><strong>Permutation:</strong> order matters</li>
+      <li><strong>Combination:</strong> order does not matter</li>
+    </ul>
+
+    <h2>11. Boolean Algebra</h2>
+    <p>Boolean algebra is used in digital logic circuits. It is based on variables that can be true or false.</p>
+    <table>
+      <thead>
+        <tr><th>Law</th><th>Expression</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Identity</td><td><code>A ∨ 0 = A</code></td></tr>
+        <tr><td>Complement</td><td><code>A ∨ ¬A = 1</code></td></tr>
+        <tr><td>Idempotent</td><td><code>A ∨ A = A</code></td></tr>
+        <tr><td>Associative</td><td><code>(A ∨ B) ∨ C = A ∨ (B ∨ C)</code></td></tr>
+        <tr><td>Distributive</td><td><code>A ∧ (B ∨ C) = (A ∧ B) ∨ (A ∧ C)</code></td></tr>
+      </tbody>
+    </table>
+
+    <h2>12. Graph Theory (Introductory)</h2>
+    <p>A graph is a collection of vertices connected by edges. Graphs are used in road networks, social networks, and computer networks.</p>
+    <table>
+      <thead>
+        <tr><th>Concept</th><th>Meaning</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Vertex</td><td>A point or node</td></tr>
+        <tr><td>Edge</td><td>A connection between two vertices</td></tr>
+        <tr><td>Path</td><td>A sequence of connected vertices</td></tr>
+      </tbody>
+    </table>
+
+    <h2>13. Applications in Computing</h2>
+    <ul>
+      <li>Algorithms and complexity</li>
+      <li>Database design and query logic</li>
+      <li>Formal verification</li>
+      <li>Computer networks</li>
+      <li>Cryptography</li>
+      <li>Programming language theory</li>
+    </ul>
+
+    <h2>14. Mathematical Proof</h2>
+    <p>Proof is used to show that a statement is true beyond doubt. Typical methods include direct proof, proof by contradiction, and induction.</p>
+    <h3>14.1 Mathematical Induction</h3>
+    <p>Induction proves a statement for all natural numbers by showing it works for the first case and then for the next case based on the previous one.</p>
+
+    <h2>15. Summary</h2>
+    <p>Discrete structure provides the mathematical language for understanding computer logic and computational thinking. It introduces sets, relations, functions, logic, counting, and proof techniques that are fundamental to modern computing and problem solving.</p>
+
+    <div class="quiz-box">
+      <strong>Self-Test Questions</strong>
+      <ol>
+        <li>What is a set?</li>
+        <li>Differentiate between union and intersection.</li>
+        <li>What is the difference between a relation and a function?</li>
+        <li>Explain the logic symbols ∧, ∨, and ¬.</li>
+        <li>What is the inclusion-exclusion principle?</li>
+        <li>Why is discrete mathematics important in computing?</li>
+      </ol>
+    </div>
+
+    <p class="footer">BCS 121: Discrete Structure 1 – Study Notes</p>
+  </main>
+</body>
+</html>
+
+
+"""
