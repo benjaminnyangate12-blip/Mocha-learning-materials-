@@ -15,89 +15,59 @@
       --muted: #586b82;
       --line: #dfeeff;
     }
-
     * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.7;
       color: var(--text);
       background: linear-gradient(180deg, #eef5ff 0%, #f8fbff 100%);
+      line-height: 1.75;
     }
-
     .document {
-      max-width: 1100px;
-      margin: 32px auto;
-      background: rgba(255,255,255,0.98);
-      border-radius: 20px;
-      box-shadow: 0 18px 50px rgba(12, 46, 92, 0.12);
-      padding: 38px 30px 52px;
-      border: 1px solid #e2ebfb;
+      max-width: 1180px;
+      margin: 30px auto 50px;
+      background: rgba(255,255,255,0.99);
+      border: 1px solid #e0ebfb;
+      border-radius: 24px;
+      box-shadow: 0 18px 45px rgba(12, 46, 92, 0.12);
+      padding: 40px 34px 60px;
     }
-
     .page-header {
       background: linear-gradient(135deg, #123d6b 0%, #1b5fff 100%);
-      color: #fff;
       border-radius: 18px;
-      padding: 26px 28px;
-      margin-bottom: 26px;
+      padding: 28px 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 12px 24px rgba(17, 66, 153, 0.18);
     }
-
-    h1, h2, h3 { margin-top: 0; color: var(--navy); }
     .page-header h1 {
       color: #fff;
       margin: 0 0 8px;
-      font-size: clamp(28px, 4vw, 40px);
+      font-size: clamp(28px, 3vw, 42px);
       text-align: center;
     }
     .subtitle {
-      margin: 0;
+      color: rgba(255,255,255,0.92);
       text-align: center;
-      color: rgba(255,255,255,0.9);
       font-weight: 700;
       letter-spacing: 0.04em;
+      margin: 0;
     }
-
-    .intro {
-      background: var(--sky);
-      border-left: 6px solid var(--blue);
-      padding: 16px 18px;
-      border-radius: 12px;
-      margin-bottom: 24px;
-    }
-
-    hr {
-      border: none;
-      border-top: 2px solid var(--line);
-      margin: 32px 0;
-    }
-
+    h1, h2, h3, h4 { color: var(--navy); }
     h2 {
       font-size: clamp(22px, 2vw, 30px);
       border-bottom: 2px solid var(--line);
-      padding-bottom: 6px;
-      margin-bottom: 12px;
+      padding-bottom: 8px;
+      margin: 30px 0 12px;
     }
-
-    h3 { font-size: 20px; margin: 26px 0 12px; }
+    h3 { font-size: 20px; margin: 24px 0 10px; }
+    h4 { font-size: 17px; margin: 18px 0 10px; }
     p, li { font-size: 15px; }
-    ul, ol { padding-left: 22px; margin: 12px 0 16px; }
-
-    .note-box, .example-box, .key-point {
-      margin: 20px 0;
-      padding: 14px 16px;
-      border-radius: 12px;
-    }
-
-    .note-box { background: #fff3e0; border-left: 5px solid var(--amber); }
-    .example-box { background: var(--sky); border-left: 5px solid var(--blue); }
-    .key-point { background: #edf8ee; border-left: 5px solid var(--green); }
-
+    ul, ol { padding-left: 24px; margin: 12px 0 16px; }
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 18px 0 22px;
-      background: #fff;
+      margin: 18px 0 24px;
+      background: white;
     }
     th, td {
       border: 1px solid #bfd7f3;
@@ -110,7 +80,16 @@
       text-align: left;
     }
     tr:nth-child(even) td { background: #f4f9ff; }
-
+    .intro, .note-box, .example-box, .key-point, .quiz-box {
+      margin: 20px 0;
+      padding: 16px 18px;
+      border-radius: 12px;
+    }
+    .intro { background: var(--sky); border-left: 6px solid var(--blue); }
+    .note-box { background: #fff3e0; border-left: 5px solid var(--amber); }
+    .example-box { background: var(--sky); border-left: 5px solid var(--blue); }
+    .key-point { background: #edf8ee; border-left: 5px solid var(--green); }
+    .quiz-box { background: #f6f8ff; border: 1px solid #dfe9f7; }
     code {
       background: #edf5ff;
       border: 1px solid #d4e6ff;
@@ -120,11 +99,10 @@
     }
     .footer {
       text-align: center;
-      margin-top: 28px;
+      margin-top: 34px;
       color: #4a5d78;
       font-weight: 700;
     }
-
     @media (max-width: 700px) {
       .document { padding: 20px 16px 40px; }
       table { display: block; overflow-x: auto; }
@@ -139,128 +117,285 @@
     </header>
 
     <div class="intro">
-      Differential calculus studies how quantities change. It focuses on the derivative, which represents the instantaneous rate of change of a function and is essential in modeling motion, optimization, and growth.
+      Differential calculus is the branch of mathematics that measures change. It answers questions like: How fast is a quantity changing? At what point does a function reach a maximum or minimum? What is the slope of a curve at a given point?
     </div>
 
-    <h2>1. Functions and Limits</h2>
-    <p>A <strong>function</strong> is a rule that assigns each input to exactly one output. Example: <code>f(x) = x^2 + 3x + 2</code>.</p>
+    <h2>1. Introduction to Calculus</h2>
+    <p>Calculus is the study of continuous change. It provides methods for analyzing motion, growth, decay, optimization, and many other processes in science, engineering, and computer applications.</p>
+    <p>It has two main branches: differential calculus and integral calculus. Differential calculus focuses on rates of change and slopes, while integral calculus focuses on accumulation and area.</p>
 
-    <h3>1.1 Limit of a Function</h3>
-    <p>The limit of a function describes the value the function approaches as the input approaches a specified number.</p>
+    <h3>1.1 Why Calculus Matters</h3>
+    <ul>
+      <li>Physics uses it to describe motion and acceleration.</li>
+      <li>Economics uses it to optimize profit and cost.</li>
+      <li>Engineering uses it in design and control systems.</li>
+      <li>Biology uses it to model population growth.</li>
+      <li>Computer graphics uses it for curves and transformation algorithms.</li>
+    </ul>
+
+    <h2>2. Functions</h2>
+    <p>A function is a rule that assigns each input value to exactly one output value.</p>
+    <p>Example: <code>f(x) = 3x^2 + 2x - 5</code></p>
+    <h3>2.1 Domain and Range</h3>
+    <ul>
+      <li><strong>Domain:</strong> all possible input values</li>
+      <li><strong>Range:</strong> all possible output values</li>
+    </ul>
+    <div class="example-box">
+      For <code>f(x) = x^2</code>, the domain is all real numbers and the range is all non-negative real numbers.
+    </div>
+
+    <h3>2.2 Types of Functions</h3>
+    <table>
+      <thead>
+        <tr><th>Type</th><th>Example</th><th>Property</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Linear</td><td><code>y = mx + c</code></td><td>Straight line</td></tr>
+        <tr><td>Quadratic</td><td><code>y = ax^2 + bx + c</code></td><td>Parabola</td></tr>
+        <tr><td>Polynomial</td><td><code>y = x^3 - 4x + 1</code></td><td>Multiple terms</td></tr>
+        <tr><td>Exponential</td><td><code>y = e^x</code></td><td>Rapid growth</td></tr>
+        <tr><td>Logarithmic</td><td><code>y = ln x</code></td><td>Inverse of exponential</td></tr>
+      </tbody>
+    </table>
+
+    <h2>3. Limits</h2>
+    <p>A limit describes the value a function approaches as the input gets close to some value.</p>
     <p><code>lim x→a f(x) = L</code></p>
-    <div class="note-box">
-      A limit may exist even when the function is not defined exactly at the point.
+    <p>This means that as <code>x</code> approaches <code>a</code>, <code>f(x)</code> approaches <code>L</code>.</p>
+
+    <h3>3.1 Why Limits Matter</h3>
+    <p>Limits are the foundation of derivatives. Without limits, calculus would not be possible.</p>
+    <div class="example-box">
+      <strong>Example:</strong> <code>lim x→3 (x^2 - 9)/(x - 3)</code> simplifies by factoring to <code>(x - 3)(x + 3)/(x - 3)</code>, leaving <code>x + 3</code>. Then as <code>x→3</code>, the limit is 6.
     </div>
 
-    <h3>1.2 Continuity</h3>
-    <p>A function is continuous at <code>x = a</code> if:</p>
+    <h3>3.2 One-sided Limits</h3>
+    <ul>
+      <li><strong>Left-hand limit:</strong> as x approaches from below</li>
+      <li><strong>Right-hand limit:</strong> as x approaches from above</li>
+    </ul>
+    <p>For a two-sided limit to exist, both one-sided limits must agree.</p>
+
+    <h3>3.3 Infinite Limits and Vertical Asymptotes</h3>
+    <p>If a function grows without bound near a point, the limit may be infinite. This often indicates a vertical asymptote.</p>
+
+    <h2>4. Continuity</h2>
+    <p>A function is continuous at <code>x = a</code> if the following hold:</p>
     <ul>
       <li><code>f(a)</code> exists</li>
       <li><code>lim x→a f(x)</code> exists</li>
       <li><code>lim x→a f(x) = f(a)</code></li>
     </ul>
 
-    <h2>2. Derivative</h2>
-    <p>The derivative gives the rate of change of a function and is defined by the limit:</p>
-    <p><code>f'(x) = lim h→0 [f(x+h) - f(x)] / h</code></p>
-    <p>Interpretations of the derivative include:</p>
+    <p>Many algebraic functions are continuous over their domain, but functions can be discontinuous at certain points.</p>
+    <div class="note-box">
+      Discontinuity often occurs when a function is undefined, has a hole, or has an asymptote.
+    </div>
+
+    <h2>5. Derivative</h2>
+    <p>The derivative of a function measures how the function changes at a point. It gives the slope of the tangent line to the curve at that point.</p>
+    <p><code>f'(x) = lim h→0 [f(x+h)-f(x)]/h</code></p>
+
+    <h3>5.1 Different Notations</h3>
+    <p>The derivative can be written in several ways:</p>
     <ul>
-      <li>slope of the tangent to the curve</li>
-      <li>rate of change</li>
-      <li>velocity if distance is a function of time</li>
+      <li><code>f'(x)</code></li>
+      <li><code>dy/dx</code></li>
+      <li><code>D[f(x)]</code></li>
     </ul>
 
-    <h2>3. Standard Differentiation Rules</h2>
+    <h3>5.2 Geometric Meaning</h3>
+    <p>The derivative at a point is the slope of the tangent to the curve at that point. This helps understand how the graph rises or falls.</p>
+
+    <h3>5.3 Physical Meaning</h3>
+    <p>If a function gives displacement over time, then the derivative gives velocity. If velocity changes, the derivative gives acceleration.</p>
+
+    <h2>6. Differentiation Rules</h2>
+
+    <h3>6.1 Constant Rule</h3>
+    <p>If <code>f(x) = c</code>, then <code>f'(x) = 0</code>.</p>
+
+    <h3>6.2 Power Rule</h3>
+    <p>If <code>f(x) = x^n</code>, then <code>f'(x) = n x^{n-1}</code>.</p>
+    <div class="example-box">
+      <code>f(x) = x^5</code> → <code>f'(x) = 5x^4</code>
+    </div>
+
+    <h3>6.3 Constant Multiple Rule</h3>
+    <p><code>d/dx [k f(x)] = k f'(x)</code></p>
+
+    <h3>6.4 Sum and Difference Rule</h3>
+    <p><code>d/dx [f(x) ± g(x)] = f'(x) ± g'(x)</code></p>
+
+    <h3>6.5 Product Rule</h3>
+    <p>If <code>y = u v</code>, then:</p>
+    <p><code>dy/dx = u dv/dx + v du/dx</code></p>
+    <div class="example-box">
+      <strong>Example:</strong> Differentiate <code>y = x^2 sin x</code>.<br />
+      Let <code>u = x^2</code> and <code>v = sin x</code>.<br />
+      <code>dy/dx = x^2 cos x + 2x sin x</code>
+    </div>
+
+    <h3>6.6 Quotient Rule</h3>
+    <p>If <code>y = u/v</code>, then:</p>
+    <p><code>dy/dx = (v du/dx - u dv/dx) / v^2</code></p>
+
+    <h3>6.7 Chain Rule</h3>
+    <p>If <code>y = f(g(x))</code>, then:</p>
+    <p><code>dy/dx = f'(g(x)) g'(x)</code></p>
+    <div class="example-box">
+      <strong>Example:</strong> Differentiate <code>y = (3x + 2)^4</code>.<br />
+      Let <code>u = 3x + 2</code>, so <code>y = u^4</code>.<br />
+      <code>dy/dx = 4u^3 × 3 = 12(3x + 2)^3</code>
+    </div>
+
+    <h2>7. Derivatives of Trigonometric Functions</h2>
     <table>
       <thead>
         <tr><th>Function</th><th>Derivative</th></tr>
       </thead>
       <tbody>
-        <tr><td><code>c</code></td><td><code>0</code></td></tr>
-        <tr><td><code>x^n</code></td><td><code>n x^{n-1}</code></td></tr>
         <tr><td><code>sin x</code></td><td><code>cos x</code></td></tr>
         <tr><td><code>cos x</code></td><td><code>-sin x</code></td></tr>
-        <tr><td><code>e^x</code></td><td><code>e^x</code></td></tr>
-        <tr><td><code>ln x</code></td><td><code>1/x</code></td></tr>
+        <tr><td><code>tan x</code></td><td><code>sec^2 x</code></td></tr>
+        <tr><td><code>sec x</code></td><td><code>sec x tan x</code></td></tr>
+        <tr><td><code>cot x</code></td><td><code>-csc^2 x</code></td></tr>
+        <tr><td><code>csc x</code></td><td><code>-csc x cot x</code></td></tr>
       </tbody>
     </table>
 
-    <h3>3.1 Sum and Difference Rule</h3>
-    <p><code>d/dx [f(x) ± g(x)] = f'(x) ± g'(x)</code></p>
+    <h2>8. Exponential and Logarithmic Functions</h2>
+    <table>
+      <thead>
+        <tr><th>Function</th><th>Derivative</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>e^x</code></td><td><code>e^x</code></td></tr>
+        <tr><td><code>a^x</code></td><td><code>a^x ln a</code></td></tr>
+        <tr><td><code>ln x</code></td><td><code>1/x</code></td></tr>
+        <tr><td><code>log_a x</code></td><td><code>1/(x ln a)</code></td></tr>
+      </tbody>
+    </table>
 
-    <h3>3.2 Product Rule</h3>
-    <p>If <code>y = uv</code>, then</p>
-    <p><code>dy/dx = u dv/dx + v du/dx</code></p>
-
-    <h3>3.3 Quotient Rule</h3>
-    <p>If <code>y = u/v</code>, then</p>
-    <p><code>dy/dx = (v du/dx - u dv/dx) / v^2</code></p>
-
-    <h3>3.4 Chain Rule</h3>
-    <p>If <code>y = f(g(x))</code>, then</p>
-    <p><code>dy/dx = f'(g(x)) g'(x)</code></p>
-
+    <h2>9. Higher Order Derivatives</h2>
+    <p>The second derivative is the derivative of the first derivative and is written as <code>f''(x)</code>.</p>
+    <p>Higher derivatives are used in:</p>
+    <ul>
+      <li>acceleration</li>
+      <li>curvature</li>
+      <li>optimization</li>
+      <li>motion analysis</li>
+    </ul>
     <div class="example-box">
-      <strong>Example:</strong> Differentiate <code>y = (3x^2 + 5)^4</code><br />
-      Let <code>u = 3x^2 + 5</code> so <code>y = u^4</code>.<br />
-      <code>dy/dx = 4u^3 × 6x = 24x(3x^2 + 5)^3</code>
+      If <code>s(t)</code> gives displacement, then <code>s'(t)</code> gives velocity and <code>s''(t)</code> gives acceleration.
     </div>
 
-    <h2>4. Higher Derivatives</h2>
-    <p>The second derivative is the derivative of the first derivative. It is often used in curve analysis and motion studies.</p>
-    <p><code>f''(x)</code> helps identify acceleration and concavity.</p>
+    <h2>10. Tangent and Normal Lines</h2>
+    <h3>10.1 Tangent Line</h3>
+    <p>The tangent line to a curve at a point has slope <code>f'(a)</code>.</p>
+    <p>The equation can be written as:</p>
+    <p><code>y - f(a) = f'(a)(x - a)</code></p>
 
-    <h2>5. Applications of Differentiation</h2>
+    <h3>10.2 Normal Line</h3>
+    <p>The normal line is perpendicular to the tangent line. If the tangent slope is <code>m</code>, then the normal slope is <code>-1/m</code> (provided <code>m ≠ 0</code>).</p>
 
-    <h3>5.1 Tangent and Normal</h3>
+    <h2>11. Applications of Differentiation</h2>
+
+    <h3>11.1 Rates of Change</h3>
+    <p>Derivatives describe how fast quantities change with respect to time or another variable. They are used in velocity, acceleration, population growth, and fluid movement.</p>
+
+    <h3>11.2 Increasing and Decreasing Functions</h3>
     <ul>
-      <li>The slope of the tangent at <code>x = a</code> is <code>f'(a)</code>.</li>
-      <li>The normal is perpendicular to the tangent.</li>
+      <li>If <code>f'(x) > 0</code>, the function is increasing.</li>
+      <li>If <code>f'(x) < 0</code>, the function is decreasing.</li>
     </ul>
 
-    <h3>5.2 Rates of Change</h3>
-    <p>Derivatives are used to show how one quantity changes with respect to another.</p>
-    <p>Example: velocity is the derivative of displacement with respect to time.</p>
+    <h3>11.3 Critical Points</h3>
+    <p>Critical points occur where <code>f'(x) = 0</code> or <code>f'(x)</code> is undefined. These may represent maxima, minima, or saddle-like behavior.</p>
 
-    <h3>5.3 Maxima and Minima</h3>
-    <p>To find turning points, solve <code>f'(x) = 0</code>.</p>
-    <ul>
-      <li>Positive to negative change indicates a maximum</li>
-      <li>Negative to positive change indicates a minimum</li>
-    </ul>
-
-    <div class="example-box">
-      <strong>Example:</strong> For <code>f(x) = x^2 - 4x + 3</code>, <code>f'(x) = 2x - 4</code>. Setting this to zero gives <code>x = 2</code>.
-    </div>
-
-    <h2>6. Implicit Differentiation</h2>
-    <p>If a function is not explicitly written as <code>y = f(x)</code>, we differentiate both sides with respect to x.</p>
-    <p>Example: <code>x^2 + y^2 = 25</code></p>
-    <p>Differentiate: <code>2x + 2y dy/dx = 0</code></p>
-    <p>Therefore <code>dy/dx = -x / y</code></p>
-
-    <h2>7. Summary of Formulas</h2>
-    <ul>
-      <li><code>d/dx(x^n) = n x^{n-1}</code></li>
-      <li><code>d/dx(sin x) = cos x</code></li>
-      <li><code>d/dx(cos x) = -sin x</code></li>
-      <li><code>d/dx(e^x) = e^x</code></li>
-      <li><code>d/dx(ln x) = 1/x</code></li>
-      <li><code>d/dx(uv) = u v' + v u'</code></li>
-      <li><code>d/dx(u/v) = (v u' - u v')/v^2</code></li>
-    </ul>
-
-    <h2>Revision Questions</h2>
+    <h3>11.4 Maximum and Minimum Values</h3>
+    <p>To find extrema:</p>
     <ol>
-      <li>What is the derivative of a function?</li>
-      <li>State the power rule for differentiation.</li>
-      <li>Differentiate <code>y = 3x^3 - 5x + 7</code>.</li>
-      <li>What does the derivative represent geometrically?</li>
-      <li>Explain the product rule and quotient rule.</li>
-      <li>How do you find turning points of a curve?</li>
+      <li>Differentiate the function</li>
+      <li>Solve <code>f'(x) = 0</code></li>
+      <li>Use a sign chart or second derivative test</li>
     </ol>
+    <div class="example-box">
+      For <code>f(x) = x^2 - 6x + 8</code>, <code>f'(x) = 2x - 6 = 0</code> gives <code>x = 3</code>. This is a minimum value because the parabola opens upward.
+    </div>
+
+    <h3>11.5 Second Derivative Test</h3>
+    <ul>
+      <li>If <code>f''(x) > 0</code> at a critical point, then it is a local minimum.</li>
+      <li>If <code>f''(x) < 0</code>, then it is a local maximum.</li>
+    </ul>
+
+    <h2>12. Implicit Differentiation</h2>
+    <p>Implicit differentiation is used when the relationship between variables is not written explicitly as <code>y = f(x)</code>.</p>
+    <p>Example: <code>x^2 + y^2 = 25</code></p>
+    <p>Differentiate both sides:</p>
+    <p><code>2x + 2y dy/dx = 0</code></p>
+    <p><code>dy/dx = -x / y</code></p>
+
+    <h2>13. Logarithmic Differentiation</h2>
+    <p>Useful for functions where the variable appears in both the base and exponent or when complicated products/quotients occur. Take natural logs before differentiating.</p>
+    <p>Example: <code>y = x^x</code></p>
+    <p>Take logs: <code>ln y = x ln x</code></p>
+    <p>Differentiate: <code>y'/y = ln x + 1</code></p>
+    <p><code>y' = x^x (ln x + 1)</code></p>
+
+    <h2>14. Applications in Optimization</h2>
+    <p>Optimization problems involve finding the maximum or minimum value of a function under given conditions.</p>
+    <p>Common examples include:</p>
+    <ul>
+      <li>minimum cost</li>
+      <li>maximum area</li>
+      <li>greatest profit</li>
+      <li>minimum material use</li>
+    </ul>
+    <div class="note-box">
+      In optimization, the derivative helps identify the best possible value under constraints.
+    </div>
+
+    <h2>15. Summary of Common Derivatives</h2>
+    <ul>
+      <li><code>d/dx (x^n) = n x^{n-1}</code></li>
+      <li><code>d/dx (sin x) = cos x</code></li>
+      <li><code>d/dx (cos x) = -sin x</code></li>
+      <li><code>d/dx (tan x) = sec^2 x</code></li>
+      <li><code>d/dx (e^x) = e^x</code></li>
+      <li><code>d/dx (ln x) = 1/x</code></li>
+      <li><code>d/dx (uv) = u v' + v u'</code></li>
+      <li><code>d/dx (u/v) = (v u' - u v')/v^2</code></li>
+    </ul>
+
+    <h2>16. Revision Exercises</h2>
+    <ol>
+      <li>Differentiate <code>f(x) = 4x^3 - 7x + 2</code>.</li>
+      <li>Find the derivative of <code>f(x) = x^2 sin x</code>.</li>
+      <li>Differentiate <code>f(x) = (2x + 1)^5</code>.</li>
+      <li>Find the turning point of <code>f(x) = x^2 - 8x + 15</code>.</li>
+      <li>Find the equation of the tangent to <code>y = x^2</code> at <code>x = 2</code>.</li>
+      <li>Differentiate <code>f(x) = ln x</code>.</li>
+      <li>Differentiate <code>y = e^{3x}</code>.</li>
+    </ol>
+
+    <div class="quiz-box">
+      <strong>Self-Test Questions</strong>
+      <ol>
+        <li>What is a derivative?</li>
+        <li>What does the derivative tell you about a graph?</li>
+        <li>When does a function have a maximum or minimum?</li>
+        <li>How is the chain rule applied?</li>
+        <li>Why are limits important in calculus?</li>
+      </ol>
+    </div>
 
     <p class="footer">MAT 121: Differential Calculus – Study Notes</p>
   </main>
 </body>
 </html>
+
+
+"""
