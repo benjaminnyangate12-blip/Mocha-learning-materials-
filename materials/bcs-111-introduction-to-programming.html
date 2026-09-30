@@ -5,122 +5,173 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BCS 111: Introduction to Programming</title>
   <style>
+    :root {
+      --navy: #0d47a1;
+      --blue: #1565c0;
+      --sky: #edf5ff;
+      --soft: #f7fbff;
+      --green: #2e7d32;
+      --amber: #ff9800;
+      --text: #1f2d3d;
+      --muted: #586b82;
+      --line: #dfeeff;
+    }
+
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #0e3c8c 0%, #1d5ec7 100%);
-      color: #1c2430;
-      line-height: 1.6;
+      line-height: 1.7;
+      color: var(--text);
+      background: linear-gradient(180deg, #eaf3ff 0%, #f8fbff 100%);
     }
+
     .document {
       max-width: 1100px;
-      margin: 30px auto;
-      background: rgba(255,255,255,0.96);
-      border-radius: 18px;
-      box-shadow: 0 18px 45px rgba(0,0,0,0.18);
-      padding: 36px 30px 50px;
+      margin: 32px auto;
+      background: rgba(255,255,255,0.98);
+      border-radius: 20px;
+      box-shadow: 0 18px 50px rgba(12, 46, 92, 0.12);
+      padding: 38px 30px 52px;
+      border: 1px solid #e2ebfb;
     }
-    h1, h2, h3 { color: #0d47a1; }
-    h1 {
-      font-size: clamp(26px, 4vw, 38px);
+
+    .page-header {
+      background: linear-gradient(135deg, #0c4ab7 0%, #1b5fff 100%);
+      color: #fff;
+      border-radius: 18px;
+      padding: 26px 28px;
+      margin-bottom: 26px;
+      box-shadow: 0 12px 24px rgba(17, 66, 153, 0.18);
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+      color: var(--navy);
+    }
+
+    .page-header h1 {
+      color: #fff;
       text-align: center;
       margin: 0 0 8px;
+      font-size: clamp(28px, 4vw, 40px);
     }
+
     .subtitle {
+      margin: 0;
       text-align: center;
+      color: rgba(255,255,255,0.9);
       font-weight: 700;
-      color: #1565c0;
-      margin: 0 0 24px;
+      letter-spacing: 0.04em;
     }
+
     .intro {
-      background: #edf5ff;
-      border-left: 6px solid #1565c0;
+      background: var(--sky);
+      border-left: 6px solid var(--blue);
       padding: 16px 18px;
-      border-radius: 10px;
-      margin-bottom: 26px;
+      border-radius: 12px;
+      margin-bottom: 24px;
     }
+
     hr {
       border: none;
-      border-top: 2px solid #dfeeff;
-      margin: 28px 0;
+      border-top: 2px solid var(--line);
+      margin: 32px 0;
     }
+
     h2 {
       font-size: clamp(22px, 2vw, 30px);
-      border-bottom: 2px solid #dfeeff;
+      border-bottom: 2px solid var(--line);
       padding-bottom: 6px;
-      margin-top: 0;
+      margin-bottom: 12px;
     }
+
     h3 {
       font-size: 20px;
-      margin: 22px 0 10px;
+      margin: 26px 0 12px;
     }
+
     p, li {
       font-size: 15px;
     }
+
     ul, ol {
       padding-left: 22px;
-      margin: 10px 0 14px;
+      margin: 12px 0 16px;
     }
+
     .note-box, .example-box, .key-point {
-      margin: 18px 0;
-      padding: 14px 15px;
-      border-radius: 10px;
+      margin: 20px 0;
+      padding: 14px 16px;
+      border-radius: 12px;
     }
+
     .note-box {
       background: #fff3e0;
-      border-left: 5px solid #fb8c00;
+      border-left: 5px solid var(--amber);
     }
+
     .example-box {
-      background: #eaf3ff;
-      border-left: 5px solid #1565c0;
+      background: var(--sky);
+      border-left: 5px solid var(--blue);
     }
+
     .key-point {
       background: #edf8ee;
-      border-left: 5px solid #2e7d32;
+      border-left: 5px solid var(--green);
     }
+
     table {
       width: 100%;
       border-collapse: collapse;
+      margin: 18px 0 22px;
       background: #fff;
-      margin: 16px 0 20px;
     }
+
     th, td {
-      border: 1px solid #b8d0ee;
+      border: 1px solid #bfd7f3;
       padding: 10px 12px;
       vertical-align: top;
     }
+
     th {
-      background: #1565c0;
+      background: var(--blue);
       color: #fff;
+      font-weight: 700;
       text-align: left;
     }
+
     tr:nth-child(even) td {
-      background: #f3f8ff;
+      background: #f4f9ff;
     }
+
     code {
       background: #edf5ff;
-      border: 1px solid #d1e4ff;
-      border-radius: 4px;
+      border: 1px solid #d4e6ff;
+      border-radius: 5px;
       padding: 2px 6px;
       font-family: Consolas, monospace;
     }
+
     pre {
-      background: #eef7ff;
-      border: 1px solid #cfe2ff;
-      padding: 14px;
-      border-radius: 10px;
       overflow-x: auto;
+      background: #eef7ff;
+      border: 1px solid #d7e6ff;
+      border-radius: 12px;
+      padding: 14px;
       font-family: Consolas, monospace;
       font-size: 12px;
       line-height: 1.5;
     }
+
     .footer {
       text-align: center;
       margin-top: 28px;
-      color: #42506a;
+      color: #4a5d78;
       font-weight: 700;
     }
+
     @media (max-width: 700px) {
       .document { padding: 20px 16px 40px; }
       table { display: block; overflow-x: auto; }
@@ -129,92 +180,78 @@
 </head>
 <body>
   <main class="document">
-    <h1>BCS 111: INTRODUCTION TO PROGRAMMING</h1>
-    <p class="subtitle">Detailed Notes and Study Guide</p>
+    <header class="page-header">
+      <h1>BCS 111: INTRODUCTION TO PROGRAMMING</h1>
+      <p class="subtitle">Detailed Study Notes</p>
+    </header>
 
     <div class="intro">
-      This unit introduces the fundamentals of programming and problem solving. It teaches students how computers process instructions, how to design algorithms, and how to write programs using structured programming concepts.
+      This course introduces students to the basic ideas of programming, problem solving, algorithm design, and software development. It builds the logical thinking required to write correct and efficient programs.
     </div>
 
     <h2>1. What is Programming?</h2>
-    <p>Programming is the process of creating a sequence of instructions that a computer can follow to solve a problem or perform a task.</p>
+    <p>Programming is the process of writing instructions that a computer follows to solve a problem or complete a task.</p>
     <div class="key-point">
-      <strong>Key idea:</strong> A program is written to tell the computer what to do, in what order, and under what conditions.
+      <strong>Key idea:</strong> A program is a set of clear instructions that tells the computer what to do, in what order, and under what conditions.
     </div>
 
     <h3>1.1 Why Learn Programming?</h3>
     <ul>
-      <li>It develops problem-solving skills.</li>
-      <li>It helps in building software applications.</li>
-      <li>It is used in web development, data analysis, AI, and automation.</li>
-      <li>It improves logical and computational thinking.</li>
+      <li>Builds problem-solving ability</li>
+      <li>Supports software and app development</li>
+      <li>Improves logical and structured thinking</li>
+      <li>Useful in automation, science, business, and AI</li>
+      <li>Needed for many modern tech careers</li>
     </ul>
 
-    <h3>1.2 Components of a Computer System</h3>
+    <h3>1.2 Basic Computer Components</h3>
     <table>
       <thead>
-        <tr><th>Component</th><th>Role</th></tr>
+        <tr><th>Component</th><th>Purpose</th></tr>
       </thead>
       <tbody>
-        <tr><td>Input devices</td><td>Receive data from outside the system</td></tr>
-        <tr><td>CPU</td><td>Processes instructions</td></tr>
-        <tr><td>Memory</td><td>Stores program instructions and data temporarily</td></tr>
-        <tr><td>Output devices</td><td>Display or produce results</td></tr>
-        <tr><td>Storage</td><td>Stores data permanently</td></tr>
+        <tr><td>Input devices</td><td>Receive data from users or other systems</td></tr>
+        <tr><td>CPU</td><td>Processes instructions and performs calculations</td></tr>
+        <tr><td>Memory</td><td>Stores data and instructions temporarily</td></tr>
+        <tr><td>Storage</td><td>Holds information permanently</td></tr>
+        <tr><td>Output devices</td><td>Show or produce results</td></tr>
       </tbody>
     </table>
 
-    <h2>2. Problem Solving and Algorithm Development</h2>
-    <p>An <strong>algorithm</strong> is a step-by-step procedure for solving a problem.</p>
+    <h2>2. Problem Solving and Algorithms</h2>
+    <p>An <strong>algorithm</strong> is a well-defined sequence of steps used to solve a problem.</p>
     <div class="example-box">
-      <strong>Example algorithm for adding two numbers:</strong>
+      <strong>Example algorithm to add two numbers:</strong>
       <ol>
         <li>Start</li>
-        <li>Input first number</li>
-        <li>Input second number</li>
-        <li>Compute sum</li>
-        <li>Display sum</li>
+        <li>Read first number</li>
+        <li>Read second number</li>
+        <li>Calculate sum</li>
+        <li>Display result</li>
         <li>Stop</li>
       </ol>
     </div>
 
     <h3>Characteristics of a Good Algorithm</h3>
     <ul>
-      <li>Clear and unambiguous</li>
-      <li>Finite steps</li>
-      <li>Input and output defined</li>
-      <li>Efficient</li>
-      <li>Easy to understand and implement</li>
+      <li>Clear and precise</li>
+      <li>Finite number of steps</li>
+      <li>Produces output</li>
+      <li>Uses inputs correctly</li>
+      <li>Efficient and understandable</li>
     </ul>
 
-    <h3>Flowcharts</h3>
-    <p>A flowchart is a graphical representation of an algorithm using symbols such as start/end, process, decision, and input/output.</p>
-    <pre>Start
-  |
-  v
-Input values
-  |
-  v
-Process
-  |
-  v
-Decision
-  |
-  +---- Yes ----> Output
-  |
-  +---- No -----> Repeat / End</pre>
-
     <h2>3. Programming Languages</h2>
-    <p>A programming language is a formal language used to write software instructions. Examples include Python, C++, Java, JavaScript, and C.</p>
+    <p>A programming language is a formal language used to write instructions for a computer.</p>
     <table>
       <thead>
         <tr><th>Language</th><th>Typical use</th></tr>
       </thead>
       <tbody>
-        <tr><td>Python</td><td>Beginners, scripting, AI</td></tr>
-        <tr><td>C</td><td>System programming</td></tr>
-        <tr><td>C++</td><td>Applications and games</td></tr>
-        <tr><td>Java</td><td>Enterprise and mobile software</td></tr>
+        <tr><td>Python</td><td>Beginner-friendly and data science</td></tr>
+        <tr><td>C</td><td>System and embedded programming</td></tr>
+        <tr><td>C++</td><td>Applications, games, and performance systems</td></tr>
+        <tr><td>Java</td><td>Enterprise and Android development</td></tr>
         <tr><td>JavaScript</td><td>Web applications</td></tr>
       </tbody>
     </table>
@@ -222,107 +259,99 @@ Decision
     <h2>4. Basic Programming Concepts</h2>
 
     <h3>4.1 Variables</h3>
-    <p>A variable is a named memory location used to store data.</p>
+    <p>A variable is a named storage location used to hold data while a program runs.</p>
     <pre>age = 20
 name = "Mary"
 score = 90.5</pre>
-    <p>Variables are assigned values that can change during program execution.</p>
 
     <h3>4.2 Data Types</h3>
     <table>
       <thead>
-        <tr><th>Data Type</th><th>Example</th><th>Description</th></tr>
+        <tr><th>Type</th><th>Example</th><th>Use</th></tr>
       </thead>
       <tbody>
-        <tr><td>Integer</td><td>10</td><td>Whole numbers</td></tr>
-        <tr><td>Float/Double</td><td>18.5</td><td>Numbers with decimals</td></tr>
-        <tr><td>Character</td><td>'A'</td><td>Single character</td></tr>
-        <tr><td>String</td><td>"Hello"</td><td>Sequence of characters</td></tr>
-        <tr><td>Boolean</td><td>true/false</td><td>Logical conditions</td></tr>
+        <tr><td>Integer</td><td>25</td><td>Whole numbers</td></tr>
+        <tr><td>Float</td><td>18.5</td><td>Decimals</td></tr>
+        <tr><td>String</td><td>"Hello"</td><td>Text</td></tr>
+        <tr><td>Boolean</td><td>true</td><td>Logical values</td></tr>
       </tbody>
     </table>
 
     <h3>4.3 Operators</h3>
-    <table>
-      <thead>
-        <tr><th>Type</th><th>Examples</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Arithmetic</td><td>+, -, *, /, %</td></tr>
-        <tr><td>Comparison</td><td>==, !=, >, <, >=, <=</td></tr>
-        <tr><td>Logical</td><td>&& , || , !</td></tr>
-        <tr><td>Assignment</td><td>=, +=, -=</td></tr>
-      </tbody>
-    </table>
+    <ul>
+      <li>Arithmetic: <code>+, -, *, /, %</code></li>
+      <li>Comparison: <code>==, !=, >, <, >=, <=</code></li>
+      <li>Logical: <code>&& , || , !</code></li>
+      <li>Assignment: <code>=, +=, -=</code></li>
+    </ul>
 
     <h2>5. Control Structures</h2>
 
     <h3>5.1 Sequence</h3>
-    <p>Instructions are executed one after another in order.</p>
+    <p>Statements are performed in order from top to bottom.</p>
 
     <h3>5.2 Selection</h3>
-    <p>Selection allows a program to choose different actions depending on a condition.</p>
+    <p>Selection allows a program to make decisions based on conditions.</p>
     <pre>if age >= 18:
     print("Adult")
 else:
     print("Minor")</pre>
 
-    <h3>5.3 Iteration (Loops)</h3>
+    <h3>5.3 Iteration</h3>
     <p>Loops repeat a block of code multiple times.</p>
     <pre>for i in range(1, 6):
     print(i)</pre>
-    <p>Common loop types are <strong>for</strong> loops and <strong>while</strong> loops.</p>
+    <p>Common loops include <strong>for</strong> and <strong>while</strong> loops.</p>
 
-    <h2>6. Functions and Modular Programming</h2>
-    <p>A function is a reusable block of code that performs a specific task.</p>
+    <h2>6. Functions</h2>
+    <p>A function is a reusable block of instructions designed to perform a specific task.</p>
     <pre>def add(a, b):
     return a + b
 
 print(add(5, 3))</pre>
     <div class="key-point">
-      <strong>Advantages of functions:</strong> code reuse, easier debugging, simpler program structure, and maintainability.
+      <strong>Advantages:</strong> code reuse, simpler maintenance, easier debugging, and cleaner structure.
     </div>
 
-    <h2>7. Arrays and Data Structures</h2>
-    <p>An array stores multiple values of the same type in one variable.</p>
+    <h2>7. Arrays and Data Collection</h2>
+    <p>An array stores multiple values of the same type in a single variable.</p>
     <pre>numbers = [2, 4, 6, 8, 10]
 print(numbers[0])</pre>
-    <p>Arrays are useful for storing collections of data such as marks, names, temperatures, or test scores.</p>
 
     <h2>8. Input and Output</h2>
-    <p>Input allows the user to provide data, while output displays the result.</p>
+    <p>Programs often take input from the user and display result via output.</p>
     <pre>name = input("Enter your name: ")
 print("Hello", name)</pre>
 
-    <h2>9. Error Handling and Debugging</h2>
-    <p>Programming errors may be of several types:</p>
+    <h2>9. Errors and Debugging</h2>
+    <p>Programming errors can be classified as syntax, logical, or runtime errors.</p>
     <ul>
-      <li><strong>Syntax errors:</strong> rules of the language are violated</li>
-      <li><strong>Logical errors:</strong> code runs but gives wrong results</li>
-      <li><strong>Runtime errors:</strong> occur during execution</li>
+      <li><strong>Syntax error:</strong> breaks language rules</li>
+      <li><strong>Logical error:</strong> runs but gives wrong result</li>
+      <li><strong>Runtime error:</strong> happens while executing</li>
     </ul>
     <div class="note-box">
-      Debugging is the process of finding and fixing errors in a program. It is an essential part of software development.
+      Debugging is a necessary skill. It is the process of locating and fixing program errors to ensure a program works correctly.
     </div>
 
-    <h2>10. Program Development Process</h2>
+    <h2>10. Program Development Procedure</h2>
     <ol>
       <li>Understand the problem</li>
       <li>Design an algorithm</li>
-      <li>Write program code</li>
+      <li>Write the code</li>
       <li>Test and debug</li>
       <li>Improve and maintain</li>
     </ol>
 
     <h2>11. Summary</h2>
-    <p>Programming is the act of creating instructions for computers. It combines logical thinking, problem solving, and mathematical reasoning. A good programmer writes clear code, tests carefully, and designs solutions that are efficient and easy to maintain.</p>
+    <p>Programming combines logic, structure, and creativity. It teaches us how to solve problems systematically by converting ideas into instructions a computer can execute.</p>
 
     <h2>Quick Revision Questions</h2>
     <ol>
       <li>What is programming?</li>
       <li>Differentiate between an algorithm and a program.</li>
       <li>What is a variable?</li>
-      <li>Explain the difference between sequence, selection, and looping.</li>
+      <li>Explain the difference between sequence, selection, and repetition.</li>
       <li>What is the purpose of a function?</li>
       <li>Why is debugging important?</li>
     </ol>

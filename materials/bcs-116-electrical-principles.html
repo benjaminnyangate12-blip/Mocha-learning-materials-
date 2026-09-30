@@ -5,95 +5,126 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BCS 116: Electrical Principles</title>
   <style>
+    :root {
+      --navy: #0d47a1;
+      --blue: #1565c0;
+      --sky: #edf5ff;
+      --green: #2e7d32;
+      --amber: #ff9800;
+      --text: #1f2d3d;
+      --muted: #586b82;
+      --line: #dfeeff;
+    }
+
     * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #153c74 0%, #2359a5 100%);
-      color: #1d2430;
-      line-height: 1.6;
+      line-height: 1.7;
+      color: var(--text);
+      background: linear-gradient(180deg, #eef5ff 0%, #f8fbff 100%);
     }
+
     .document {
       max-width: 1100px;
-      margin: 30px auto;
-      background: rgba(255,255,255,0.96);
-      border-radius: 18px;
-      box-shadow: 0 18px 45px rgba(0,0,0,0.15);
-      padding: 36px 30px 50px;
+      margin: 32px auto;
+      background: rgba(255,255,255,0.98);
+      border-radius: 20px;
+      box-shadow: 0 18px 50px rgba(12, 46, 92, 0.12);
+      padding: 38px 30px 52px;
+      border: 1px solid #e2ebfb;
     }
-    h1, h2, h3 { color: #0d47a1; }
-    h1 {
+
+    .page-header {
+      background: linear-gradient(135deg, #163b73 0%, #1b5fff 100%);
+      color: #fff;
+      border-radius: 18px;
+      padding: 26px 28px;
+      margin-bottom: 26px;
+    }
+
+    h1, h2, h3 { margin-top: 0; color: var(--navy); }
+    .page-header h1 {
+      color: #fff;
+      margin: 0 0 8px;
+      font-size: clamp(28px, 4vw, 40px);
       text-align: center;
-      margin: 0 0 10px;
-      font-size: clamp(26px, 4vw, 38px);
     }
     .subtitle {
+      margin: 0;
       text-align: center;
+      color: rgba(255,255,255,0.9);
       font-weight: 700;
-      color: #1565c0;
-      margin: 0 0 24px;
+      letter-spacing: 0.04em;
     }
+
     .intro {
-      background: #edf5ff;
-      border-left: 6px solid #1565c0;
+      background: var(--sky);
+      border-left: 6px solid var(--blue);
       padding: 16px 18px;
-      border-radius: 10px;
+      border-radius: 12px;
       margin-bottom: 24px;
     }
+
     hr {
       border: none;
-      border-top: 2px solid #dfeeff;
-      margin: 28px 0;
+      border-top: 2px solid var(--line);
+      margin: 32px 0;
     }
+
     h2 {
-      border-bottom: 2px solid #dfeeff;
-      padding-bottom: 6px;
       font-size: clamp(22px, 2vw, 30px);
+      border-bottom: 2px solid var(--line);
+      padding-bottom: 6px;
+      margin-bottom: 12px;
     }
-    h3 {
-      font-size: 20px;
-      margin: 22px 0 10px;
-    }
+
+    h3 { font-size: 20px; margin: 26px 0 12px; }
     p, li { font-size: 15px; }
-    ul, ol { padding-left: 22px; }
+    ul, ol { padding-left: 22px; margin: 12px 0 16px; }
+
+    .note-box, .example-box, .key-point {
+      margin: 20px 0;
+      padding: 14px 16px;
+      border-radius: 12px;
+    }
+
+    .note-box { background: #fff3e0; border-left: 5px solid var(--amber); }
+    .example-box { background: var(--sky); border-left: 5px solid var(--blue); }
+    .key-point { background: #edf8ee; border-left: 5px solid var(--green); }
+
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 16px 0 20px;
+      margin: 18px 0 22px;
       background: #fff;
     }
     th, td {
-      border: 1px solid #bfd7f7;
+      border: 1px solid #bfd7f3;
       padding: 10px 12px;
       vertical-align: top;
     }
     th {
-      background: #1565c0;
+      background: var(--blue);
       color: #fff;
       text-align: left;
     }
     tr:nth-child(even) td { background: #f4f9ff; }
-    .note-box, .example-box, .key-point {
-      margin: 18px 0;
-      padding: 14px 16px;
-      border-radius: 10px;
-    }
-    .note-box { background: #fff3e0; border-left: 5px solid #fb8c00; }
-    .example-box { background: #eaf3ff; border-left: 5px solid #1565c0; }
-    .key-point { background: #edf8ee; border-left: 5px solid #2e7d32; }
+
     code {
-      font-family: Consolas, monospace;
-      padding: 2px 6px;
-      border-radius: 4px;
       background: #edf5ff;
-      border: 1px solid #d1e4ff;
+      border: 1px solid #d4e6ff;
+      border-radius: 5px;
+      padding: 2px 6px;
+      font-family: Consolas, monospace;
     }
     .footer {
       text-align: center;
-      color: #42506a;
-      font-weight: 700;
       margin-top: 28px;
+      color: #4a5d78;
+      font-weight: 700;
     }
+
     @media (max-width: 700px) {
       .document { padding: 20px 16px 40px; }
       table { display: block; overflow-x: auto; }
@@ -102,15 +133,17 @@
 </head>
 <body>
   <main class="document">
-    <h1>BCS 116: ELECTRICAL PRINCIPLES</h1>
-    <p class="subtitle">Detailed Theory and Practice Notes</p>
+    <header class="page-header">
+      <h1>BCS 116: ELECTRICAL PRINCIPLES</h1>
+      <p class="subtitle">Detailed Theory and Practice Notes</p>
+    </header>
 
     <div class="intro">
-      Electrical principles form the basis for understanding how electricity behaves in circuits and how electrical energy is transmitted, stored, and used in practical systems.
+      Electrical principles explain how electric charge, current, voltage, and power behave in circuits. These concepts are central to all electrical and electronic systems used in homes, schools, industries, and modern technology.
     </div>
 
     <h2>1. Fundamentals of Electricity</h2>
-    <p>Electricity is the movement of charge through a conductor. It is responsible for powering appliances, machines, lighting, and electronic systems.</p>
+    <p>Electricity is the movement of electric charges through a conducting medium. The flow of charge is current, while the force driving the charges is voltage.</p>
 
     <h3>1.1 Basic Electrical Quantities</h3>
     <table>
@@ -120,81 +153,66 @@
       <tbody>
         <tr><td>Current</td><td>I</td><td>Ampere (A)</td><td>Rate of flow of electric charge</td></tr>
         <tr><td>Voltage</td><td>V</td><td>Volt (V)</td><td>Potential difference driving the current</td></tr>
-        <tr><td>Resistance</td><td>R</td><td>Ohm (Ω)</td><td>Opposition to current flow</td></tr>
-        <tr><td>Power</td><td>P</td><td>Watt (W)</td><td>Rate at which electrical energy is used</td></tr>
-        <tr><td>Energy</td><td>E</td><td>Joule (J)</td><td>Total work done by electrical power</td></tr>
+        <tr><td>Resistance</td><td>R</td><td>Ohm (Ω)</td><td>Opposition to current</td></tr>
+        <tr><td>Power</td><td>P</td><td>Watt (W)</td><td>Rate at which energy is used</td></tr>
+        <tr><td>Energy</td><td>E</td><td>Joule (J)</td><td>Total work done</td></tr>
       </tbody>
     </table>
 
-    <h2>2. Ohm's Law</h2>
+    <h2>2. Ohm’s Law</h2>
     <p><code>V = IR</code></p>
-    <ul>
-      <li>Voltage is directly proportional to current when resistance is constant.</li>
-      <li>If resistance increases, current decreases for the same voltage.</li>
-    </ul>
+    <p>It shows the relationship between voltage, current, and resistance in a conductor.</p>
     <div class="example-box">
-      <strong>Example:</strong> If <code>V = 12V</code> and <code>R = 4Ω</code>, then <code>I = V/R = 12/4 = 3A</code>.
+      <strong>Example:</strong> If <code>V = 12V</code> and <code>R = 4Ω</code>, then <code>I = V/R = 3A</code>.
     </div>
 
     <h2>3. Electrical Circuits</h2>
-    <p>An electrical circuit is a complete path for electric current to flow.</p>
-    <ul>
-      <li><strong>Source:</strong> battery or generator</li>
-      <li><strong>Load:</strong> lamp, resistor, motor, or appliance</li>
-      <li><strong>Conductors:</strong> wires</li>
-      <li><strong>Control elements:</strong> switches and relays</li>
-    </ul>
+    <p>An electrical circuit is a complete path along which electric current can flow. It usually contains a source, conductors, control switches, and a load.</p>
 
     <h3>3.1 Series Circuits</h3>
-    <p>In a series circuit, components are connected one after another. Current is the same throughout the circuit.</p>
+    <p>In a series circuit, components are connected end-to-end, so the same current flows through each component.</p>
     <p><code>R_total = R1 + R2 + R3</code></p>
 
     <h3>3.2 Parallel Circuits</h3>
-    <p>In a parallel circuit, components are connected across the same voltage source. Voltage is the same across each branch.</p>
+    <p>Parallel circuits provide multiple paths, and the same voltage is applied to each branch.</p>
     <p><code>1/R_total = 1/R1 + 1/R2 + 1/R3</code></p>
 
     <h2>4. Power and Energy</h2>
-    <p>Power in a circuit can be calculated using:</p>
+    <p>Power is the rate at which electrical energy is converted or consumed.</p>
     <p><code>P = VI</code></p>
-    <p>Alternative forms include:</p>
-    <p><code>P = I^2R</code> and <code>P = V^2/R</code></p>
+    <p>Other equivalent formulas include:</p>
+    <p><code>P = I^2R</code> and <code>P = V^2 / R</code></p>
     <div class="key-point">
-      <strong>Energy:</strong> <code>E = Pt</code>, where <code>t</code> is time in seconds.
+      <strong>Energy formula:</strong> <code>E = Pt</code>, where <code>t</code> is time.
     </div>
 
-    <h2>5. Conductors, Insulators, and Semiconductors</h2>
+    <h2>5. Conductors, Insulators and Semiconductors</h2>
     <table>
       <thead>
-        <tr><th>Type</th><th>Behavior</th><th>Examples</th></tr>
+        <tr><th>Type</th><th>Property</th><th>Examples</th></tr>
       </thead>
       <tbody>
-        <tr><td>Conductors</td><td>Allow current to flow easily</td><td>Copper, aluminum</td></tr>
-        <tr><td>Insulators</td><td>Resist current flow</td><td>Rubber, glass, plastic</td></tr>
-        <tr><td>Semiconductors</td><td>Have intermediate conductivity</td><td>Silicon, germanium</td></tr>
+        <tr><td>Conductors</td><td>Allow current to flow freely</td><td>Copper, aluminum</td></tr>
+        <tr><td>Insulators</td><td>Prevent or resist current flow</td><td>Rubber, plastic, glass</td></tr>
+        <tr><td>Semiconductors</td><td>Conduct under some conditions</td><td>Silicon, germanium</td></tr>
       </tbody>
     </table>
 
     <h2>6. Electrical Components</h2>
     <ul>
-      <li><strong>Resistor:</strong> limits or controls current</li>
-      <li><strong>Capacitor:</strong> stores electrical energy</li>
+      <li><strong>Resistor:</strong> controls current</li>
+      <li><strong>Capacitor:</strong> stores electrical charge</li>
       <li><strong>Inductor:</strong> stores energy in a magnetic field</li>
       <li><strong>Switch:</strong> opens or closes a circuit</li>
-      <li><strong>Fuse:</strong> protects circuit from excessive current</li>
-      <li><strong>Battery:</strong> provides direct current</li>
+      <li><strong>Fuse:</strong> prevents excessive current</li>
+      <li><strong>Battery:</strong> provides DC source</li>
     </ul>
 
     <h2>7. Magnetism and Electromagnetism</h2>
-    <p>Magnetism is closely related to electricity. A current-carrying wire creates a magnetic field around it.</p>
+    <p>Electric current produces a magnetic field. This principle is used in relays, transformers, motors, and generators.</p>
     <div class="note-box">
-      <strong>Application:</strong> electromagnets are used in motors, relays, and transformers.
+      <strong>Application:</strong> electromagnets are widely used in electrical machines and switching devices.
     </div>
-
-    <h3>7.1 Faraday's Law</h3>
-    <p>Changing magnetic flux induces an electromotive force (EMF) in a conductor.</p>
-
-    <h3>7.2 Transformer</h3>
-    <p>A transformer transfers electrical energy between circuits using electromagnetic induction.</p>
 
     <h2>8. AC and DC</h2>
     <table>
@@ -202,40 +220,32 @@
         <tr><th>Type</th><th>Description</th><th>Example</th></tr>
       </thead>
       <tbody>
-        <tr><td>Direct current (DC)</td><td>Current flows in one direction only</td><td>Battery</td></tr>
-        <tr><td>Alternating current (AC)</td><td>Direction reverses periodically</td><td>Mains electricity</td></tr>
+        <tr><td>DC</td><td>Current flows in one direction</td><td>Battery</td></tr>
+        <tr><td>AC</td><td>Current direction changes continuously</td><td>Mains electricity</td></tr>
       </tbody>
     </table>
 
     <h2>9. Safety in Electrical Work</h2>
-    <p>Electrical systems can be dangerous. Safety is very important.</p>
+    <p>Electrical systems can be dangerous if not handled properly. Safety is essential.</p>
     <ul>
-      <li>Never work on live circuits without proper insulation</li>
-      <li>Use correct tools and protective equipment</li>
-      <li>Never overload sockets and extension leads</li>
-      <li>Always follow grounding and earthing procedures</li>
+      <li>Use proper insulation</li>
+      <li>Never work on live circuits without protection</li>
+      <li>Use correct tools and protective gear</li>
+      <li>Do not overload sockets</li>
+      <li>Ensure correct earthing and grounding</li>
     </ul>
 
-    <h2>10. Application Areas</h2>
-    <ul>
-      <li>Power generation and distribution</li>
-      <li>Household wiring</li>
-      <li>Industrial control systems</li>
-      <li>Electronics and communication systems</li>
-      <li>Motor and generator technology</li>
-    </ul>
-
-    <h2>11. Summary</h2>
-    <p>Electrical principles explain how charges, voltage, current, resistance, and power behave in circuits. These ideas are central to designing and maintaining electrical systems used in homes, industries, and modern digital technology.</p>
+    <h2>10. Summary</h2>
+    <p>Electrical principles form the foundation for understanding circuits and energy transfer. Concepts such as current, voltage, resistance, and power are essential in both everyday electrical applications and advanced electronic systems.</p>
 
     <h2>Revision Questions</h2>
     <ol>
-      <li>State Ohm's law and write the formula.</li>
-      <li>Differentiate between series and parallel circuits.</li>
+      <li>State Ohm’s law.</li>
+      <li>Differentiate between series and parallel connections.</li>
       <li>What is resistance?</li>
       <li>Explain the difference between AC and DC.</li>
-      <li>List three safety precautions in electrical work.</li>
-      <li>What is the purpose of a fuse or circuit breaker?</li>
+      <li>Why is grounding important in electrical systems?</li>
+      <li>List three electrical safety precautions.</li>
     </ol>
 
     <p class="footer">BCS 116: Electrical Principles – Study Notes</p>

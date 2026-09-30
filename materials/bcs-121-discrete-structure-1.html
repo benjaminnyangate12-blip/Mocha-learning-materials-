@@ -5,95 +5,126 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BCS 121: Discrete Structure 1</title>
   <style>
+    :root {
+      --navy: #0d47a1;
+      --blue: #1565c0;
+      --sky: #edf5ff;
+      --green: #2e7d32;
+      --amber: #ff9800;
+      --text: #1f2d3d;
+      --muted: #586b82;
+      --line: #dfeeff;
+    }
+
     * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #0d3b70 0%, #1d69b8 100%);
-      color: #1c2430;
-      line-height: 1.6;
+      line-height: 1.7;
+      color: var(--text);
+      background: linear-gradient(180deg, #eef5ff 0%, #f8fbff 100%);
     }
+
     .document {
       max-width: 1100px;
-      margin: 30px auto;
-      background: rgba(255,255,255,0.96);
-      border-radius: 18px;
-      box-shadow: 0 18px 45px rgba(0,0,0,0.15);
-      padding: 36px 30px 50px;
+      margin: 32px auto;
+      background: rgba(255,255,255,0.98);
+      border-radius: 20px;
+      box-shadow: 0 18px 50px rgba(12, 46, 92, 0.12);
+      padding: 38px 30px 52px;
+      border: 1px solid #e2ebfb;
     }
-    h1, h2, h3 { color: #0d47a1; }
-    h1 {
+
+    .page-header {
+      background: linear-gradient(135deg, #0d3b70 0%, #1b5fff 100%);
+      color: #fff;
+      border-radius: 18px;
+      padding: 26px 28px;
+      margin-bottom: 26px;
+    }
+
+    h1, h2, h3 { margin-top: 0; color: var(--navy); }
+    .page-header h1 {
+      color: #fff;
+      margin: 0 0 8px;
+      font-size: clamp(28px, 4vw, 40px);
       text-align: center;
-      margin: 0 0 10px;
-      font-size: clamp(26px, 4vw, 38px);
     }
     .subtitle {
+      margin: 0;
       text-align: center;
-      color: #1565c0;
+      color: rgba(255,255,255,0.9);
       font-weight: 700;
-      margin: 0 0 24px;
+      letter-spacing: 0.04em;
     }
+
     .intro {
-      background: #edf5ff;
-      border-left: 6px solid #1565c0;
+      background: var(--sky);
+      border-left: 6px solid var(--blue);
       padding: 16px 18px;
-      border-radius: 10px;
+      border-radius: 12px;
       margin-bottom: 24px;
     }
+
     hr {
       border: none;
-      border-top: 2px solid #dfeeff;
-      margin: 28px 0;
+      border-top: 2px solid var(--line);
+      margin: 32px 0;
     }
+
     h2 {
-      border-bottom: 2px solid #dfeeff;
-      padding-bottom: 6px;
       font-size: clamp(22px, 2vw, 30px);
+      border-bottom: 2px solid var(--line);
+      padding-bottom: 6px;
+      margin-bottom: 12px;
     }
-    h3 {
-      font-size: 20px;
-      margin: 22px 0 10px;
-    }
+
+    h3 { font-size: 20px; margin: 26px 0 12px; }
     p, li { font-size: 15px; }
-    ul, ol { padding-left: 22px; }
+    ul, ol { padding-left: 22px; margin: 12px 0 16px; }
+
+    .note-box, .example-box, .key-point {
+      margin: 20px 0;
+      padding: 14px 16px;
+      border-radius: 12px;
+    }
+
+    .note-box { background: #fff3e0; border-left: 5px solid var(--amber); }
+    .example-box { background: var(--sky); border-left: 5px solid var(--blue); }
+    .key-point { background: #edf8ee; border-left: 5px solid var(--green); }
+
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 16px 0 20px;
+      margin: 18px 0 22px;
       background: #fff;
     }
     th, td {
-      border: 1px solid #bfd5f3;
+      border: 1px solid #bfd7f3;
       padding: 10px 12px;
       vertical-align: top;
     }
     th {
-      background: #1565c0;
+      background: var(--blue);
       color: #fff;
       text-align: left;
     }
-    tr:nth-child(even) td { background: #f3f8ff; }
+    tr:nth-child(even) td { background: #f4f9ff; }
+
     code {
-      font-family: Consolas, monospace;
-      padding: 2px 6px;
-      border-radius: 4px;
       background: #edf5ff;
-      border: 1px solid #d2e4ff;
+      border: 1px solid #d4e6ff;
+      border-radius: 5px;
+      padding: 2px 6px;
+      font-family: Consolas, monospace;
     }
-    .note-box, .example-box, .key-point {
-      margin: 18px 0;
-      padding: 14px 16px;
-      border-radius: 10px;
-    }
-    .note-box { background: #fff3e0; border-left: 5px solid #ff9800; }
-    .example-box { background: #eaf3ff; border-left: 5px solid #1565c0; }
-    .key-point { background: #edf8ee; border-left: 5px solid #2e7d32; }
     .footer {
       text-align: center;
-      color: #42506a;
-      font-weight: 700;
       margin-top: 28px;
+      color: #4a5d78;
+      font-weight: 700;
     }
+
     @media (max-width: 700px) {
       .document { padding: 20px 16px 40px; }
       table { display: block; overflow-x: auto; }
@@ -102,27 +133,23 @@
 </head>
 <body>
   <main class="document">
-    <h1>BCS 121: DISCRETE STRUCTURE 1</h1>
-    <p class="subtitle">Detailed Study Notes</p>
+    <header class="page-header">
+      <h1>BCS 121: DISCRETE STRUCTURE 1</h1>
+      <p class="subtitle">Detailed Study Notes</p>
+    </header>
 
     <div class="intro">
-      Discrete structure is the mathematical foundation of computer science. It deals with countable, distinct, and separable objects, which are essential in logic, algorithms, data structures, and formal reasoning.
+      Discrete structures are the mathematical foundations of computer science. They deal with distinct, countable objects and provide the structure behind logic, algorithms, and data representation in computing.
     </div>
 
     <h2>1. Introduction to Discrete Mathematics</h2>
-    <p>Discrete mathematics is the study of mathematical structures that are fundamentally discrete rather than continuous. It is critical in computing because digital systems work with finite, distinct values.</p>
-
-    <h3>Applications in Computing</h3>
-    <ul>
-      <li>Logic design</li>
-      <li>Algorithms and complexity</li>
-      <li>Databases</li>
-      <li>Programming language theory</li>
-      <li>Computer networks and security</li>
-    </ul>
+    <p>Discrete mathematics focuses on finite or countable sets and structures. Unlike continuous mathematics, it studies items that are separate and distinct.</p>
+    <div class="key-point">
+      <strong>Why it matters:</strong> It is essential in logic, algorithm design, databases, networking, security, and digital systems.
+    </div>
 
     <h2>2. Sets</h2>
-    <p>A <strong>set</strong> is a well-defined collection of objects called elements.</p>
+    <p>A <strong>set</strong> is a well-defined collection of objects known as elements.</p>
     <div class="example-box">
       <strong>Example:</strong> <code>A = {1, 2, 3, 4, 5}</code>
     </div>
@@ -144,59 +171,51 @@
 
     <h3>2.2 Types of Sets</h3>
     <ul>
-      <li><strong>Finite set:</strong> has a limited number of elements</li>
-      <li><strong>Infinite set:</strong> has unlimited elements</li>
-      <li><strong>Universal set:</strong> contains all elements under discussion</li>
-      <li><strong>Empty set:</strong> contains no elements</li>
+      <li>Finite set</li>
+      <li>Infinite set</li>
+      <li>Universal set</li>
+      <li>Empty set</li>
     </ul>
 
     <h2>3. Set Operations</h2>
 
     <h3>3.1 Union</h3>
-    <p>The union of two sets contains all elements from both sets.</p>
-    <p><code>A ∪ B = {x : x ∈ A or x ∈ B}</code></p>
+    <p><code>A ∪ B</code> contains all elements found in either set.</p>
+    <p><code>A ∪ B = {x: x ∈ A or x ∈ B}</code></p>
 
     <h3>3.2 Intersection</h3>
-    <p>The intersection contains the elements common to both sets.</p>
-    <p><code>A ∩ B = {x : x ∈ A and x ∈ B}</code></p>
+    <p><code>A ∩ B</code> contains elements common to both sets.</p>
+    <p><code>A ∩ B = {x: x ∈ A and x ∈ B}</code></p>
 
     <h3>3.3 Difference</h3>
-    <p>The difference <code>A - B</code> contains elements in A but not in B.</p>
+    <p><code>A - B</code> consists of elements in A that are not in B.</p>
 
     <h3>3.4 Complement</h3>
-    <p>The complement of a set contains all elements in the universal set that are not in the set.</p>
+    <p>The complement of a set contains all elements in the universal set not in that set.</p>
 
     <div class="example-box">
       <strong>Example:</strong><br />
-      <code>A = {1, 2, 3, 4}</code><br />
-      <code>B = {3, 4, 5}</code><br />
-      <code>A ∪ B = {1, 2, 3, 4, 5}</code><br />
-      <code>A ∩ B = {3, 4}</code>
+      <code>A = {1,2,3,4}</code><br />
+      <code>B = {3,4,5}</code><br />
+      <code>A ∪ B = {1,2,3,4,5}</code><br />
+      <code>A ∩ B = {3,4}</code>
     </div>
 
     <h2>4. Venn Diagrams</h2>
-    <p>Venn diagrams are used to visualize relationships between sets. They are especially useful in solving logic and counting problems.</p>
+    <p>Venn diagrams are used to visualize relationships between sets and solve set problems quickly.</p>
 
     <h2>5. Relations</h2>
-    <p>A relation is a rule that associates elements of one set with elements of another set.</p>
-    <p>If <code>A</code> and <code>B</code> are sets, then a relation from A to B is a subset of <code>A × B</code>.</p>
+    <p>A relation is a connection between elements of one set and elements of another set.</p>
+    <p>If <code>A</code> and <code>B</code> are sets, then a relation is a subset of <code>A × B</code>.</p>
     <div class="example-box">
-      <strong>Example:</strong> If <code>A = {1, 2}</code> and <code>B = {a, b}</code>, then <code>A × B</code> contains ordered pairs such as <code>(1, a)</code> and <code>(2, b)</code>.
+      <strong>Example:</strong> If <code>A = {1,2}</code> and <code>B = {a,b}</code>, then <code>A × B</code> includes pairs like <code>(1,a)</code> and <code>(2,b)</code>.
     </div>
 
-    <h3>5.1 Types of Relations</h3>
-    <ul>
-      <li>Reflexive</li>
-      <li>Symmetric</li>
-      <li>Antisymmetric</li>
-      <li>Transitive</li>
-    </ul>
-
     <h2>6. Functions</h2>
-    <p>A function is a special type of relation in which each input has exactly one output.</p>
+    <p>A function is a special relation in which every input has exactly one output.</p>
     <p><code>f: A → B</code></p>
     <div class="key-point">
-      <strong>Important:</strong> A function must assign exactly one value in the codomain to each element in the domain.
+      <strong>Rule:</strong> each element of the domain must map to one and only one element in the codomain.
     </div>
 
     <h3>Types of Functions</h3>
@@ -205,8 +224,8 @@
         <tr><th>Type</th><th>Description</th></tr>
       </thead>
       <tbody>
-        <tr><td>One-to-one</td><td>Distinct inputs give distinct outputs</td></tr>
-        <tr><td>Onto</td><td>Every element of the codomain is used</td></tr>
+        <tr><td>One-to-one</td><td>Different inputs give different outputs</td></tr>
+        <tr><td>Onto</td><td>Every output in the codomain is used</td></tr>
         <tr><td>Injective</td><td>One-to-one function</td></tr>
         <tr><td>Surjective</td><td>Onto function</td></tr>
       </tbody>
@@ -216,7 +235,7 @@
     <p>A proposition is a statement that is either true or false.</p>
     <table>
       <thead>
-        <tr><th>Logical connective</th><th>Meaning</th></tr>
+        <tr><th>Symbol</th><th>Meaning</th></tr>
       </thead>
       <tbody>
         <tr><td><code>∧</code></td><td>AND</td></tr>
@@ -227,22 +246,21 @@
       </tbody>
     </table>
 
-    <h3>Example</h3>
-    <p><code>P: It is raining</code></p>
-    <p><code>Q: The ground is wet</code></p>
-    <p><code>P → Q</code> means: if it is raining, then the ground is wet.</p>
+    <div class="example-box">
+      <strong>Example:</strong> If <code>P</code> is “It is raining” and <code>Q</code> is “The ground is wet,” then <code>P → Q</code> means “If it is raining, then the ground is wet.”
+    </div>
 
     <h2>8. Counting Principles</h2>
-    <p>Counting is essential in probability, combinatorics, and algorithm analysis.</p>
+    <p>Counting is essential in probability, data analysis, and algorithm design.</p>
 
     <h3>8.1 Inclusion-Exclusion Principle</h3>
     <p><code>|A ∪ B| = |A| + |B| - |A ∩ B|</code></p>
     <div class="example-box">
-      <strong>Example:</strong> If 20 students like Maths and 15 like Physics, and 8 like both, then the total number who like at least one subject is <code>20 + 15 - 8 = 27</code>.
+      <strong>Example:</strong> If 20 students like Math and 15 like Physics, and 8 like both, then the number who like at least one is <code>20 + 15 - 8 = 27</code>.
     </div>
 
     <h2>9. Boolean Algebra</h2>
-    <p>Boolean algebra is the algebra of logic used in digital computers and circuit design.</p>
+    <p>Boolean algebra is used in logic circuits and computer design.</p>
     <ul>
       <li><code>A ∧ A = A</code></li>
       <li><code>A ∨ A = A</code></li>
@@ -251,16 +269,16 @@
     </ul>
 
     <h2>10. Summary</h2>
-    <p>Discrete structure gives the mathematical language used to reason about algorithms, logic, and computation. By understanding sets, relations, functions, logic, and counting principles, students can solve many computational problems systematically.</p>
+    <p>Discrete structures provide the mathematical language for reasoning about computers and algorithms. By understanding sets, functions, logic, and counting, students can analyze computational processes with precision.</p>
 
     <h2>Revision Questions</h2>
     <ol>
       <li>Define a set and give an example.</li>
-      <li>Explain the difference between union and intersection.</li>
+      <li>Differentiate between union and intersection.</li>
       <li>What is a function?</li>
-      <li>State the meaning of a proposition.</li>
-      <li>Explain the inclusion-exclusion principle.</li>
-      <li>How is logic used in computer science?</li>
+      <li>Explain the purpose of logical operators.</li>
+      <li>What is the inclusion-exclusion principle?</li>
+      <li>Why is discrete mathematics important in computer science?</li>
     </ol>
 
     <p class="footer">BCS 121: Discrete Structure 1 – Study Notes</p>
