@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BCS 113: Electronics</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #0b3d73 0%, #1d63b8 100%);
+      color: #1d2430;
+      line-height: 1.6;
+    }
+    .document {
+      max-width: 1100px;
+      margin: 30px auto;
+      background: rgba(255,255,255,0.96);
+      border-radius: 18px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.16);
+      padding: 36px 30px 50px;
+    }
+    h1, h2, h3 { color: #0d47a1; }
+    h1 {
+      font-size: clamp(28px, 4vw, 40px);
+      text-align: center;
+      margin: 0 0 10px;
+    }
+    .subtitle {
+      text-align: center;
+      color: #1565c0;
+      font-weight: 700;
+      margin: 0 0 24px;
+    }
+    .intro {
+      background: #edf5ff;
+      border-left: 6px solid #1565c0;
+      padding: 16px 18px;
+      border-radius: 10px;
+      margin-bottom: 24px;
+    }
+    hr {
+      border: none;
+      border-top: 2px solid #dfeeff;
+      margin: 28px 0;
+    }
+    h2 {
+      font-size: clamp(22px, 2vw, 28px);
+      border-bottom: 2px solid #dfeeff;
+      padding-bottom: 6px;
+    }
+    h3 {
+      margin: 22px 0 10px;
+      font-size: 20px;
+    }
+    p, li { font-size: 15px; }
+    ul, ol { padding-left: 24px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 22px;
+      background: #fff;
+    }
+    th, td {
+      padding: 10px 12px;
+      border: 1px solid #bfd8f7;
+      vertical-align: top;
+    }
+    th {
+      background: #1565c0;
+      color: #fff;
+      text-align: left;
+    }
+    tr:nth-child(even) td { background: #f3f8ff; }
+    .note-box, .example-box, .key-point {
+      margin: 18px 0;
+      padding: 14px 16px;
+      border-radius: 10px;
+    }
+    .note-box {
+      background: #fff3e0;
+      border-left: 5px solid #ff9800;
+    }
+    .example-box {
+      background: #eaf3ff;
+      border-left: 5px solid #1565c0;
+    }
+    .key-point {
+      background: #edf8ee;
+      border-left: 5px solid #2e7d32;
+    }
+    code {
+      font-family: Consolas, monospace;
+      background: #edf5ff;
+      border: 1px solid #d2e5ff;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    pre {
+      background: #eef7ff;
+      border: 1px solid #d3e6ff;
+      border-radius: 10px;
+      padding: 14px;
+      overflow-x: auto;
+      font-family: Consolas, monospace;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .footer {
+      text-align: center;
+      color: #42506a;
+      font-weight: 700;
+      margin-top: 28px;
+    }
+    @media (max-width: 700px) {
+      .document { padding: 20px 16px 40px; }
+      table { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+  <main class="document">
+    <h1>BCS 113: ELECTRONICS</h1>
+    <p class="subtitle">Detailed Study Notes</p>
+
+    <div class="intro">
+      Electronics is the study of electrical circuits and devices that control the flow of current. It involves the use of components such as resistors, capacitors, inductors, diodes, and transistors to design useful electronic systems.
+    </div>
+
+    <h2>1. Introduction to Electronics</h2>
+    <p>Electronics deals with the flow and control of electrons in electrical circuits. It forms the foundation of devices such as radios, computers, televisions, power supplies, and mobile phones.</p>
+
+    <h3>1.1 Difference Between Electricity and Electronics</h3>
+    <table>
+      <thead>
+        <tr><th>Electricity</th><th>Electronics</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Large power transfer</td><td>Signal control and processing</td></tr>
+        <tr><td>Power systems</td><td>Electronic circuits and devices</td></tr>
+        <tr><td>Motors, lamps, generators</td><td>Transistors, diodes, ICs</td></tr>
+      </tbody>
+    </table>
+
+    <h2>2. Basic Electrical Quantities</h2>
+    <table>
+      <thead>
+        <tr><th>Quantity</th><th>Symbol</th><th>Unit</th><th>Meaning</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Voltage</td><td>V</td><td>Volt (V)</td><td>Potential difference that drives current</td></tr>
+        <tr><td>Current</td><td>I</td><td>Ampere (A)</td><td>Flow of electric charge</td></tr>
+        <tr><td>Resistance</td><td>R</td><td>Ohm (Ω)</td><td>Opposition to current flow</td></tr>
+        <tr><td>Power</td><td>P</td><td>Watt (W)</td><td>Rate of energy transfer</td></tr>
+        <tr><td>Energy</td><td>E</td><td>Joule (J)</td><td>Capacity to do work</td></tr>
+      </tbody>
+    </table>
+
+    <h2>3. Ohm's Law</h2>
+    <p><strong>Ohm's Law</strong> states that the current through a conductor is directly proportional to the voltage across it and inversely proportional to its resistance.</p>
+    <p><code>V = IR</code></p>
+    <div class="example-box">
+      <strong>Example:</strong> If a resistor has a resistance of 10Ω and a current of 2A flows through it, then <code>V = 2 × 10 = 20V</code>.
+    </div>
+
+    <h2>4. Electrical Components</h2>
+
+    <h3>4.1 Resistors</h3>
+    <p>A resistor limits current flow and controls voltage in a circuit.</p>
+    <ul>
+      <li>Fixed resistors</li>
+      <li>Variable resistors (potentiometers)</li>
+      <li>Thermistors and LDRs</li>
+    </ul>
+
+    <h3>4.2 Capacitors</h3>
+    <p>A capacitor stores electrical energy in an electric field.</p>
+    <p>Uses include filtering, smoothing power supply, and timing circuits.</p>
+
+    <h3>4.3 Inductors</h3>
+    <p>An inductor stores energy in a magnetic field and opposes changes in current.</p>
+
+    <h3>4.4 Diodes</h3>
+    <p>A diode allows current to flow in one direction only. It is used for rectification and protection.</p>
+    <div class="key-point">
+      <strong>Key point:</strong> A diode is like a one-way valve for electricity.
+    </div>
+
+    <h3>4.5 Transistors</h3>
+    <p>A transistor is a semiconductor device used to amplify or switch electronic signals.</p>
+    <table>
+      <thead>
+        <tr><th>Type</th><th>Use</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>BJT</td><td>Amplification and switching</td></tr>
+        <tr><td>FET</td><td>High input impedance and switching</td></tr>
+      </tbody>
+    </table>
+
+    <h2>5. Semiconductor Materials</h2>
+    <p>Materials such as <strong>silicon</strong> and <strong>germanium</strong> are used in electronics because their conductivity can be controlled.</p>
+    <ul>
+      <li><strong>Conductors:</strong> allow current to flow easily</li>
+      <li><strong>Insulators:</strong> resist current flow</li>
+      <li><strong>Semiconductors:</strong> have conductivity between conductors and insulators</li>
+    </ul>
+
+    <h2>6. Series and Parallel Circuits</h2>
+
+    <h3>6.1 Series Circuit</h3>
+    <p>In a series circuit, components are connected end-to-end, so the same current flows through each component.</p>
+    <pre>Vsource ── R1 ── R2 ── R3 ──</pre>
+    <p>Total resistance: <code>R_total = R1 + R2 + R3</code></p>
+
+    <h3>6.2 Parallel Circuit</h3>
+    <p>In a parallel circuit, components share the same voltage but divide the current.</p>
+    <pre>      R1
+ Vsource ─┤├── R2
+      R3</pre>
+    <p>Total resistance is calculated using:</p>
+    <p><code>1/R_total = 1/R1 + 1/R2 + 1/R3</code></p>
+
+    <h2>7. AC and DC</h2>
+    <table>
+      <thead>
+        <tr><th>Type</th><th>Meaning</th><th>Example</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>DC</td><td>Direct Current; flows in one direction</td><td>Batteries</td></tr>
+        <tr><td>AC</td><td>Alternating Current; changes direction periodically</td><td>Mains supply</td></tr>
+      </tbody>
+    </table>
+
+    <h2>8. Power and Energy</h2>
+    <p>Power is the rate at which energy is used or supplied.</p>
+    <p><code>P = VI</code></p>
+    <p>Also: <code>P = I^2R = V^2/R</code></p>
+    <div class="example-box">
+      <strong>Example:</strong> If a device uses 12V and 2A, then <code>P = 12 × 2 = 24W</code>.
+    </div>
+
+    <h2>9. Semiconductors and Diodes</h2>
+    <p>Semiconductor diode has a p-n junction. It allows current to flow in forward bias and blocks current in reverse bias.</p>
+    <ul>
+      <li><strong>Forward bias:</strong> diode conducts</li>
+      <li><strong>Reverse bias:</strong> diode blocks current</li>
+    </ul>
+
+    <h2>10. Applications of Electronics</h2>
+    <ul>
+      <li>Power supplies</li>
+      <li>Telecommunication systems</li>
+      <li>Computers and mobile devices</li>
+      <li>Medical equipment</li>
+      <li>Control systems and automation</li>
+    </ul>
+
+    <h2>11. Summary</h2>
+    <p>Electronics is the science of controlling electric current through devices and circuits. It relies on core principles such as voltage, current, resistance, semiconductor behavior, and circuit design. These concepts are used in modern technology and communication systems.</p>
+
+    <h2>Revision Questions</h2>
+    <ol>
+      <li>Define voltage, current, and resistance.</li>
+      <li>State Ohm's law and write its formula.</li>
+      <li>Differentiate between series and parallel circuits.</li>
+      <li>What is the function of a diode?</li>
+      <li>Why are semiconductors important in electronics?</li>
+      <li>Name three common electronic components and explain their uses.</li>
+    </ol>
+
+    <p class="footer">BCS 113: Electronics – Study Notes</p>
+  </main>
+</body>
+</html>
