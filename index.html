@@ -1,57 +1,250 @@
-const materials = [
-  { title: 'KICD curriculum designs', category: 'Computing & Informatics', description: 'Official curriculum guidance and structured learning frameworks for academic planning and study design.', url: 'https://kicd.go.ke/' },
-  { title: 'Kenya Education Cloud', category: 'Education', description: 'Digital learning content and academic support resources for school and university learners.', url: 'https://kec.ac.ke/' },
-  { title: 'Khan Academy', category: 'Mathematics', description: 'Free lessons, exercises, and practice for algebra, calculus, statistics, and more.', url: 'https://www.khanacademy.org/' },
-  { title: 'OpenStax', category: 'Science & Health', description: 'Open-access textbooks and reading material for science, health, and technical subjects.', url: 'https://openstax.org/' },
-  { title: 'MIT OpenCourseWare', category: 'Computing & Informatics', description: 'Free course notes, lectures, assignments, and readings from MIT.', url: 'https://ocw.mit.edu/' },
-  { title: 'freeCodeCamp', category: 'Computing & Informatics', description: 'Hands-on web development, programming, and software engineering practice.', url: 'https://www.freecodecamp.org/learn/' },
-  { title: 'CS50', category: 'Computing & Informatics', description: 'Introductory computer science course covering programming and core computing concepts.', url: 'https://cs50.harvard.edu/x/' },
-  { title: 'Open Library', category: 'Skills', description: 'Open digital library for textbooks, reference material, and academic reading.', url: 'https://openlibrary.org/' },
-  { title: 'Codecademy', category: 'Computing & Informatics', description: 'Practice-based learning for coding, technology, and digital problem-solving.', url: 'https://www.codecademy.com/' },
-  { title: 'Study Stack', category: 'Exam Prep', description: 'Revision cards and self-test tools for building quick recall and exam revision.', url: 'https://www.studystack.com/' },
-  { title: 'Coursera', category: 'Skills', description: 'Open and university-linked course content for academic and career learning.', url: 'https://www.coursera.org/' },
-  { title: 'Canva Design School', category: 'Social Sciences & Arts', description: 'Design and visual communication tutorials for media, branding, and creative studies.', url: 'https://www.canva.com/design-school/' },
-  { title: 'BCS 114: Introduction to Internet and Technology', category: 'Computing & Informatics', description: 'Course notes covering internet basics, networking, protocols, and digital technology.', url: './materials/bcs-114-introduction-to-internet-technology.html' },
-  { title: 'Quantitative Skills 1', category: 'Mathematics', description: 'Number systems, set theory, and quantitative reasoning notes with worked examples.', url: './materials/qs-1-quantitative-skills.html' },
-  { title: 'Introductory Programming', category: 'Computing & Informatics', description: 'Foundational programming concepts in variables, logic, conditions, loops, and functions.', url: 'https://www.w3schools.com/python/' },
-  { title: 'Database Systems', category: 'Computing & Informatics', description: 'Concepts of relational database design, SQL, and data storage.', url: 'https://www.sqltutorial.org/' },
-  { title: 'Computer Networks', category: 'Computing & Informatics', description: 'Principles of networking, TCP/IP, routing, and internet communication.', url: 'https://www.geeksforgeeks.org/computer-network-tutorials/' },
-  { title: 'Web Development', category: 'Computing & Informatics', description: 'HTML, CSS, JavaScript, and modern front-end web design fundamentals.', url: 'https://developer.mozilla.org/en-US/docs/Learn' },
-  { title: 'Operating Systems', category: 'Computing & Informatics', description: 'Study of processes, memory, scheduling, device management, and system architecture.', url: 'https://www.tutorialspoint.com/operating_system/' },
-  { title: 'Information Systems', category: 'Computing & Informatics', description: 'How information systems support organizations, data flow, and business operations.', url: 'https://www.tutorialspoint.com/information_systems/index.htm' },
-  { title: 'Cybersecurity Basics', category: 'Computing & Informatics', description: 'Introduction to securing systems, protecting data, and recognizing digital threats.', url: 'https://www.cisco.com/c/en/us/solutions/security/what-is-cybersecurity.html' },
-  { title: 'AI and Machine Learning', category: 'Computing & Informatics', description: 'Foundations of artificial intelligence, models, and data-driven decision-making.', url: 'https://www.coursera.org/learn/machine-learning' },
-  { title: 'Algebra', category: 'Mathematics', description: 'Linear equations, algebraic expressions, functions, and problem solving.', url: 'https://www.khanacademy.org/math/algebra' },
-  { title: 'Calculus', category: 'Mathematics', description: 'Limits, derivatives, integrals, and applications of change and motion.', url: 'https://www.khanacademy.org/math/calculus-1' },
-  { title: 'Statistics', category: 'Mathematics', description: 'Data analysis, probability, sampling, distributions, and interpretation.', url: 'https://www.khanacademy.org/math/statistics-probability' },
-  { title: 'Linear Algebra', category: 'Mathematics', description: 'Vectors, matrices, transformations, and systems of equations.', url: 'https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/' },
-  { title: 'Discrete Mathematics', category: 'Mathematics', description: 'Logic, sets, graph theory, combinatorics, and finite structures.', url: 'https://math.libretexts.org/Bookshelves/Discrete_Mathematics' },
-  { title: 'Financial Accounting', category: 'Business & Economics', description: 'Accounting principles, double-entry bookkeeping, and financial statement basics.', url: 'https://www.accountingcoach.com/' },
-  { title: 'Principles of Economics', category: 'Business & Economics', description: 'Microeconomics and macroeconomics for understanding markets and economies.', url: 'https://www.core-econ.org/' },
-  { title: 'Marketing Fundamentals', category: 'Business & Economics', description: 'Customer behaviour, segmentation, branding, and promotion strategies.', url: 'https://open.umn.edu/opentextbooks/textbooks/marketing-principles' },
-  { title: 'Management Studies', category: 'Business & Economics', description: 'Principles of leadership, planning, organizing, and operational management.', url: 'https://open.umn.edu/opentextbooks/textbooks/management' },
-  { title: 'Entrepreneurship', category: 'Business & Economics', description: 'Starting ventures, business models, innovation, and sustainable enterprise.', url: 'https://www.entrepreneur.com/' },
-  { title: 'Engineering Mathematics', category: 'Engineering & Technology', description: 'Applied mathematical tools for engineering problem solving.', url: 'https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/' },
-  { title: 'Electrical Circuits', category: 'Engineering & Technology', description: 'Theory of circuits, Ohm’s Law, power, and electronic components.', url: 'https://www.allaboutcircuits.com/textbook/' },
-  { title: 'Thermodynamics', category: 'Engineering & Technology', description: 'Energy transfer, heat, work, and system efficiency in engineering.', url: 'https://open.umn.edu/opentextbooks/textbooks/thermodynamics' },
-  { title: 'Engineering Design', category: 'Engineering & Technology', description: 'Design processes, prototyping, evaluation, and product development.', url: 'https://www.nasa.gov/' },
-  { title: 'Physics', category: 'Science & Health', description: 'Mechanics, electricity, optics, and foundational physical science concepts.', url: 'https://www.khanacademy.org/science/physics' },
-  { title: 'Chemistry', category: 'Science & Health', description: 'Atomic structure, reaction systems, bonding, and lab-centered concepts.', url: 'https://www.khanacademy.org/science/chemistry' },
-  { title: 'Biology', category: 'Science & Health', description: 'Cells, genetics, evolution, ecology, and life processes.', url: 'https://www.khanacademy.org/science/biology' },
-  { title: 'Nursing Fundamentals', category: 'Science & Health', description: 'Core caregiving, patient safety, infection control, and health support skills.', url: 'https://www.ncbi.nlm.nih.gov/books/NBK268/' },
-  { title: 'Public Health', category: 'Science & Health', description: 'Health systems, disease prevention, health promotion, and community wellbeing.', url: 'https://www.who.int/health-topics/public-health' },
-  { title: 'Curriculum Studies', category: 'Education', description: 'Course design, learning outcomes, curriculum planning, and teaching frameworks.', url: 'https://www.edglossary.org/curriculum/' },
-  { title: 'Educational Psychology', category: 'Education', description: 'Learning theories, motivation, memory, and learner behaviour.', url: 'https://openbooks.library.umass.edu/educationalpsychology/' },
-  { title: 'ICT in Education', category: 'Education', description: 'Use of information and communication technology in learning environments.', url: 'https://www.unesco.org/en/digital-education' },
-  { title: 'Teaching Methods', category: 'Education', description: 'Instructional strategies, classroom management, and classroom delivery.', url: 'https://www.edutopia.org/' },
-  { title: 'Sociology', category: 'Social Sciences & Arts', description: 'Social institutions, culture, inequality, and community behaviour.', url: 'https://openstax.org/details/books/introduction-sociology-3e' },
-  { title: 'Psychology', category: 'Social Sciences & Arts', description: 'Mind, behaviour, cognition, development, and social interaction.', url: 'https://openstax.org/details/books/psychology-2e' },
-  { title: 'Political Science', category: 'Social Sciences & Arts', description: 'Government systems, political institutions, and public policy.', url: 'https://openstax.org/details/books/introduction-political-science' },
-  { title: 'Literature', category: 'Social Sciences & Arts', description: 'Reading, writing, interpretation, and literary analysis across traditions.', url: 'https://www.poetryfoundation.org/' },
-  { title: 'Communication Studies', category: 'Social Sciences & Arts', description: 'Media literacy, digital communication, public speaking, and interpersonal communication.', url: 'https://online.norwich.edu/academic-programs/resources/what-is-communication' },
-  { title: 'Academic Writing', category: 'Skills', description: 'Essay writing, academic structure, referencing, and clear argument development.', url: 'https://www.scribbr.com/academic-writing/' },
-  { title: 'Research Methods', category: 'Skills', description: 'How to design studies, collect data, evaluate evidence, and report findings.', url: 'https://libguides.usc.edu/writingguide/researchdesigns' },
-  { title: 'Study Skills', category: 'Skills', description: 'Time management, note-taking, revision strategies, and better learning habits.', url: 'https://student.unsw.edu.au/study-skills' },
-  { title: 'CV and Career Skills', category: 'Skills', description: 'Professional communication, resumes, personal branding, and workplace readiness.', url: 'https://www.careeronestop.org/' },
-  { title: 'Exam Preparation', category: 'Exam Prep', description: 'Revision strategies, practice questions, and confidence-building for assessments.', url: 'https://www.studocu.com/' }
-];
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>University Learning Catalogue</title>
+    <style>
+      :root {
+        --bg: #f3f7ff;
+        --card: #ffffff;
+        --text: #1d2a3a;
+        --muted: #5f7084;
+        --primary: #1b5fff;
+        --primary-soft: #eaf1ff;
+        --border: #dfe8f7;
+        --shadow: 0 10px 30px rgba(29, 42, 58, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px 80px;
+      }
+
+      .header {
+        margin-bottom: 28px;
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-size: clamp(2rem, 4vw, 3rem);
+      }
+
+      .subtitle {
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.05rem;
+      }
+
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+        margin: 24px 0 30px;
+      }
+
+      label {
+        font-weight: 700;
+      }
+
+      .filter {
+        padding: 12px 16px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--card);
+        color: var(--text);
+        font-size: 1rem;
+        min-width: 220px;
+      }
+
+      .materials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+      }
+
+      .material-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: var(--shadow);
+      }
+
+      .material-card h3 {
+        margin: 0 0 10px;
+        font-size: 1.2rem;
+      }
+
+      .material-category {
+        display: inline-block;
+        background: var(--primary-soft);
+        color: var(--primary);
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        margin: 0 0 12px;
+      }
+
+      .material-card p {
+        margin: 0 0 16px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .material-card a {
+        display: inline-block;
+        text-decoration: none;
+        background: var(--primary);
+        color: white;
+        font-weight: 700;
+        padding: 10px 14px;
+        border-radius: 10px;
+      }
+
+      .empty-state {
+        grid-column: 1 / -1;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 30px;
+        text-align: center;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <h1>University Learning Catalogue</h1>
+        <p class="subtitle">Explore academic resources across schools, subjects, and learning support areas.</p>
+      </header>
+
+      <div class="controls">
+        <label for="category">Filter by category</label>
+        <select id="category" class="filter" aria-label="Filter by category"></select>
+      </div>
+
+      <section id="material-list" class="materials-grid" aria-live="polite"></section>
+    </main>
+
+    <script>
+      const materials = [
+        { title: 'KICD curriculum designs', category: 'Computing & Informatics', description: 'Official curriculum guidance and structured learning frameworks for academic planning and study design.', url: 'https://kicd.go.ke/' },
+        { title: 'Kenya Education Cloud', category: 'Education', description: 'Digital learning content and academic support resources for school and university learners.', url: 'https://kec.ac.ke/' },
+        { title: 'Khan Academy', category: 'Mathematics', description: 'Free lessons, exercises, and practice for algebra, calculus, statistics, and more.', url: 'https://www.khanacademy.org/' },
+        { title: 'OpenStax', category: 'Science & Health', description: 'Open-access textbooks and reading material for science, health, and technical subjects.', url: 'https://openstax.org/' },
+        { title: 'MIT OpenCourseWare', category: 'Computing & Informatics', description: 'Free course notes, lectures, assignments, and readings from MIT.', url: 'https://ocw.mit.edu/' },
+        { title: 'freeCodeCamp', category: 'Computing & Informatics', description: 'Hands-on web development, programming, and software engineering practice.', url: 'https://www.freecodecamp.org/learn/' },
+        { title: 'CS50', category: 'Computing & Informatics', description: 'Introductory computer science course covering programming and core computing concepts.', url: 'https://cs50.harvard.edu/x/' },
+        { title: 'Open Library', category: 'Skills', description: 'Open digital library for textbooks, reference material, and academic reading.', url: 'https://openlibrary.org/' },
+        { title: 'Codecademy', category: 'Computing & Informatics', description: 'Practice-based learning for coding, technology, and digital problem-solving.', url: 'https://www.codecademy.com/' },
+        { title: 'Study Stack', category: 'Exam Prep', description: 'Revision cards and self-test tools for building quick recall and exam revision.', url: 'https://www.studystack.com/' },
+        { title: 'Coursera', category: 'Skills', description: 'Open and university-linked course content for academic and career learning.', url: 'https://www.coursera.org/' },
+        { title: 'Canva Design School', category: 'Social Sciences & Arts', description: 'Design and visual communication tutorials for media, branding, and creative studies.', url: 'https://www.canva.com/design-school/' },
+        { title: 'BCS 114: Introduction to Internet and Technology', category: 'Computing & Informatics', description: 'Course notes covering internet basics, networking, protocols, and digital technology.', url: './materials/bcs-114-introduction-to-internet-technology.html' },
+        { title: 'Quantitative Skills 1', category: 'Mathematics', description: 'Number systems, set theory, and quantitative reasoning notes with worked examples.', url: './materials/qs-1-quantitative-skills.html' },
+        { title: 'Introductory Programming', category: 'Computing & Informatics', description: 'Foundational programming concepts in variables, logic, conditions, loops, and functions.', url: 'https://www.w3schools.com/python/' },
+        { title: 'Database Systems', category: 'Computing & Informatics', description: 'Concepts of relational database design, SQL, and data storage.', url: 'https://www.sqltutorial.org/' },
+        { title: 'Computer Networks', category: 'Computing & Informatics', description: 'Principles of networking, TCP/IP, routing, and internet communication.', url: 'https://www.geeksforgeeks.org/computer-network-tutorials/' },
+        { title: 'Web Development', category: 'Computing & Informatics', description: 'HTML, CSS, JavaScript, and modern front-end web design fundamentals.', url: 'https://developer.mozilla.org/en-US/docs/Learn' },
+        { title: 'Operating Systems', category: 'Computing & Informatics', description: 'Study of processes, memory, scheduling, device management, and system architecture.', url: 'https://www.tutorialspoint.com/operating_system/' },
+        { title: 'Information Systems', category: 'Computing & Informatics', description: 'How information systems support organizations, data flow, and business operations.', url: 'https://www.tutorialspoint.com/information_systems/index.htm' },
+        { title: 'Cybersecurity Basics', category: 'Computing & Informatics', description: 'Introduction to securing systems, protecting data, and recognizing digital threats.', url: 'https://www.cisco.com/c/en/us/solutions/security/what-is-cybersecurity.html' },
+        { title: 'AI and Machine Learning', category: 'Computing & Informatics', description: 'Foundations of artificial intelligence, models, and data-driven decision-making.', url: 'https://www.coursera.org/learn/machine-learning' },
+        { title: 'Algebra', category: 'Mathematics', description: 'Linear equations, algebraic expressions, functions, and problem solving.', url: 'https://www.khanacademy.org/math/algebra' },
+        { title: 'Calculus', category: 'Mathematics', description: 'Limits, derivatives, integrals, and applications of change and motion.', url: 'https://www.khanacademy.org/math/calculus-1' },
+        { title: 'Statistics', category: 'Mathematics', description: 'Data analysis, probability, sampling, distributions, and interpretation.', url: 'https://www.khanacademy.org/math/statistics-probability' },
+        { title: 'Linear Algebra', category: 'Mathematics', description: 'Vectors, matrices, transformations, and systems of equations.', url: 'https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/' },
+        { title: 'Discrete Mathematics', category: 'Mathematics', description: 'Logic, sets, graph theory, combinatorics, and finite structures.', url: 'https://math.libretexts.org/Bookshelves/Discrete_Mathematics' },
+        { title: 'Financial Accounting', category: 'Business & Economics', description: 'Accounting principles, double-entry bookkeeping, and financial statement basics.', url: 'https://www.accountingcoach.com/' },
+        { title: 'Principles of Economics', category: 'Business & Economics', description: 'Microeconomics and macroeconomics for understanding markets and economies.', url: 'https://www.core-econ.org/' },
+        { title: 'Marketing Fundamentals', category: 'Business & Economics', description: 'Customer behaviour, segmentation, branding, and promotion strategies.', url: 'https://open.umn.edu/opentextbooks/textbooks/marketing-principles' },
+        { title: 'Management Studies', category: 'Business & Economics', description: 'Principles of leadership, planning, organizing, and operational management.', url: 'https://open.umn.edu/opentextbooks/textbooks/management' },
+        { title: 'Entrepreneurship', category: 'Business & Economics', description: 'Starting ventures, business models, innovation, and sustainable enterprise.', url: 'https://www.entrepreneur.com/' },
+        { title: 'Engineering Mathematics', category: 'Engineering & Technology', description: 'Applied mathematical tools for engineering problem solving.', url: 'https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/' },
+        { title: 'Electrical Circuits', category: 'Engineering & Technology', description: 'Theory of circuits, Ohm’s Law, power, and electronic components.', url: 'https://www.allaboutcircuits.com/textbook/' },
+        { title: 'Thermodynamics', category: 'Engineering & Technology', description: 'Energy transfer, heat, work, and system efficiency in engineering.', url: 'https://open.umn.edu/opentextbooks/textbooks/thermodynamics' },
+        { title: 'Engineering Design', category: 'Engineering & Technology', description: 'Design processes, prototyping, evaluation, and product development.', url: 'https://www.nasa.gov/' },
+        { title: 'Physics', category: 'Science & Health', description: 'Mechanics, electricity, optics, and foundational physical science concepts.', url: 'https://www.khanacademy.org/science/physics' },
+        { title: 'Chemistry', category: 'Science & Health', description: 'Atomic structure, reaction systems, bonding, and lab-centered concepts.', url: 'https://www.khanacademy.org/science/chemistry' },
+        { title: 'Biology', category: 'Science & Health', description: 'Cells, genetics, evolution, ecology, and life processes.', url: 'https://www.khanacademy.org/science/biology' },
+        { title: 'Nursing Fundamentals', category: 'Science & Health', description: 'Core caregiving, patient safety, infection control, and health support skills.', url: 'https://www.ncbi.nlm.nih.gov/books/NBK268/' },
+        { title: 'Public Health', category: 'Science & Health', description: 'Health systems, disease prevention, health promotion, and community wellbeing.', url: 'https://www.who.int/health-topics/public-health' },
+        { title: 'Curriculum Studies', category: 'Education', description: 'Course design, learning outcomes, curriculum planning, and teaching frameworks.', url: 'https://www.edglossary.org/curriculum/' },
+        { title: 'Educational Psychology', category: 'Education', description: 'Learning theories, motivation, memory, and learner behaviour.', url: 'https://openbooks.library.umass.edu/educationalpsychology/' },
+        { title: 'ICT in Education', category: 'Education', description: 'Use of information and communication technology in learning environments.', url: 'https://www.unesco.org/en/digital-education' },
+        { title: 'Teaching Methods', category: 'Education', description: 'Instructional strategies, classroom management, and classroom delivery.', url: 'https://www.edutopia.org/' },
+        { title: 'Sociology', category: 'Social Sciences & Arts', description: 'Social institutions, culture, inequality, and community behaviour.', url: 'https://openstax.org/details/books/introduction-sociology-3e' },
+        { title: 'Psychology', category: 'Social Sciences & Arts', description: 'Mind, behaviour, cognition, development, and social interaction.', url: 'https://openstax.org/details/books/psychology-2e' },
+        { title: 'Political Science', category: 'Social Sciences & Arts', description: 'Government systems, political institutions, and public policy.', url: 'https://openstax.org/details/books/introduction-political-science' },
+        { title: 'Literature', category: 'Social Sciences & Arts', description: 'Reading, writing, interpretation, and literary analysis across traditions.', url: 'https://www.poetryfoundation.org/' },
+        { title: 'Communication Studies', category: 'Social Sciences & Arts', description: 'Media literacy, digital communication, public speaking, and interpersonal communication.', url: 'https://online.norwich.edu/academic-programs/resources/what-is-communication' },
+        { title: 'Academic Writing', category: 'Skills', description: 'Essay writing, academic structure, referencing, and clear argument development.', url: 'https://www.scribbr.com/academic-writing/' },
+        { title: 'Research Methods', category: 'Skills', description: 'How to design studies, collect data, evaluate evidence, and report findings.', url: 'https://libguides.usc.edu/writingguide/researchdesigns' },
+        { title: 'Study Skills', category: 'Skills', description: 'Time management, note-taking, revision strategies, and better learning habits.', url: 'https://student.unsw.edu.au/study-skills' },
+        { title: 'CV and Career Skills', category: 'Skills', description: 'Professional communication, resumes, personal branding, and workplace readiness.', url: 'https://www.careeronestop.org/' },
+        { title: 'Exam Preparation', category: 'Exam Prep', description: 'Revision strategies, practice questions, and confidence-building for assessments.', url: 'https://www.studocu.com/' }
+      ];
+
+      const categorySelect = document.getElementById('category');
+      const materialList = document.getElementById('material-list');
+
+      if (categorySelect && materialList) {
+        const categories = ['all', ...new Set(materials.map((item) => item.category))];
+
+        categorySelect.innerHTML = categories
+          .map((category) => {
+            const label = category === 'all' ? 'All categories' : category;
+            return `<option value="${category}">${label}</option>`;
+          })
+          .join('');
+
+        function renderMaterials(selectedCategory = 'all') {
+          const visibleMaterials =
+            selectedCategory === 'all'
+              ? materials
+              : materials.filter((item) => item.category === selectedCategory);
+
+          if (!visibleMaterials.length) {
+            materialList.innerHTML = '<div class="empty-state">No resources found in this category.</div>';
+            return;
+          }
+
+          materialList.innerHTML = visibleMaterials
+            .map(
+              (item) => `
+                <article class="material-card">
+                  <div><span class="material-category">${item.category}</span></div>
+                  <h3>${item.title}</h3>
+                  <p>${item.description}</p>
+                  <a href="${item.url}" target="_blank" rel="noopener noreferrer">Open resource</a>
+                </article>
+              `
+            )
+            .join('');
+        }
+
+        categorySelect.addEventListener('change', (event) => {
+          renderMaterials(event.target.value);
+        });
+
+        renderMaterials();
+      }
+    </script>
+  </body>
+</html>
