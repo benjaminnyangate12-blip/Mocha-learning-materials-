@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BCS 114: Introduction to Internet and Technology</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      position: relative;
+      min-height: 100vh;
+      margin: 0;
+      padding: 2cm;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11pt;
+      line-height: 1.5;
+      color: #111;
+      background: #1565c0;
+      overflow-x: hidden;
+    }
+
+    /* Watermark */
+    body::before {
+      content: "Benjamin mocha";
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      z-index: 0;
+      transform: translate(-50%, -50%) rotate(-35deg);
+      color: rgba(255, 255, 255, 0.18);
+      font-size: clamp(45px, 8vw, 100px);
+      font-weight: bold;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    /* Main document container */
+    .document {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 35px;
+      background: rgba(255, 255, 255, 0.94);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      margin-bottom: 6px;
+      color: #0d47a1;
+      font-size: 22pt;
+      text-align: center;
+    }
+
+    h2 {
+      margin-top: 28px;
+      padding-bottom: 4px;
+      color: #0d47a1;
+      font-size: 16pt;
+      border-bottom: 2px solid #0d47a1;
+    }
+
+    h3 {
+      margin-top: 18px;
+      color: #1565c0;
+      font-size: 13pt;
+    }
+
+    p,
+    li {
+      font-size: 11pt;
+    }
+
+    table {
+      width: 100%;
+      margin: 12px 0;
+      border-collapse: collapse;
+      background-color: white;
+      font-size: 10.5pt;
+    }
+
+    th,
+    td {
+      padding: 5px 7px;
+      border: 1px solid #777;
+      vertical-align: top;
+    }
+
+    th {
+      color: white;
+      background: #1565c0;
+      text-align: left;
+    }
+
+    tr:nth-child(even) {
+      background-color: #e3f2fd;
+    }
+
+    pre.diagram {
+      padding: 12px;
+      overflow-x: auto;
+      color: #111;
+      background: #eaf4ff;
+      border: 1px solid #90caf9;
+      font-family: "Courier New", Consolas, monospace;
+      font-size: 9pt;
+      line-height: 1.15;
+      white-space: pre;
+    }
+
+    code {
+      padding: 1px 4px;
+      color: #111;
+      background: #bbdefb;
+      border-radius: 3px;
+      font-family: "Courier New", Consolas, monospace;
+    }
+
+    ul,
+    ol {
+      margin-top: 4px;
+      margin-bottom: 8px;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .subtitle {
+      color: #1565c0;
+      font-size: 13pt;
+    }
+
+    hr {
+      margin: 25px 0;
+      border: 0;
+      border-top: 2px solid #1565c0;
+    }
+
+    .question {
+      margin: 12px 0;
+      padding: 10px 14px;
+      background: #e3f2fd;
+      border-left: 5px solid #1565c0;
+    }
+
+    @page {
+      size: A4;
+      margin: 2cm;
+    }
+
+    @media screen and (max-width: 768px) {
+      body {
+        padding: 15px;
+      }
+
+      .document {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 18pt;
+      }
+
+      table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+
+    @media print {
+      body {
+        padding: 0;
+        background: white;
+      }
+
+      body::before {
+        position: fixed;
+        color: rgba(21, 101, 192, 0.12);
+      }
+
+      .document {
+        padding: 0;
+        box-shadow: none;
+        background: white;
+      }
+
+      h2 {
+        page-break-after: avoid;
+      }
+
+      pre.diagram,
+      table {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="document">
+
+    <h1>BCS 114: INTRODUCTION TO INTERNET AND TECHNOLOGY</h1>
+    <p class="center subtitle">
+      <strong>Comprehensive Mocha Notes</strong>
+    </p>
+
+    <hr>
+
+    <h2>TABLE OF CONTENTS</h2>
+
+    <ol>
+      <li>Introduction to Computers and Technology</li>
+      <li>Computer Hardware and Software</li>
+      <li>Introduction to the Internet</li>
+      <li>Internet Protocols and Addressing</li>
+      <li>World Wide Web and Web Technologies</li>
+      <li>Internet Services and Applications</li>
+      <li>Network Types and Topologies</li>
+      <li>Internet Security</li>
+      <li>Emerging Technologies</li>
+      <li>Revision Questions</li>
+    </ol>
+
+    <hr>
+
+    <h2>MODULE 1: INTRODUCTION TO COMPUTERS AND TECHNOLOGY</h2>
+
+    <h3>1.1 What is a Computer?</h3>
+
+    <p>
+      A <strong>computer</strong> is an electronic device that accepts data as
+      input, processes it according to a set of instructions, stores it, and
+      produces meaningful information as output.
+    </p>
+
+    <p><strong>Key Characteristics:</strong></p>
+
+    <ul>
+      <li><strong>Speed</strong> – processes millions of instructions per second</li>
+      <li><strong>Accuracy</strong> – produces accurate results when correctly instructed</li>
+      <li><strong>Storage</strong> – stores large amounts of data</li>
+      <li><strong>Diligence</strong> – works continuously without fatigue</li>
+      <li><strong>Versatility</strong> – performs many different tasks</li>
+      <li><strong>Automation</strong> – operates with minimal human intervention</li>
+    </ul>
+
+    <h3>1.2 Data and Information</h3>
+
+    <table>
+      <tr>
+        <th>Term</th>
+        <th>Definition</th>
+        <th>Example</th>
+      </tr>
+      <tr>
+        <td><strong>Data</strong></td>
+        <td>Raw and unprocessed facts</td>
+        <td>25, 30, 45</td>
+      </tr>
+      <tr>
+        <td><strong>Information</strong></td>
+        <td>Processed and meaningful data</td>
+        <td>Average = 33.3</td>
+      </tr>
+    </table>
+
+    <h3>1.3 Data Processing Cycle</h3>
+
+    <pre class="diagram">
+   ┌─────────┐    ┌────────────┐    ┌─────────┐    ┌──────────┐
+   │  INPUT  │───▶│ PROCESSING │───▶│ OUTPUT  │───▶│ STORAGE  │
+   │  Data   │    │    CPU     │    │Information│  │ Save Data│
+   └─────────┘    └────────────┘    └─────────┘    └──────────┘
+    </pre>
+
+    <h3>1.4 Generations of Computers</h3>
+
+    <table>
+      <tr>
+        <th>Generation</th>
+        <th>Period</th>
+        <th>Technology</th>
+        <th>Example</th>
+      </tr>
+      <tr>
+        <td>First</td>
+        <td>1940–1956</td>
+        <td>Vacuum tubes</td>
+        <td>ENIAC, UNIVAC</td>
+      </tr>
+      <tr>
+        <td>Second</td>
+        <td>1956–1963</td>
+        <td>Transistors</td>
+        <td>IBM 1401</td>
+      </tr>
+      <tr>
+        <td>Third</td>
+        <td>1964–1971</td>
+        <td>Integrated circuits</td>
+        <td>IBM System/360</td>
+      </tr>
+      <tr>
+        <td>Fourth</td>
+        <td>1971–Present</td>
+        <td>Microprocessors</td>
+        <td>Personal computers</td>
+      </tr>
+      <tr>
+        <td>Fifth</td>
+        <td>Present–Future</td>
+        <td>Artificial intelligence and quantum computing</td>
+        <td>AI systems</td>
+      </tr>
+    </table>
+
+    <h3>1.5 Classification of Computers</h3>
+
+    <p><strong>By Size and Power:</strong></p>
+
+    <ul>
+      <li><strong>Supercomputers</strong> – used for scientific research and weather forecasting</li>
+      <li><strong>Mainframes</strong> – used by large organisations for bulk data processing</li>
+      <li><strong>Minicomputers</strong> – medium-sized computers and servers</li>
+      <li><strong>Microcomputers</strong> – desktop computers, laptops, tablets and smartphones</li>
+    </ul>
+
+    <p><strong>By Purpose:</strong></p>
+
+    <ul>
+      <li><strong>General-purpose computers</strong> – used for many different tasks</li>
+      <li><strong>Special-purpose computers</strong> – designed for a specific task, such as ATMs and GPS devices</li>
+    </ul>
+
+    <hr>
+
+    <h2>MODULE 2: COMPUTER HARDWARE AND SOFTWARE</h2>
+
+    <h3>2.1 Hardware Components</h3>
+
+    <p>
+      <strong>Hardware</strong> refers to the physical components of a computer
+      system that can be seen and touched.
+    </p>
+
+    <pre class="diagram">
+        ┌─────────────────────────────────────────────┐
+        │              COMPUTER SYSTEM                │
+        │                                             │
+ INPUT  │   ┌──────────┐        ┌─────────────────┐   │  OUTPUT
+───────▶│   │   CPU    │◀──────▶│   MAIN MEMORY   │   │──────▶
+        │   │ ┌──────┐ │        │     (RAM)       │   │
+        │   │ │  ALU │ │        └─────────────────┘   │
+        │   │ ├──────┤ │        ┌─────────────────┐   │
+        │   │ │  CU  │ │◀──────▶│ SECONDARY STORAGE│   │
+        │   │ └──────┘ │        │    HDD / SSD     │   │
+        │   └──────────┘        └─────────────────┘   │
+        └─────────────────────────────────────────────┘
+
+  ALU = Arithmetic Logic Unit
+  CU  = Control Unit
+  RAM = Random Access Memory
+    </pre>
+
+    <p><strong>Categories of Hardware:</strong></p>
+
+    <ol>
+      <li><strong>Input devices</strong> – keyboard, mouse, scanner and microphone</li>
+      <li><strong>Processing devices</strong> – CPU, ALU, CU and registers</li>
+      <li><strong>Output devices</strong> – monitor, printer, speakers and projector</li>
+      <li><strong>Storage devices</strong> – hard disk, SSD, flash disk and CD/DVD</li>
+      <li><strong>Communication devices</strong> – modem, router and network card</li>
+    </ol>
+
+    <h3>2.2 Software</h3>
+
+    <p>
+      <strong>Software</strong> is a collection of programs and instructions
+      that tell computer hardware what to do.
+    </p>
+
+    <table>
+      <tr>
+        <th>Type</th>
+        <th>Examples</th>
+        <th>Purpose</th>
+      </tr>
+      <tr>
+        <td>System software</td>
+        <td>Windows, Linux, macOS</td>
+        <td>Controls and manages computer hardware</td>
+      </tr>
+      <tr>
+        <td>Utility software</td>
+        <td>Antivirus, disk cleanup tools</td>
+        <td>Maintains and protects the computer</td>
+      </tr>
+      <tr>
+        <td>Application software</td>
+        <td>Microsoft Word, Excel, browsers</td>
+        <td>Helps users perform specific tasks</td>
+      </tr>
+    </table>
+
+    <h3>2.3 Functions of an Operating System</h3>
+
+    <ul>
+      <li>Process management</li>
+      <li>Memory management</li>
+      <li>File management</li>
+      <li>Device management</li>
+      <li>User interface management</li>
+      <li>Security and access control</li>
+    </ul>
+
+    <hr>
+
+    <h2>MODULE 3: INTRODUCTION TO THE INTERNET</h2>
+
+    <h3>3.1 Definition of the Internet</h3>
+
+    <p>
+      The <strong>Internet</strong> is a global network of interconnected
+      computer networks that communicate using the TCP/IP protocol suite. It is
+      commonly referred to as the <strong>network of networks</strong>.
+    </p>
+
+    <h3>3.2 Brief History of the Internet</h3>
+
+    <table>
+      <tr>
+        <th>Year</th>
+        <th>Milestone</th>
+      </tr>
+      <tr>
+        <td>1969</td>
+        <td>ARPANET was created</td>
+      </tr>
+      <tr>
+        <td>1971</td>
+        <td>The first email was sent by Ray Tomlinson</td>
+      </tr>
+      <tr>
+        <td>1983</td>
+        <td>TCP/IP became the standard communication protocol</td>
+      </tr>
+      <tr>
+        <td>1989</td>
+        <td>Tim Berners-Lee proposed the World Wide Web</td>
+      </tr>
+      <tr>
+        <td>1991</td>
+        <td>The World Wide Web became publicly available</td>
+      </tr>
+      <tr>
+        <td>1990s</td>
+        <td>Commercialisation and rapid growth of the Internet</td>
+      </tr>
+      <tr>
+        <td>2000s</td>
+        <td>Growth of broadband, social media and mobile Internet</td>
+      </tr>
+    </table>
+
+    <h3>3.3 Requirements for an Internet Connection</h3>
+
+    <ol>
+      <li>Computer, smartphone or tablet</li>
+      <li>Network interface card</li>
+      <li>Transmission medium, such as cable, fibre or radio waves</li>
+      <li>Internet Service Provider</li>
+      <li>Modem or router</li>
+      <li>Network protocols, especially TCP/IP</li>
+      <li>Web browser or other Internet software</li>
+    </ol>
+
+    <pre class="diagram">
+ ┌───────┐   ┌────────┐   ┌────────┐   ┌──────────┐   ┌─────────┐
+ │  Your │──▶│ Router │──▶│ Modem  │──▶│   ISP    │──▶│ INTERNET│
+ │  PC   │   │        │   │        │   │          │   │         │
+ └───────┘   └────────┘   └────────┘   └──────────┘   └─────────┘
+    </pre>
+
+    <h3>3.4 Types of Internet Connections</h3>
+
+    <table>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Speed</th>
+      </tr>
+      <tr>
+        <td>Dial-up</td>
+        <td>Uses a telephone line</td>
+        <td>Very slow</td>
+      </tr>
+      <tr>
+        <td>DSL</td>
+        <td>Digital Subscriber Line</td>
+        <td>Moderate</td>
+      </tr>
+      <tr>
+        <td>Cable</td>
+        <td>Uses television cable infrastructure</td>
+        <td>Fast</td>
+      </tr>
+      <tr>
+        <td>Fibre optic</td>
+        <td>Uses light pulses through fibre cables</td>
+        <td>Very fast</td>
+      </tr>
+      <tr>
+        <td>Satellite</td>
+        <td>Uses communication satellites</td>
+        <td>Variable</td>
+      </tr>
+      <tr>
+        <td>Mobile Internet</td>
+        <td>Uses 3G, 4G or 5G cellular networks</td>
+        <td>Fast</td>
+      </tr>
+      <tr>
+        <td>Wi-Fi</td>
+        <td>Wireless local-area connection</td>
+        <td>Fast</td>
+      </tr>
+    </table>
+
+    <h3>3.5 Internet, Intranet and Extranet</h3>
+
+    <table>
+      <tr>
+        <th>Feature</th>
+        <th>Internet</th>
+        <th>Intranet</th>
+        <th>Extranet</th>
+      </tr>
+      <tr>
+        <td>Access</td>
+        <td>Public</td>
+        <td>Private</td>
+        <td>Semi-private</td>
+      </tr>
+      <tr>
+        <td>Users</td>
+        <td>Everyone</td>
+        <td>Employees</td>
+        <td>Employees and authorised partners</td>
+      </tr>
+      <tr>
+        <td>Purpose</td>
+        <td>Global communication</td>
+        <td>Internal information sharing</td>
+        <td>Business collaboration</td>
+      </tr>
+    </table>
+
+    <hr>
+
+    <h2>MODULE 4: INTERNET PROTOCOLS AND ADDRESSING</h2>
+
+    <h3>4.1 What is a Protocol?</h3>
+
+    <p>
+      A <strong>protocol</strong> is a set of rules that controls how data is
+      transmitted and received across a network.
+    </p>
+
+    <h3>4.2 TCP/IP Model</h3>
+
+    <pre class="diagram">
+ ┌──────────────────────────────────────────────────┐
+ │              TCP/IP MODEL                       │
+ ├──────────────────────────────────────────────────┤
+ │  APPLICATION LAYER                               │
+ │  HTTP, FTP, SMTP, DNS and Telnet                 │
+ ├──────────────────────────────────────────────────┤
+ │  TRANSPORT LAYER                                 │
+ │  TCP and UDP                                     │
+ ├──────────────────────────────────────────────────┤
+ │  INTERNET LAYER                                  │
+ │  IP addressing and routing                       │
+ ├──────────────────────────────────────────────────┤
+ │  NETWORK ACCESS LAYER                            │
+ │  Ethernet, Wi-Fi and physical media              │
+ └──────────────────────────────────────────────────┘
+    </pre>
+
+    <h3>4.3 Common Internet Protocols</h3>
+
+    <table>
+      <tr>
+        <th>Protocol</th>
+        <th>Full Name</th>
+        <th>Purpose</th>
+      </tr>
+      <tr>
+        <td>HTTP</td>
+        <td>HyperText Transfer Protocol</td>
+        <td>Transfers web pages</td>
+      </tr>
+      <tr>
+        <td>HTTPS</td>
+        <td>HyperText Transfer Protocol Secure</td>
+        <td>Secure web communication</td>
+      </tr>
+      <tr>
+        <td>FTP</td>
+        <td>File Transfer Protocol</td>
+        <td>Transfers files</td>
+      </tr>
+      <tr>
+        <td>SMTP</td>
+        <td>Simple Mail Transfer Protocol</td>
+        <td>Sends email</td>
+      </tr>
+      <tr>
+        <td>POP3</td>
+        <td>Post Office Protocol version 3</td>
+        <td>Downloads email messages</td>
+      </tr>
+      <tr>
+        <td>IMAP</td>
+        <td>Internet Message Access Protocol</td>
+        <td>Accesses email on a server</td>
+      </tr>
+      <tr>
+        <td>DNS</td>
+        <td>Domain Name System</td>
+        <td>Translates domain names into IP addresses</td>
+      </tr>
+      <tr>
+        <td>DHCP</td>
+        <td>Dynamic Host Configuration Protocol</td>
+        <td>Automatically assigns IP addresses</td>
+      </tr>
+      <tr>
+        <td>TCP</td>
+        <td>Transmission Control Protocol</td>
+        <td>Provides reliable data delivery</td>
+      </tr>
+      <tr>
+        <td>UDP</td>
+        <td>User Datagram Protocol</td>
+        <td>Provides fast but less reliable delivery</td>
+      </tr>
+    </table>
+
+    <h3>4.4 IP Addressing</h3>
+
+    <p>
+      An <strong>IP address</strong> is a unique numerical identifier assigned
+      to a device connected to a network.
+    </p>
+
+    <p>
+      <strong>IPv4:</strong> A 32-bit address such as
+      <code>192.168.1.1</code>.
+    </p>
+
+    <p>
+      <strong>IPv6:</strong> A 128-bit address such as
+      <code>2001:0db8:85a3::8a2e:0370:7334</code>.
+    </p>
+
+    <h3>4.5 Domain Name System</h3>
+
+    <p>
+      The <strong>DNS</strong> translates human-readable domain names into
+      numerical IP addresses.
+    </p>
+
+    <pre class="diagram">
+  User enters: www.example.com
+                 │
+                 ▼
+          ┌─────────────┐
+          │ DNS Server  │
+          │ Finds IP    │
+          └──────┬──────┘
+                 │
+                 ▼
+          IP address returned
+                 │
+                 ▼
+          Browser connects
+          to the web server
+    </pre>
+
+    <p>
+      Example domain:
+      <code>www.example.co.ke</code>
+    </p>
+
+    <ul>
+      <li><code>www</code> – host or subdomain</li>
+      <li><code>example</code> – domain name</li>
+      <li><code>.co</code> – commercial organisation</li>
+      <li><code>.ke</code> – Kenya country-code top-level domain</li>
+    </ul>
+
+    <hr>
+
+    <h2>MODULE 5: WORLD WIDE WEB AND WEB TECHNOLOGIES</h2>
+
+    <h3>5.1 The World Wide Web</h3>
+
+    <p>
+      The <strong>World Wide Web</strong> is a system of interconnected
+      documents and resources accessed through the Internet using web browsers.
+      It was invented by <strong>Tim Berners-Lee</strong> in 1989.
+    </p>
+
+    <ul>
+      <li><strong>Internet</strong> – the infrastructure and network</li>
+      <li><strong>WWW</strong> – a service that operates on the Internet</li>
+    </ul>
+
+    <h3>5.2 Web Components</h3>
+
+    <pre class="diagram">
+    ┌────────────┐       HTTP Request       ┌────────────┐
+    │   CLIENT   │ ───────────────────────▶ │   SERVER   │
+    │  Browser   │ ◀─────────────────────── │ Web Host   │
+    └────────────┘       Web Page          └────────────┘
+    </pre>
+
+    <table>
+      <tr>
+        <th>Term</th>
+        <th>Meaning</th>
+      </tr>
+      <tr>
+        <td>Web page</td>
+        <td>A single document on the Web</td>
+      </tr>
+      <tr>
+        <td>Website</td>
+        <td>A collection of related web pages</td>
+      </tr>
+      <tr>
+        <td>Web server</td>
+        <td>A computer that stores and delivers websites</td>
+      </tr>
+      <tr>
+        <td>Web browser</td>
+        <td>Software used to view web pages</td>
+      </tr>
+      <tr>
+        <td>URL</td>
+        <td>The address of a resource on the Web</td>
+      </tr>
+      <tr>
+        <td>Hyperlink</td>
+        <td>A clickable connection to another resource</td>
+      </tr>
+    </table>
+
+    <h3>5.3 URL Structure</h3>
+
+    <p>
+      <code>https://www.example.com:443/path/page.html?query=1#section</code>
+    </p>
+
+    <table>
+      <tr>
+        <th>Part</th>
+        <th>Meaning</th>
+      </tr>
+      <tr>
+        <td><code>https://</code></td>
+        <td>Communication protocol</td>
+      </tr>
+      <tr>
+        <td><code>www.example.com</code></td>
+        <td>Domain name</td>
+      </tr>
+      <tr>
+        <td><code>:443</code></td>
+        <td>Port number</td>
+      </tr>
+      <tr>
+        <td><code>/path/page.html</code></td>
+        <td>File path</td>
+      </tr>
+      <tr>
+        <td><code>?query=1</code></td>
+        <td>Query string with parameters</td>
+      </tr>
+      <tr>
+        <td><code>#section</code></td>
+        <td>Fragment identifier</td>
+      </tr>
+    </table>
+
+    <h3>5.4 HTML, CSS and JavaScript</h3>
+
+    <table>
+      <tr>
+        <th>Technology</th>
+        <th>Purpose</th>
+      </tr>
+      <tr>
+        <td><strong>HTML</strong></td>
+        <td>Provides structure and content of web pages</td>
+      </tr>
+      <tr>
+        <td><strong>CSS</strong></td>
+        <td>Controls the layout and styling of web pages</td>
+      </tr>
+      <tr>
+        <td><strong>JavaScript</strong></td>
+        <td>Adds interactivity and dynamic behaviour</td>
+      </tr>
+    </table>
+
+    <hr>
+
+    <h2>MODULE 6: INTERNET SERVICES AND APPLICATIONS</h2>
+
+    <h3>6.1 Email Services</h3>
+
+    <p>
+      <strong>Email</strong> is an electronic messaging system that allows
+      users to send and receive text messages over the Internet.
+    </p>
+
+    <p><strong>Email Protocols:</strong></p>
+
+    <ul>
+      <li><strong>SMTP</strong> – used for sending email</li>
+      <li><strong>POP3</strong> – used for retrieving email (deletes from server)</li>
+      <li><strong>IMAP</strong> – used for retrieving email (keeps on server)</li>
+    </ul>
+
+    <h3>6.2 File Transfer Protocol (FTP)</h3>
+
+    <p>
+      <strong>FTP</strong> is used to transfer files between computers over a
+      network. It supports uploading and downloading files.
+    </p>
+
+    <h3>6.3 Streaming Services</h3>
+
+    <p>
+      <strong>Streaming</strong> allows users to watch or listen to content in
+      real-time without downloading the entire file.
+    </p>
+
+    <ul>
+      <li>Video streaming – YouTube, Netflix, Vimeo</li>
+      <li>Audio streaming – Spotify, Apple Music, SoundCloud</li>
+    </ul>
+
+    <h3>6.4 Cloud Computing Services</h3>
+
+    <p>
+      <strong>Cloud computing</strong> provides on-demand access to computing
+      resources over the Internet.
+    </p>
+
+    <ul>
+      <li><strong>SaaS</strong> – Software as a Service (e.g., Google Workspace)</li>
+      <li><strong>PaaS</strong> – Platform as a Service (e.g., Heroku)</li>
+      <li><strong>IaaS</strong> – Infrastructure as a Service (e.g., AWS)</li>
+    </ul>
+
+    <hr>
+
+    <h2>MODULE 7: NETWORK TYPES AND TOPOLOGIES</h2>
+
+    <h3>7.1 Network Types</h3>
+
+    <table>
+      <tr>
+        <th>Type</th>
+        <th>Coverage</th>
+        <th>Example</th>
+      </tr>
+      <tr>
+        <td>PAN (Personal Area Network)</td>
+        <td>Up to 10 meters</td>
+        <td>Bluetooth, USB</td>
+      </tr>
+      <tr>
+        <td>LAN (Local Area Network)</td>
+        <td>Up to 1 km (office/building)</td>
+        <td>Ethernet, Wi-Fi</td>
+      </tr>
+      <tr>
+        <td>MAN (Metropolitan Area Network)</td>
+        <td>Up to 10 km (city)</td>
+        <td>City Wi-Fi, cable TV</td>
+      </tr>
+      <tr>
+        <td>WAN (Wide Area Network)</td>
+        <td>Large geographic area</td>
+        <td>Internet, leased lines</td>
+      </tr>
+    </table>
+
+    <h3>7.2 Network Topologies</h3>
+
+    <p><strong>Bus Topology:</strong></p>
+
+    <pre class="diagram">
+ ┌──────┐    ┌──────┐    ┌──────┐    ┌──────┐
+ │  PC1 │    │  PC2 │    │  PC3 │    │  PC4 │
+ └──┬───┘    └──┬───┘    └──┬───┘    └──┬───┘
+    │           │           │           │
+    └───────────┴───────────┴───────────┘
+           (Shared Bus/Cable)
+    </pre>
+
+    <p><strong>Star Topology:</strong></p>
+
+    <pre class="diagram">
+                ┌──────────┐
+                │  Switch  │
+                └────┬─────┘
+       ┌────────┬────┼────┬────────┐
+       │        │    │    │        │
+    ┌──┴──┐  ┌──┴──┐ │ ┌──┴──┐  ┌──┴──┐
+    │ PC1 │  │ PC2 │ │ │ PC3 │  │ PC4 │
+    └─────┘  └─────┘ │ └─────┘  └─────┘
+                     │
+                  ┌──┴──┐
+                  │ PC5 │
+                  └─────┘
+    </pre>
+
+    <p><strong>Ring Topology:</strong></p>
+
+    <pre class="diagram">
+          ┌─────────┐
+       ┌──┤   PC1   ├──┐
+       │  └─────────┘  │
+    ┌──┴──┐         ┌──┴──┐
+    │ PC2 │         │ PC4 │
+    └──┬──┘         └──┬──┘
+       │  ┌─────────┐  │
+       └──┤   PC3   ├──┘
+          └─────────┘
+    </pre>
+
+    <hr>
+
+    <h2>MODULE 8: INTERNET SECURITY</h2>
+
+    <h3>8.1 Common Internet Threats</h3>
+
+    <table>
+      <tr>
+        <th>Threat</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>Malware</td>
+        <td>Malicious software designed to harm systems</td>
+      </tr>
+      <tr>
+        <td>Phishing</td>
+        <td>Fraudulent emails or websites to steal information</td>
+      </tr>
+      <tr>
+        <td>Ransomware</td>
+        <td>Software that encrypts files and demands payment</td>
+      </tr>
+      <tr>
+        <td>DoS Attack</td>
+        <td>Denial of Service – overwhelming a server with traffic</td>
+      </tr>
+      <tr>
+        <td>Man-in-the-Middle</td>
+        <td>Intercepting data between sender and receiver</td>
+      </tr>
+    </table>
+
+    <h3>8.2 Security Best Practices</h3>
+
+    <ul>
+      <li>Use strong, unique passwords</li>
+      <li>Enable two-factor authentication (2FA)</li>
+      <li>Keep software and operating systems updated</li>
+      <li>Use antivirus and firewall protection</li>
+      <li>Do not open suspicious email attachments</li>
+      <li>Verify website security (look for HTTPS and padlock)</li>
+      <li>Back up important data regularly</li>
+      <li>Be cautious with personal information online</li>
+    </ul>
+
+    <h3>8.3 Encryption</h3>
+
+    <p>
+      <strong>Encryption</strong> is the process of converting data into a code
+      to prevent unauthorised access.
+    </p>
+
+    <ul>
+      <li><strong>SSL/TLS</strong> – encrypts web traffic (HTTPS)</li>
+      <li><strong>End-to-end encryption</strong> – protects messages from being read by anyone except sender and recipient</li>
+    </ul>
+
+    <hr>
+
+    <h2>MODULE 9: EMERGING TECHNOLOGIES</h2>
+
+    <h3>9.1 Artificial Intelligence (AI)</h3>
+
+    <p>
+      <strong>AI</strong> refers to computer systems designed to perform tasks
+      that typically require human intelligence, such as learning and
+      reasoning.
+    </p>
+
+    <h3>9.2 Internet of Things (IoT)</h3>
+
+    <p>
+      The <strong>IoT</strong> is a network of physical devices, vehicles,
+      appliances and other objects embedded with sensors and software to
+      connect and exchange data over the Internet.
+    </p>
+
+    <p><strong>Examples:</strong></p>
+
+    <ul>
+      <li>Smart homes – thermostats, lights, security systems</li>
+      <li>Wearables – smartwatches, fitness trackers</li>
+      <li>Smart cities – traffic systems, utilities management</li>
+      <li>Industrial IoT – sensors in manufacturing and production</li>
+    </ul>
+
+    <h3>9.3 5G Technology</h3>
+
+    <p>
+      <strong>5G</strong> is the fifth generation of cellular network
+      technology, offering significantly faster speeds and lower latency than
+      4G LTE.
+    </p>
+
+    <p><strong>Advantages:</strong></p>
+
+    <ul>
+      <li>Faster data speeds</li>
+      <li>Lower latency (reduced delay)</li>
+      <li>Support for more connected devices</li>
+      <li>Enables real-time applications</li>
+    </ul>
+
+    <h3>9.4 Blockchain and Cryptocurrency</h3>
+
+    <p>
+      <strong>Blockchain</strong> is a distributed ledger technology that
+      records transactions across multiple computers in a secure and
+      transparent manner.
+    </p>
+
+    <p>
+      <strong>Cryptocurrency</strong> (e.g., Bitcoin, Ethereum) is digital
+      currency secured by blockchain technology.
+    </p>
+
+    <hr>
+
+    <h2>MODULE 10: REVISION QUESTIONS</h2>
+
+    <h3>Section A: Multiple Choice</h3>
+
+    <div class="question">
+      <p><strong>1.</strong> Which of the following is NOT a characteristic of a computer?</p>
+      <p>a) Speed &nbsp; &nbsp; b) Creativity &nbsp; &nbsp; c) Accuracy &nbsp; &nbsp; d) Diligence</p>
+    </div>
+
+    <div class="question">
+      <p><strong>2.</strong> What is the first generation of computers primarily based on?</p>
+      <p>a) Microprocessors &nbsp; &nbsp; b) Transistors &nbsp; &nbsp; c) Vacuum tubes &nbsp; &nbsp; d) Integrated circuits</p>
+    </div>
+
+    <div class="question">
+      <p><strong>3.</strong> Which protocol is used for sending email?</p>
+      <p>a) IMAP &nbsp; &nbsp; b) SMTP &nbsp; &nbsp; c) FTP &nbsp; &nbsp; d) HTTP</p>
+    </div>
+
+    <div class="question">
+      <p><strong>4.</strong> What does DNS stand for?</p>
+      <p>a) Digital Name Server &nbsp; &nbsp; b) Domain Name System &nbsp; &nbsp; c) Data Network Service &nbsp; &nbsp; d) Dynamic Name Server</p>
+    </div>
+
+    <div class="question">
+      <p><strong>5.</strong> Which network type covers an area up to 1 km?</p>
+      <p>a) PAN &nbsp; &nbsp; b) LAN &nbsp; &nbsp; c) MAN &nbsp; &nbsp; d) WAN</p>
+    </div>
+
+    <h3>Section B: Short Answer Questions</h3>
+
+    <div class="question">
+      <p><strong>6.</strong> Differentiate between the Internet and the World Wide Web.</p>
+    </div>
+
+    <div class="question">
+      <p><strong>7.</strong> Explain the TCP/IP model and list the four layers.</p>
+    </div>
+
+    <div class="question">
+      <p><strong>8.</strong> What is the difference between IPv4 and IPv6?</p>
+    </div>
+
+    <div class="question">
+      <p><strong>9.</strong> Describe three common internet security threats.</p>
+    </div>
+
+    <div class="question">
+      <p><strong>10.</strong> What is the Internet of Things (IoT) and provide two examples of IoT devices.</p>
+    </div>
+
+    <h3>Section C: Long Answer Questions</h3>
+
+    <div class="question">
+      <p><strong>11.</strong> Explain the data processing cycle with a practical example, showing how raw data becomes information.</p>
+    </div>
+
+    <div class="question">
+      <p><strong>12.</strong> Compare and contrast at least three types of internet connections, discussing their advantages and disadvantages.</p>
+    </div>
+
+    <div class="question">
+      <p><strong>13.</strong> Discuss the role of encryption in internet security and how SSL/TLS works to protect web transactions.</p>
+    </div>
+
+    <hr>
+
+    <p class="center" style="color: #1565c0; font-size: 10pt; margin-top: 40px;">
+      <strong>BCS 114: Introduction to Internet and Technology – Comprehensive Study Material</strong><br>
+      Last Updated: September 2026
+    </p>
+
+  </main>
+
+</body>
+
+</html>
